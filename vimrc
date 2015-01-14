@@ -32,25 +32,35 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+" vim-plug short intro
+" --------------------
+"
+"
+" Make sure you use SINGLE quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
 " 
-" " On-demand loading
+"  On-demand loading
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " 
-" " Using git URL
+"  Branch loading
+" Plug 'scrooloose/nerdtree', { 'branch': 'WhatEverYouWant' }
+"
+"  Using git URL
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " 
-" " Plugin options
+"  Plugin options
 " Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
 " 
-" " Plugin outside ~/.vim/plugged with post-update hook
+"  Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 " 
-" " Unmanaged plugin (manually installed and updated)
+"  Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
+"
+" intro End
+" ---------
 
 Plug 'tpope/vim-repeat'
 
@@ -146,6 +156,10 @@ Plug 'Z1MM32M4N/vim-superman'
 " Fantastic selection for vim
 " Plug 'gorkunov/smartpairs.vim'
 
+" vim plugin to trace syntax highlight
+" activate with <leader>hlt
+Plug 'gerw/vim-HiLinkTrace'
+
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
@@ -172,7 +186,7 @@ endif
 " Options
 "
 
-set updatetime=2000                              "ut:    The length of time Vim waits after you stop typing
+set updatetime=2000                              "ut:    The length of time (in ms) Vim waits after you stop typing
 set history=50                                   "hi:    keep 50 lines of command line history
 set ruler                                        "ru:    show the cursor position all the time
 set showcmd                                      "sc:    display incomplete commands
