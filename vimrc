@@ -39,23 +39,23 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use SINGLE quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
-" 
+"
 "  On-demand loading
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" 
+"
 "  Branch loading
 " Plug 'scrooloose/nerdtree', { 'branch': 'WhatEverYouWant' }
 "
 "  Using git URL
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-" 
+"
 "  Plugin options
 " Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
-" 
+"
 "  Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-" 
+"
 "  Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 "
@@ -108,14 +108,15 @@ Plug 'dag/vim-fish'
 " information and no bells and whistles for those users who consider things
 " like Powerline to be overkill.
 " https://github.com/maciakl/vim-neatstatus
-Plug 'Konstruktionist/vim-neatstatus', { 'branch': 'Adaptations' }
+"Plug 'Konstruktionist/vim-neatstatus', { 'branch': 'Adaptations' }
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
 Plug 'sjl/gundo.vim'
 
 " A light and configurable statusline/tabline for vim
-"Plug" 'itchyny/lightline.vim'
+" https://github.com/itchyny/lightline.vim
+"Plug 'itchyny/lightline.vim'
 
 " Surround.vim lets you add/change/remove surrounding chars and tags
 " https://github.com/tpope/vim-surround
@@ -157,13 +158,16 @@ Plug 'Z1MM32M4N/vim-superman'
 " Plug 'gorkunov/smartpairs.vim'
 
 " vim plugin to trace syntax highlight
-" activate with <leader>hlt
+" activate with <leader>hlt or :HLT
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 
+" status/tabline for vim that's light as air
+" https://github.com/bling/vim-airline
+Plug 'bling/vim-airline'
 
 call plug#end()
 
@@ -198,7 +202,7 @@ set t_Co=256                                     " set iTerm terminal to 256 col
 set listchars=tab:▸\ ,eol:¬,trail:⚀              " Use the same symbols as TextMate for tabstops and EOLs
 set backspace=indent,eol,start                   " Behave like a normal text editor
 set noshowmode                                   "nosmd:  Status-line shows the mode we're in
-:set showbreak=↪︎\ 
+set showbreak=↪︎\ 
 
 "
 " Folding
@@ -309,7 +313,7 @@ endfunc
 " gvim
 "
 
-set guifont=Menlo:h12
+set guifont=Menlo\ for\ Powerline:h12
 
 "
 " Make json files human readable
@@ -323,11 +327,21 @@ au FileType json setlocal equalprg=json_reformat
 "	NeatStatusLine
 " 
 
-let g:NeatStatusLine_separator = '⎜'
-let g:NeatStatusLine_color_position = 'guifg=#ffffff guibg=#505B66 ctermfg=15 ctermbg=8'
-let g:NeatStatusLine_color_line     = 'guifg=#ffff00 guibg=#505B66 gui=bold ctermfg=11 ctermbg=8 cterm=bold'
-let g:NeatStatusLine_color_filetype = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=237 ctermbg=7 cterm=NONE'
-
+"let g:NeatStatusLine_separator = '⎜'
+"let g:NeatStatusLine_color_position = 'guifg=#ffffff guibg=#505B66 ctermfg=15 ctermbg=8'
+"let g:NeatStatusLine_color_line     = 'guifg=#ffff00 guibg=#505B66 gui=bold ctermfg=11 ctermbg=8 cterm=bold'
+"let g:NeatStatusLine_color_filetype = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=237 ctermbg=7 cterm=NONE'
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts=1
+let g:airline_inactive_collapse=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 0
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 "
 "	silver searcher
