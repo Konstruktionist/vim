@@ -190,7 +190,9 @@ endif
 " Options
 "
 
-set updatetime=2000                              "ut:    The length of time (in ms) Vim waits after you stop typing
+set updatetime=2000                              "ut:    If this many milliseconds nothing is typed the swap file will be written to disk
+set timeoutlen=3000                              "tm:    time out on mapping after three seconds
+set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
 set ruler                                        "ru:    show the cursor position all the time
 set showcmd                                      "sc:    display incomplete commands
@@ -324,13 +326,9 @@ au FileType json setlocal equalprg=json_reformat
 
 
 " 
-"	NeatStatusLine
+"	Airline status bar options
 " 
 
-"let g:NeatStatusLine_separator = '⎜'
-"let g:NeatStatusLine_color_position = 'guifg=#ffffff guibg=#505B66 ctermfg=15 ctermbg=8'
-"let g:NeatStatusLine_color_line     = 'guifg=#ffff00 guibg=#505B66 gui=bold ctermfg=11 ctermbg=8 cterm=bold'
-"let g:NeatStatusLine_color_filetype = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=237 ctermbg=7 cterm=NONE'
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
@@ -340,7 +338,6 @@ let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 0
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 
 "
@@ -403,3 +400,11 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " Toggle wrap
 nmap <leader>W :set invwrap<CR>:set wrap?<CR>
 
+" Toggle airline whitespace detection
+nmap <leader>awt :AirlineToggleWhitespace<CR>
+
+" Refreshes all highlight groups and redraws the statusline.
+nmap <leader>ar :AirlineRefresh<CR>
+
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
