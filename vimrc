@@ -62,6 +62,8 @@ call plug#begin('~/.vim/plugged')
 " intro End
 " ---------
 
+" enable repeating supported plugin maps with "."
+" https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
 
 " Fugitive is a highly-capable Git wrapper for Vim.
@@ -288,7 +290,7 @@ set background=dark
 " Adjustments to colorscheme
 highlight clear CursorLine
 highlight LineNr ctermbg=NONE ctermfg=15
-highlight CursorLineNr ctermbg=NONE ctermfg=230 guifg=#dfdf87 guibg=#0c3641
+highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=#0c3641
 
 " gitgutter settings 
 highlight clear SignColumn
