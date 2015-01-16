@@ -288,9 +288,9 @@ set background=dark
 " Adjustments to colorscheme
 highlight clear CursorLine
 highlight LineNr ctermbg=NONE ctermfg=15
-highlight CursorLineNr ctermbg=NONE ctermfg=12 guifg=#dfdf87 guibg=#0c3641
+highlight CursorLineNr ctermbg=NONE ctermfg=230 guifg=#dfdf87 guibg=#0c3641
 
-" gitgutter colors
+" gitgutter settings 
 highlight clear SignColumn
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_removed = '-'
@@ -388,3 +388,7 @@ nmap <leader>ar :AirlineRefresh<CR>
 
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" Toggle Gundo
+nnoremap <F5> :GundoToggle<CR>
+
