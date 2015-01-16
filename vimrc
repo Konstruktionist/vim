@@ -282,34 +282,19 @@ set wildignore+=*.orig                           " Merge resolution files
 "
 
 "let base16colorspace=256
-colorscheme base16-ocean
+colorscheme solarized
 set background=dark
 
 " Adjustments to colorscheme
 highlight clear CursorLine
-highlight LineNr ctermbg=0 ctermfg=15
-highlight CursorLineNr ctermbg=0 ctermfg=11 guifg=#dfdf87 guibg=#353d46
-highlight StatusLine ctermbg=8 ctermfg=15
-highlight Visual ctermbg=8 ctermfg=0 guifg=#000000 guibg=#808080
+highlight LineNr ctermbg=NONE ctermfg=15
+highlight CursorLineNr ctermbg=NONE ctermfg=12 guifg=#dfdf87 guibg=#0c3641
 
 " gitgutter colors
 highlight clear SignColumn
 let g:gitgutter_sign_column_always = 1
-highlight GitGutterAdd ctermfg=2 ctermbg=0 guifg=#009900 guibg=#343d46
-highlight GitGutterChange ctermfg=3 ctermbg=0 guifg=#bbbb00 guibg=#343d46
-highlight GitGutterDelete ctermfg=1 ctermbg=0 guifg=#ff2222 guibg=#343d46
-highlight GitGutterChangeDelete ctermfg=5 ctermbg=8 guifg=#b48ead guibg=#808080
 let g:gitgutter_sign_removed = '-'
 
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-   if !exists("*synstack")
-      return
-   endif
-   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
 
 "
 " gvim
@@ -329,7 +314,7 @@ au FileType json setlocal equalprg=json_reformat
 "	Airline status bar options
 " 
 
-let g:airline_theme='badwolf'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled = 1
@@ -350,12 +335,7 @@ let g:agprg="ag --column --smart-case"
 " Commands
 "
 
-command! -nargs=* Wrap set wrap linebreak nolist
-
-"
 " Set tabstop, softtabstop and shiftwidth to the same value
-"
-
 command! -nargs=* Stab call Stab()
 function! Stab()
    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
