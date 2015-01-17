@@ -284,13 +284,17 @@ set wildignore+=*.orig                           " Merge resolution files
 "
 
 "let base16colorspace=256
-colorscheme solarized
+colorscheme base16-ocean
 set background=dark
 
 " Adjustments to colorscheme
 highlight clear CursorLine
 highlight LineNr ctermbg=NONE ctermfg=244
-highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=#0c3641
+highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=NONE
+highlight GitGutterChange ctermfg=6 ctermbg=NONE guifg=#65737e guibg=#343d46
+highlight GitGutterAdd ctermfg=2 ctermbg=NONE guifg=#a3be8c guibg=#343d46
+highlight GitGutterDelete ctermfg=1 ctermbg=NONE guifg=#bf616a guibg=#343d46
+highlight GitGutterChangeDelete ctermfg=5 ctermbg=NONE guifg=#b48ead guibg=#343d46
 
 " gitgutter settings 
 highlight clear SignColumn
@@ -316,7 +320,7 @@ au FileType json setlocal equalprg=json_reformat
 "	Airline status bar options
 " 
 
-let g:airline_theme='solarized'
+let g:airline_theme='ubaryd'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled = 1
