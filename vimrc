@@ -289,7 +289,7 @@ set background=dark
 
 " Adjustments to colorscheme
 highlight clear CursorLine
-highlight LineNr ctermbg=NONE ctermfg=15
+highlight LineNr ctermbg=NONE ctermfg=244
 highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=#0c3641
 
 " gitgutter settings 
