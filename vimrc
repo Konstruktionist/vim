@@ -283,12 +283,14 @@ set wildignore+=*.orig                           " Merge resolution files
 " Colors
 "
 
-"let base16colorspace=256
+let base16colorspace=256
 colorscheme base16-ocean
 set background=dark
 
 " Adjustments to colorscheme
 highlight clear CursorLine
+highlight Number ctermfg=209 guifg=#d08770
+highlight Delimiter ctermfg=15 guifg=#ab7967
 highlight LineNr ctermbg=NONE ctermfg=244
 highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=NONE
 highlight GitGutterChange ctermfg=6 ctermbg=NONE guifg=#65737e guibg=#343d46
