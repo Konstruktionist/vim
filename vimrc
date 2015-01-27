@@ -184,7 +184,7 @@ call plug#end()
 "
 
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 
@@ -283,20 +283,8 @@ set wildignore+=*.orig                           " Merge resolution files
 " Colors
 "
 
-let base16colorspace=256
-colorscheme base16-ocean
+colorscheme solarized
 set background=dark
-
-" Adjustments to colorscheme
-highlight clear CursorLine
-highlight Number ctermfg=209 guifg=#d08770
-highlight Delimiter ctermfg=15 guifg=#ab7967
-highlight LineNr ctermbg=NONE ctermfg=244
-highlight CursorLineNr ctermbg=NONE ctermfg=248 guifg=#dfdf87 guibg=NONE
-highlight GitGutterChange ctermfg=6 ctermbg=NONE guifg=#65737e guibg=#343d46
-highlight GitGutterAdd ctermfg=2 ctermbg=NONE guifg=#a3be8c guibg=#343d46
-highlight GitGutterDelete ctermfg=1 ctermbg=NONE guifg=#bf616a guibg=#343d46
-highlight GitGutterChangeDelete ctermfg=5 ctermbg=NONE guifg=#b48ead guibg=#343d46
 
 " gitgutter settings 
 highlight clear SignColumn
@@ -322,7 +310,7 @@ au FileType json setlocal equalprg=json_reformat
 "	Airline status bar options
 " 
 
-let g:airline_theme='ubaryd'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled = 1
@@ -334,7 +322,7 @@ let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#whitespace#enabled = 0
 
 "
-"	silver searcher
+"  silver searcher
 "
 
 let g:agprg="ag --column --smart-case"
