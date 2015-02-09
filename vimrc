@@ -59,6 +59,9 @@ call plug#begin('~/.vim/plugged')
 "  Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 "
+"  Install new plugins with:
+"     :PlugInstall
+"
 " intro End
 " ---------
 
@@ -145,6 +148,13 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
+" Better whitespace highlighting for Vim
+"  to toggle whiespace highlighting, call:
+"     :ToggleWhitespace
+"  to clean extra whitespace, call:
+"     :StripWhitespace
+Plug 'ntpeters/vim-better-whitespace'
+
 " Support for Apple's Swift language
 " Plug 'kballard/vim-swift'
 
@@ -200,13 +210,13 @@ set ruler                                        "ru:    show the cursor positio
 set showcmd                                      "sc:    display incomplete commands
 set hidden                                       "hid:   don't care about closing modified buffers
 set winwidth=84                                  " The window width with multiple windows
-set mouse=a                                      "       Enable the use of a mouse 
-set nowrap                                       "       don't wrap lines (we map leader-W to toggle) 
+set mouse=a                                      "       Enable the use of a mouse
+set nowrap                                       "       don't wrap lines (we map leader-W to toggle)
 set t_Co=256                                     " set iTerm terminal to 256 colors
 set listchars=tab:▸\ ,eol:¬,trail:⚀              " Use the same symbols as TextMate for tabstops and EOLs
 set backspace=indent,eol,start                   " Behave like a normal text editor
 set noshowmode                                   "nosmd:  Status-line shows the mode we're in
-set showbreak=↪︎\ 
+set showbreak=⊹\                                 " Show Unicode 22B9 (HERMITIAN CONJUGATE MATRIX) & space when soft-wrapping lines
 
 "
 " Folding
@@ -224,7 +234,7 @@ set foldlevel=1
 set incsearch                                    "is:    automatically begins searching as you type
 set hlsearch                                     "hls:   highlights search results; ctrl-n or :noh to unhighlight
 set ignorecase                                   "ic:    searches are case insensitive...
-set smartcase                                    "scs:   ... unless they contain at least one capital letter 
+set smartcase                                    "scs:   ... unless they contain at least one capital letter
 set gdefault                                     "gd:    Substitute all matches in a line by default
 
 "
@@ -253,7 +263,7 @@ set expandtab                                    "et:    uses spaces instead of 
 
 set number                                       "nu:    numbers lines
 set relativenumber                               "rnu    let vim calculate the vertical jumps
-set numberwidth=6                                "nuw:   width of number column
+set numberwidth=4                                "nuw:   width of number column
 set laststatus=2                                 "ls:    makes the status bar always visible
 set ttyfast                                      "tf:    improves redrawing for newer computers
 set lazyredraw                                   "lz:    will not redraw the screen while running macros (goes faster)
@@ -286,7 +296,7 @@ set wildignore+=*.orig                           " Merge resolution files
 colorscheme solarized
 set background=dark
 
-" gitgutter settings 
+" gitgutter settings
 highlight clear SignColumn
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_removed = '-'
@@ -306,9 +316,9 @@ au BufRead,BufNewFile *.json set filetype=json
 au FileType json setlocal equalprg=json_reformat
 
 
-" 
+"
 "	Airline status bar options
-" 
+"
 
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
@@ -388,3 +398,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Toggle Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" Tip from http://www.catonmat.net/blog/sudo-vim/
+" save read-only files
+cnoremap sudow w !sudo tee % >/dev/null
