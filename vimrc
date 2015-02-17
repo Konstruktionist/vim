@@ -181,6 +181,10 @@ Plug 'altercation/vim-colors-solarized'
 " https://github.com/bling/vim-airline
 Plug 'bling/vim-airline'
 
+" Simple tmux statusline generator for powerline symbols & airline integration
+" https://github.com/edkolev/tmuxline.vim
+Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
 "
