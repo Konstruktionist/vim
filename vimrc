@@ -2,8 +2,8 @@
 "
 " IMPORTANT REMINDER
 "
-" All color-values can be found at:
-" http://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
+" All color-values can be found with python script at:
+" https://github.com/eikenb/terminal-colors
 "
 " Comment as much as possible, because we tend to forget things!
 " --------------------------------------------------------------
@@ -61,6 +61,9 @@ call plug#begin('~/.vim/plugged')
 "
 "  Install new plugins with:
 "     :PlugInstall
+"
+"  Remove old/unused plugins with:
+"     :PlugClean
 "
 " intro End
 " ---------
@@ -184,6 +187,12 @@ Plug 'bling/vim-airline'
 " Simple tmux statusline generator for powerline symbols & airline integration
 " https://github.com/edkolev/tmuxline.vim
 Plug 'edkolev/tmuxline.vim'
+
+" plugin for .tmux.conf
+" provides syntax highlighting, :make sources .tmux.conf
+" K jumps to the exact place in 'man tmux' from word under cursor
+" https://github.com/tmux-plugins/vim-tmux
+Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
 
