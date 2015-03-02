@@ -340,7 +340,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 0
+let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -388,7 +388,7 @@ endfunction
 " Key-mappings
 "
 
-let mapleader = ","
+let g:mapleader = ","
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
