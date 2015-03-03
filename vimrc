@@ -329,6 +329,8 @@ au BufRead,BufNewFile *.json set filetype=json
 au FileType json setlocal equalprg=json_reformat
 
 
+" ---------------- Plugin settings ----------------
+
 "
 "	Airline status bar options
 "
@@ -349,6 +351,13 @@ let g:airline#extensions#whitespace#enabled = 0
 "
 
 let g:agprg="ag --column --smart-case"
+
+"
+"  NerdTree
+"
+let NerdTreeIgnore=['.DS_Store[[file]]']
+
+" ---------------- Plugin settings End ----------------
 
 "
 " Commands
