@@ -309,12 +309,6 @@ set wildignore+=*.orig                           " Merge resolution files
 colorscheme solarized
 set background=dark
 
-" gitgutter settings
-highlight clear SignColumn
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_removed = '-'
-
-
 "
 " gvim
 "
@@ -329,7 +323,15 @@ au BufRead,BufNewFile *.json set filetype=json
 au FileType json setlocal equalprg=json_reformat
 
 
-" ---------------- Plugin settings ----------------
+" Plugin settings --------------------------------------------------------
+
+"
+"  gitgutter
+"
+
+highlight clear SignColumn
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_removed = '-'
 
 "
 "	Airline status bar options
@@ -355,9 +357,10 @@ let g:agprg="ag --column --smart-case"
 "
 "  NerdTree
 "
+
 let NerdTreeIgnore=['.DS_Store[[file]]']
 
-" ---------------- Plugin settings End ----------------
+" Plugin settings End ----------------------------------------------------
 
 "
 " Commands
