@@ -116,7 +116,7 @@ Plug 'dag/vim-fish'
 " information and no bells and whistles for those users who consider things
 " like Powerline to be overkill.
 " https://github.com/maciakl/vim-neatstatus
-"Plug 'Konstruktionist/vim-neatstatus', { 'branch': 'Adaptations' }
+" Plug 'Konstruktionist/vim-neatstatus', { 'branch': 'Adaptations' }
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
@@ -159,7 +159,7 @@ Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Support for Apple's Swift language
-" Plug 'kballard/vim-swift'
+ Plug 'kballard/vim-swift'
 
 " A front for ag, A.K.A. the_silver_searcher
 Plug 'rking/ag.vim'
@@ -178,7 +178,6 @@ Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
-Plug 'altercation/vim-colors-solarized'
 
 " status/tabline for vim that's light as air
 " https://github.com/bling/vim-airline
@@ -306,14 +305,21 @@ set wildignore+=*.orig                           " Merge resolution files
 " Colors
 "
 
-colorscheme solarized
+colorscheme base16-ocean
 set background=dark
+highlight clear CursorLine
+highlight LineNr ctermbg=0 ctermfg=15
+highlight CursorLineNr ctermbg=0 ctermfg=11 guifg=#dfdf87 guibg=#353d46
+highlight DiffAdd ctermbg=2 ctermfg=0
+highlight DiffChange ctermbg=8 ctermfg=0
+highlight DiffDelete ctermbg=1 ctermfg=0
+highlight Visual ctermbg=240
 
 "
 " gvim
 "
 
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Essential\ PragmataPro:h12
 
 "
 " Make json files human readable
@@ -329,15 +335,20 @@ au FileType json setlocal equalprg=json_reformat
 "  gitgutter
 "
 
-highlight clear SignColumn
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=0
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_removed = '-'
+highlight GitGutterAdd ctermbg=0 ctermfg=2            " an added line
+highlight GitGutterChange ctermbg=0 ctermfg=4         " a changed line
+highlight GitGutterDelete ctermbg=0 ctermfg=1         " at least one removed line
+highlight GitGutterChangeDelete ctermbg=0 ctermfg=5   " a changed line followed by at least one removed line
 
 "
 "	Airline status bar options
 "
 
-let g:airline_theme='solarized'
+let g:airline_theme='understated'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled = 1
