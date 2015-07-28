@@ -313,7 +313,7 @@ highlight CursorLineNr ctermbg=0 ctermfg=11 guifg=#dfdf87 guibg=#353d46
 highlight DiffAdd ctermbg=2 ctermfg=0
 highlight DiffChange ctermbg=8 ctermfg=0
 highlight DiffDelete ctermbg=1 ctermfg=0
-highlight Visual ctermbg=240
+highlight Visual ctermbg=8 ctermfg=0 guifg=#000000 guibg=#808080
 
 "
 " gvim
