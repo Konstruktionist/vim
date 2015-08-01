@@ -319,7 +319,7 @@ highlight Visual ctermbg=8 ctermfg=0 guifg=#000000 guibg=#808080
 " gvim
 "
 
-set guifont=Essential\ PragmataPro:h12
+set guifont=PragmataPro:h12
 
 "
 " Make json files human readable
