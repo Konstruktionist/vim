@@ -1,5 +1,4 @@
 "
-"
 " IMPORTANT REMINDER
 "
 " All color-values can be found with python script at:
@@ -111,12 +110,9 @@ Plug 'airblade/vim-gitgutter'
 " https://github.com/dag/vim-fish
 Plug 'dag/vim-fish'
 
-" Neatstatus.vim provides a lightweight statusline.
-" The aim of Neat Status is to provide neat, and simple UI with just basic
-" information and no bells and whistles for those users who consider things
-" like Powerline to be overkill.
-" https://github.com/maciakl/vim-neatstatus
-" Plug 'Konstruktionist/vim-neatstatus', { 'branch': 'Adaptations' }
+" Indent Guides is a plugin for visually displaying indent levels in Vim.
+" https://github.com/nathanaelkane/vim-indent-guides
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
@@ -165,9 +161,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 
 "Plug 'ap/vim-buftabline'
-
-" Read Unix man pages in vim
-Plug 'Z1MM32M4N/vim-superman'
 
 " Fantastic selection for vim
 " Plug 'gorkunov/smartpairs.vim'
@@ -275,7 +268,7 @@ set expandtab                                    "et:    uses spaces instead of 
 
 set number                                       "nu:    numbers lines
 set relativenumber                               "rnu    let vim calculate the vertical jumps
-set numberwidth=4                                "nuw:   width of number column
+set numberwidth=6                                "nuw:   width of number column
 set laststatus=2                                 "ls:    makes the status bar always visible
 set ttyfast                                      "tf:    improves redrawing for newer computers
 set lazyredraw                                   "lz:    will not redraw the screen while running macros (goes faster)
@@ -305,15 +298,16 @@ set wildignore+=*.orig                           " Merge resolution files
 " Colors
 "
 
-colorscheme base16-ocean
+colorscheme Kafka
 set background=dark
 highlight clear CursorLine
-highlight LineNr ctermbg=0 ctermfg=15
-highlight CursorLineNr ctermbg=0 ctermfg=11 guifg=#dfdf87 guibg=#353d46
-highlight DiffAdd ctermbg=2 ctermfg=0
-highlight DiffChange ctermbg=8 ctermfg=0
-highlight DiffDelete ctermbg=1 ctermfg=0
-highlight Visual ctermbg=8 ctermfg=0 guifg=#000000 guibg=#808080
+"highlight LineNr ctermbg=NONE ctermfg=248 guibg=NONE
+"highlight CursorLineNr ctermbg=NONE ctermfg=228 guibg=NONE guifg=#dfdf87
+"highlight DiffAdd ctermbg=2 ctermfg=NONE guibg=NONE
+"highlight DiffChange ctermbg=8 ctermfg=NONE guibg=NONE
+"highlight DiffDelete ctermbg=1 ctermfg=NONE guibg=NONE
+"highlight Visual ctermbg=8 ctermfg=NONE guibg=NONE  guifg=#000000
+highlight Todo ctermbg=4 ctermfg=15
 
 "
 " gvim
@@ -335,14 +329,15 @@ au FileType json setlocal equalprg=json_reformat
 "  gitgutter
 "
 
-let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=0
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_removed = '-'
-highlight GitGutterAdd ctermbg=0 ctermfg=2            " an added line
-highlight GitGutterChange ctermbg=0 ctermfg=4         " a changed line
-highlight GitGutterDelete ctermbg=0 ctermfg=1         " at least one removed line
-highlight GitGutterChangeDelete ctermbg=0 ctermfg=5   " a changed line followed by at least one removed line
+let g:gitgutter_override_sign_column_highlight=0
+let g:gitgutter_eager=0
+highlight SignColumn ctermbg=NONE guibg=NONE
+let g:gitgutter_sign_column_always=1
+let g:gitgutter_sign_removed='-'
+highlight GitGutterAdd ctermbg=NONE ctermfg=2 guibg=NONE            " an added line
+highlight GitGutterChange ctermbg=NONE ctermfg=6 guibg=NONE         " a changed line
+highlight GitGutterDelete ctermbg=NONE ctermfg=1 guibg=NONE        " at least one removed line
+highlight GitGutterChangeDelete ctermbg=NONE ctermfg=13 guibg=NONE   " a changed line followed by at least one removed line
 
 "
 "	Airline status bar options
@@ -370,6 +365,14 @@ let g:agprg="ag --column --smart-case"
 "
 
 let NerdTreeIgnore=['.DS_Store[[file]]']
+
+"
+"  Indent Guides
+"
+
+let g:indent_guides_guide_size=1
+hi IndentGuidesOdd  guibg=red   ctermbg=7
+hi IndentGuidesEven guibg=green ctermbg=8
 
 " Plugin settings End ----------------------------------------------------
 
@@ -437,3 +440,6 @@ nnoremap <F5> :GundoToggle<CR>
 " Tip from http://www.catonmat.net/blog/sudo-vim/
 " save read-only files
 cnoremap sudow w !sudo tee % >/dev/null
+
+" Another way to get lots of information about the highlighting:
+map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
