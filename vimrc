@@ -10,17 +10,19 @@
 
 set nocompatible                                 " be iMproved, required
 
-"
-"	fish
-"		from: https://github.com/dag/vim-fish
-"
 
+"  fish
+"     from: https://github.com/dag/vim-fish
+"        fish is not completely POSIX compatible, therefore let vim use
+"        bash as its shell.
+"
 if &shell =~# 'fish$'
    set shell=/bin/bash
 endif
+"
 
 "
-" Vim-Plug ---------------------------------------------------------------
+" Vim-Plug ---------------------------------------------------------------------
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !mkdir -p ~/.vim/autoload
@@ -33,6 +35,8 @@ call plug#begin('~/.vim/plugged')
 
 " vim-plug short intro
 " --------------------
+"
+" https://github.com/junegunn/vim-plug
 "
 "
 " Make sure you use SINGLE quotes
@@ -97,6 +101,8 @@ Plug 'tpope/vim-fugitive'
 " https://github.com/tpope/vim-unimpaired
 Plug 'tpope/vim-unimpaired'
 
+Plug 'tpope/vim-commentary'
+
 " A tree explorer plugin for vim
 " https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
@@ -110,17 +116,13 @@ Plug 'airblade/vim-gitgutter'
 " https://github.com/dag/vim-fish
 Plug 'dag/vim-fish'
 
-" Indent Guides is a plugin for visually displaying indent levels in Vim.
-" https://github.com/nathanaelkane/vim-indent-guides
-Plug 'nathanaelkane/vim-indent-guides'
+" indentLine: A vim plugin to display the indention levels with thin vertical lines
+" https://github.com/Yggdroot/indentLine
+Plug 'Yggdroot/indentLine'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
 Plug 'sjl/gundo.vim'
-
-" A light and configurable statusline/tabline for vim
-" https://github.com/itchyny/lightline.vim
-"Plug 'itchyny/lightline.vim'
 
 " Surround.vim lets you add/change/remove surrounding chars and tags
 " https://github.com/tpope/vim-surround
@@ -138,13 +140,10 @@ Plug 'scrooloose/syntastic'
 " https://github.com/kien/ctrlp.vim
 Plug 'kien/ctrlp.vim'
 
-" SnipMate aims to provide support for textual snippets, similar to TextMate
+" Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
-" Snipmate depends on tlib and mw-utils.
-" https://github.com/garbas/vim-snipmate
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
+" https://github.com/SirVer/ultisnips
+Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Better whitespace highlighting for Vim
@@ -155,7 +154,7 @@ Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Support for Apple's Swift language
- Plug 'kballard/vim-swift'
+Plug 'keith/swift.vim'
 
 " A front for ag, A.K.A. the_silver_searcher
 Plug 'rking/ag.vim'
@@ -171,6 +170,7 @@ Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
 Plug 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
 
 " status/tabline for vim that's light as air
 " https://github.com/bling/vim-airline
@@ -186,10 +186,32 @@ Plug 'edkolev/tmuxline.vim'
 " https://github.com/tmux-plugins/vim-tmux
 Plug 'tmux-plugins/vim-tmux'
 
+Plug 'Shougo/neocomplete'
+
+" Adjust your vim colors using sliders (gvim & neovim)
+Plug 'zefei/vim-colortuner'
+
+Plug 'godlygeek/tabular'
+
+Plug 'janson/bufonly.vim'
+Plug 'mtth/scratch.vim'
+
+" vim plugin to quickly switch between buffers
+" https://github.com/troydm/easybuffer.vim
+Plug 'troydm/easybuffer.vim'
+
+" plugin that displays tags in a window, ordered by scope
+" https://github.com/majutsushi/tagbar
+Plug 'majutsushi/tagbar'
+
+" gitv is a repository viewer
+" https://github.com/gregsexton/gitv
+Plug 'gregsexton/gitv'
+
 call plug#end()
 
 "
-" Vim-Plug End -----------------------------------------------------------
+" Vim-Plug End -----------------------------------------------------------------
 "
 
 
@@ -216,21 +238,26 @@ set showcmd                                      "sc:    display incomplete comm
 set hidden                                       "hid:   don't care about closing modified buffers
 set winwidth=84                                  " The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
-set nowrap                                       "       don't wrap lines (we map leader-W to toggle)
+set nowrap                                       "       don't wrap lines (mapped leader-W to toggle)
 set t_Co=256                                     " set iTerm terminal to 256 colors
-set listchars=tab:▸\ ,eol:¬,trail:⚀              " Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·       " Use the same symbols as TextMate for tabstops and EOLs
 set backspace=indent,eol,start                   " Behave like a normal text editor
 set noshowmode                                   "nosmd:  Status-line shows the mode we're in
-set showbreak=⊹\                                 " Show Unicode 22B9 (HERMITIAN CONJUGATE MATRIX) & space when soft-wrapping lines
+set showbreak=\ ↪︎\                               " Show Unicode 21AA (RIGHTWARDS ARROW WITH HOOK) surrounded by spaces when soft-wrapping lines
+set nobackup                                     "       Don't write backup files
+set nowritebackup
+set noswapfile
+set cmdwinheight=20                                " Height of command window
 
 "
 " Folding
 "
 
-set foldmethod=syntax                            "fdm:   fold by the indentation by default
+set foldmethod=syntax                            "fdm:   fold on the indentation by default
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
-set nofoldenable                                 "nofen: don't fold by default
+set foldenable                                   "nofen: don't fold by default
 set foldlevel=1
+set foldlevelstart=10                            " open most folds by default
 
 "
 " Search
@@ -246,6 +273,7 @@ set gdefault                                     "gd:    Substitute all matches 
 " Programming
 "
 
+filetype indent on                               " load filetype-specific indent files
 syntax on                                        "syn:   syntax highlighting
 set cindent                                      "cin:   enables automatic indenting c-style
 set cinoptions=l1,j1                             "cino:  affects the way cindent reindents lines
@@ -293,6 +321,7 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
+set wildignore+=*/tmp/*                          " Temporary directories content
 
 "
 " Colors
@@ -300,14 +329,7 @@ set wildignore+=*.orig                           " Merge resolution files
 
 colorscheme Kafka
 set background=dark
-highlight clear CursorLine
-"highlight LineNr ctermbg=NONE ctermfg=248 guibg=NONE
-"highlight CursorLineNr ctermbg=NONE ctermfg=228 guibg=NONE guifg=#dfdf87
-"highlight DiffAdd ctermbg=2 ctermfg=NONE guibg=NONE
-"highlight DiffChange ctermbg=8 ctermfg=NONE guibg=NONE
-"highlight DiffDelete ctermbg=1 ctermfg=NONE guibg=NONE
-"highlight Visual ctermbg=8 ctermfg=NONE guibg=NONE  guifg=#000000
-highlight Todo ctermbg=4 ctermfg=15
+set cursorline
 
 "
 " gvim
@@ -316,14 +338,25 @@ highlight Todo ctermbg=4 ctermfg=15
 set guifont=PragmataPro:h12
 
 "
-" Make json files human readable
+" File formats -----------------------------------------------------------------
 "
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 " http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
 
-au BufRead,BufNewFile *.json set filetype=json
-au FileType json setlocal equalprg=json_reformat
+" Make json files human readable
+autocmd BufRead,BufNewFile *.json set filetype=json
+autocmd FileType json setlocal equalprg=json_reformat
+
+" Objective-C: map *.h & *.m files so syntax is recognized as objc
+autocmd BufNewFile,BufRead *.m,*.h set ft=objc
+
+" markdown: map *.md files so that syntax is recognized as markdown
+autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
 
 
-" Plugin settings --------------------------------------------------------
+"
+" Plugin settings --------------------------------------------------------------
+"
 
 "
 "  gitgutter
@@ -334,16 +367,12 @@ let g:gitgutter_eager=0
 highlight SignColumn ctermbg=NONE guibg=NONE
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_sign_removed='-'
-highlight GitGutterAdd ctermbg=NONE ctermfg=2 guibg=NONE            " an added line
-highlight GitGutterChange ctermbg=NONE ctermfg=6 guibg=NONE         " a changed line
-highlight GitGutterDelete ctermbg=NONE ctermfg=1 guibg=NONE        " at least one removed line
-highlight GitGutterChangeDelete ctermbg=NONE ctermfg=13 guibg=NONE   " a changed line followed by at least one removed line
 
 "
-"	Airline status bar options
+"  Airline status bar options
 "
 
-let g:airline_theme='understated'
+let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled = 1
@@ -367,17 +396,24 @@ let g:agprg="ag --column --smart-case"
 let NerdTreeIgnore=['.DS_Store[[file]]']
 
 "
-"  Indent Guides
+"  Indent Line
 "
 
-let g:indent_guides_guide_size=1
-hi IndentGuidesOdd  guibg=red   ctermbg=7
-hi IndentGuidesEven guibg=green ctermbg=8
-
-" Plugin settings End ----------------------------------------------------
+let g:indentLine_enabled = 0
+let g:indentLine_color_term = 239
+let g:indentLine_char = ''
+let g:indentLine_color_gui = '#4e4e4e'
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 
 "
-" Commands
+" Ultisnips
+"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+
+
+"
+" Commands ---------------------------------------------------------------------
 "
 
 " Set tabstop, softtabstop and shiftwidth to the same value
@@ -409,12 +445,15 @@ function! SummarizeTabs()
 endfunction
 
 
-
 "
-" Key-mappings
+" Key-mappings -----------------------------------------------------------------
 "
 
-let g:mapleader = ","
+" Space is easier than backslah
+let g:mapleader = "\<Space>"
+
+" Escape is hard to reach
+inoremap jk <esc>
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
@@ -423,7 +462,7 @@ nmap <leader>l :set list!<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Toggle wrap
-nmap <leader>W :set invwrap<CR>:set wrap?<CR>
+nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 
 " Toggle airline whitespace detection
 nmap <leader>awt :AirlineToggleWhitespace<CR>
@@ -432,7 +471,10 @@ nmap <leader>awt :AirlineToggleWhitespace<CR>
 nmap <leader>ar :AirlineRefresh<CR>
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
+
+"Toggle Ag
+nmap <leader>g :Ag!<CR>
 
 " Toggle Gundo
 nnoremap <F5> :GundoToggle<CR>
@@ -441,5 +483,10 @@ nnoremap <F5> :GundoToggle<CR>
 " save read-only files
 cnoremap sudow w !sudo tee % >/dev/null
 
-" Another way to get lots of information about the highlighting:
-map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+" Testing colorscheme
+nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
+" Toggle Easybuffer
+nmap <leader>b :EasyBufferToggle<CR>
+
+" Key-mappings End <---
