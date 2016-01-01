@@ -176,20 +176,7 @@ Plug 'tomasr/molokai'
 " https://github.com/bling/vim-airline
 Plug 'bling/vim-airline'
 
-" Simple tmux statusline generator for powerline symbols & airline integration
-" https://github.com/edkolev/tmuxline.vim
-Plug 'edkolev/tmuxline.vim'
-
-" plugin for .tmux.conf
-" provides syntax highlighting, :make sources .tmux.conf
-" K jumps to the exact place in 'man tmux' from word under cursor
-" https://github.com/tmux-plugins/vim-tmux
-Plug 'tmux-plugins/vim-tmux'
-
 Plug 'Shougo/neocomplete'
-
-" Adjust your vim colors using sliders (gvim & neovim)
-Plug 'zefei/vim-colortuner'
 
 Plug 'godlygeek/tabular'
 
@@ -335,7 +322,8 @@ set cursorline
 " gvim
 "
 
-set guifont=PragmataPro:h12
+set guifont=PragmataPro:h11
+set guioptions-=T
 
 "
 " File formats -----------------------------------------------------------------
