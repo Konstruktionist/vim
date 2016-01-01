@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 1.1 - 18-09-2015
+"     Version 1.4 - 06-10-2015
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -20,9 +20,9 @@ let g:colors_name="Kafka"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi Normal          ctermfg=231   ctermbg=NONE      cterm=NONE        guifg=#ffffff     guibg=#2a303b        gui=NONE
+hi Normal          ctermfg=253   ctermbg=NONE      cterm=NONE        guifg=#dadada     guibg=#2a303b        gui=NONE
 hi Cursor                                          cterm=reverse     guifg=#909090     guibg=#606060        gui=NONE
-hi CursorLine      ctermfg=NONE  ctermbg=237			cterm=NONE        guifg=NONE 		   guibg=#38404d        gui=NONE
+hi CursorLine      ctermfg=NONE  ctermbg=237       cterm=NONE        guifg=NONE        guibg=#38404d        gui=NONE
 hi LineNr          ctermfg=8     ctermbg=NONE      cterm=NONE        guifg=#737373     guibg=NONE           gui=NONE
 hi CursorLineNR    ctermfg=11    ctermbg=NONE      cterm=NONE        guifg=#fae3a0     guibg=NONE           gui=NONE
 
@@ -31,7 +31,7 @@ hi CursorLineNR    ctermfg=11    ctermbg=NONE      cterm=NONE        guifg=#fae3
 " -----------------
 hi CursorColumn   ctermfg=NONE      ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
 hi FoldColumn     ctermfg=239       ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
-hi SignColumn     ctermfg=NONE      ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=#909090     gui=NONE
+hi SignColumn     ctermfg=245       ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE       gui=NONE
 hi Folded         ctermfg=239       ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
 
 " -------------------------
@@ -48,14 +48,14 @@ hi TabLineSel      ctermfg=112      ctermbg=NONE      cterm=NONE        guifg=#5
 " -------------------------------
 hi Directory       ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8   guibg=NONE          gui=NONE
 hi Search          ctermfg=239      ctermbg=11        cterm=NONE        guifg=#303030   guibg=#fae3a0       gui=NONE
-hi IncSearch       ctermfg=235      ctermbg=208       cterm=NONE        guifg=#ff8700   guibg=#262626       gui=NONE
+hi IncSearch       ctermfg=235      ctermbg=208       cterm=NONE        guifg=#262626   guibg=#ff8700       gui=NONE
 
 " -----------------
 " - Prompt/Status -
 " -----------------
-hi StatusLine                                         cterm=bold,reverse guifg=#909090    guibg=#606060     gui=NONE
-hi StatusLineNC                                       cterm=reverse     guifg=#808080     guibg=#909090     gui=NONE
-hi WildMenu        ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
+hi StatusLine      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
+hi StatusLineNC    ctermfg=NONE     ctermbg=238       cterm=NONE        guifg=NONE        guibg=#444444     gui=NONE
+hi WildMenu        ctermfg=0        ctermbg=6         cterm=NONE        guifg=#202020     guibg=#73a5c8     gui=NONE
 hi Question        ctermfg=10       ctermbg=NONE      cterm=NONE        guifg=#b6c2aa     guibg=NONE        gui=NONE
 hi Title           ctermfg=3        ctermbg=NONE      cterm=bold        guifg=#fbc692     guibg=NONE        gui=NONE
 hi ModeMsg         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
@@ -104,7 +104,7 @@ hi Comment         ctermfg=7        ctermbg=NONE      cterm=NONE        guifg=#b
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Tag             ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
-hi Delimiter       ctermfg=241      ctermbg=NONE      cterm=NONE        guifg=#626262     guibg=NONE        gui=NONE
+hi Delimiter       ctermfg=14       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
 hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#b2b2b2     guibg=NONE        gui=NONE
 hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#ffd7ff     guibg=NONE        gui=NONE
 
@@ -114,7 +114,7 @@ hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#f
 hi PreProc         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Include         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Define          ctermfg=3        ctermbg=NONE      cterm=NONE        guifg=#fbc692     guibg=NONE        gui=NONE
-hi Macro           ctermfg=208      ctermbg=NONE      cterm=NONE        guifg=#262626     guibg=NONE        gui=NONE
+hi Macro           ctermfg=208      ctermbg=NONE      cterm=NONE        guifg=#ff8700     guibg=NONE        gui=NONE
 hi PreCondit       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
 
 hi Type            ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
@@ -125,30 +125,30 @@ hi Typedef         ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#8
 " --------------------------------
 " Diff
 " --------------------------------
-hi DiffAdd         ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi DiffChange      ctermfg=5        ctermbg=NONE      cterm=NONE        guifg=#6193bc     guibg=NONE        gui=NONE
+hi DiffAdd         ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#00af00     guibg=NONE        gui=NONE
+hi DiffChange      ctermfg=5        ctermbg=NONE      cterm=NONE        guifg=#d743da     guibg=NONE        gui=NONE
 hi DiffDelete      ctermfg=1        ctermbg=NONE      cterm=NONE        guifg=#b91e2e     guibg=NONE        gui=NONE
 hi DiffText        ctermfg=229      ctermbg=NONE      cterm=NONE        guifg=#ffffaf     guibg=NONE        gui=NONE
-hi DiffAdded       ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi DiffAdded       ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#00af00     guibg=NONE        gui=NONE
 hi DiffFile        ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#6193bc     guibg=NONE        gui=NONE
-hi DiffNewFile     ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi DiffNewFile     ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#00af00     guibg=NONE        gui=NONE
 hi DiffLine        ctermfg=229      ctermbg=NONE      cterm=NONE        guifg=#ffffaf     guibg=NONE        gui=NONE
 hi DiffRemoved     ctermfg=1        ctermbg=NONE      cterm=NONE        guifg=#b91e2e     guibg=NONE        gui=NONE
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi Pmenu           ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
-hi PmenuSel        ctermfg=236      ctermbg=248       cterm=NONE        guifg=#303030     guibg=#a8a8a8     gui=NONE
-hi PmenuSbar       ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
-hi PmenuThumb      ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
+hi Pmenu           ctermfg=0        ctermbg=254       cterm=NONE        guifg=#202020     guibg=#e4e4e4     gui=NONE
+hi PmenuSel        ctermfg=0        ctermbg=6         cterm=NONE        guifg=#202020     guibg=#73a5c8     gui=NONE
+hi PmenuSbar       ctermfg=NONE     ctermbg=15        cterm=NONE        guifg=NONE        guibg=#fff0f0     gui=NONE
+hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
 
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=231      ctermbg=88        cterm=NONE        guifg=#ffffff     guibg=NONE        gui=NONE
-hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=#ffffff     guibg=NONE        gui=NONE
-hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=#ffffff     guibg=NONE        gui=NONE
-hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=#ffffff     guibg=NONE        gui=NONE
+hi SpellBad        ctermfg=231      ctermbg=88        cterm=NONE        guifg=#ffffff     guibg=#870000     gui=NONE
+hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=#ffffff     guibg=#005faf     gui=NONE
+hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=#ffffff     guibg=#8700d7     gui=NONE
+hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=#ffffff     guibg=#5fd7ff     gui=NONE
 
 "--------------------------------------------------------------------
 " Specific settings                                                 |
@@ -163,10 +163,10 @@ hi gitCommitSummary  ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#7
 " --------------------------------
 " git gutter
 " --------------------------------
-hi GitGutterAdd    ctermfg=34     ctermbg=NONE      cterm=NONE        guifg=#73a5c8        guibg=NONE        gui=NONE
-hi GitGutterChange ctermfg=5      ctermbg=NONE      cterm=NONE        guifg=#6193bc        guibg=NONE        gui=NONE
-hi GitGutterDelete ctermfg=1      ctermbg=NONE      cterm=NONE        guifg=#b91e2e        guibg=NONE        gui=NONE
-hi GitGutterChangeDelete ctermfg=13 ctermbg=NONE    cterm=NONE        guifg=#87314e        guibg=NONE        gui=NONE
+hi GitGutterAdd    ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#00af00     guibg=NONE        gui=NONE
+hi GitGutterChange ctermfg=5        ctermbg=NONE      cterm=NONE        guifg=#d743da     guibg=NONE        gui=NONE
+hi GitGutterDelete ctermfg=1        ctermbg=NONE      cterm=NONE        guifg=#b91e2e     guibg=NONE        gui=NONE
+hi GitGutterChangeDelete ctermfg=13 ctermbg=NONE      cterm=NONE        guifg=#87314e     guibg=NONE        gui=NONE
 
 " --------------------------------
 " C highlighting
@@ -199,7 +199,7 @@ hi cssColor       ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#8
 hi markdownCode    ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
 hi markdownError   ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi markdownCodeBlock ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownHeadingDelimiter ctermfg=238   ctermbg=NONE   cterm=NONE     guifg=#444444     guibg=NONE        gui=NONE
+hi markdownHeadingDelimiter ctermfg=94 ctermbg=NONE   cterm=NONE        guifg=#875f00     guibg=NONE        gui=NONE
 
 " --------------------------------
 " Ruby highlighting
@@ -215,5 +215,5 @@ hi rubyInterpolationDelimiter ctermfg=74  ctermbg=NONE   cterm=NONE     guifg=#5
 " --------------------------------
 " NERDTree highlighting
 " --------------------------------
-hi NERDTreeDirSlash ctermfg=166      ctermbg=NONE      cterm=NONE        guifg=#d75f00     guibg=NONE        gui=NONE
+hi NERDTreeDirSlash ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
 hi NERDTreeExecFile ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
