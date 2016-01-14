@@ -223,14 +223,14 @@ set history=50                                   "hi:    keep 50 lines of comman
 set ruler                                        "ru:    show the cursor position all the time
 set showcmd                                      "sc:    display incomplete commands
 set hidden                                       "hid:   don't care about closing modified buffers
-set winwidth=84                                  " The window width with multiple windows
+set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-W to toggle)
-set t_Co=256                                     " set iTerm terminal to 256 colors
-set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·       " Use the same symbols as TextMate for tabstops and EOLs
-set backspace=indent,eol,start                   " Behave like a normal text editor
-set noshowmode                                   "nosmd:  Status-line shows the mode we're in
-set showbreak=\ ↪︎\                               " Show Unicode 21AA (RIGHTWARDS ARROW WITH HOOK) surrounded by spaces when soft-wrapping lines
+set t_Co=256                                     "       set iTerm terminal to 256 colors
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·       "       Use the same symbols as TextMate for tabstops and EOLs
+set backspace=indent,eol,start                   "       Behave like a normal text editor
+set noshowmode                                   "nosmd: Status-line shows the mode we're in
+set showbreak=\ ↪︎\                               "sbr:   Show Unicode 21AA (RIGHTWARDS ARROW WITH HOOK) surrounded by spaces when soft-wrapping lines
 set nobackup                                     "       Don't write backup files
 set nowritebackup
 set noswapfile
@@ -244,7 +244,7 @@ set foldmethod=syntax                            "fdm:   fold on the indentation
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
 set foldenable                                   "nofen: don't fold by default
 set foldlevel=1
-set foldlevelstart=10                            " open most folds by default
+set foldlevelstart=10                            "       open most folds by default
 
 "
 " Search
@@ -260,10 +260,8 @@ set gdefault                                     "gd:    Substitute all matches 
 " Programming
 "
 
-filetype indent on                               " load filetype-specific indent files
+filetype plugin indent on                        "       load filetype-specific indent files
 syntax on                                        "syn:   syntax highlighting
-set cindent                                      "cin:   enables automatic indenting c-style
-set cinoptions=l1,j1                             "cino:  affects the way cindent reindents lines
 set showmatch                                    "sm:    flashes matching brackets or parenthasis
 set matchtime=3                                  "mat:   How long to flash brackets
 
