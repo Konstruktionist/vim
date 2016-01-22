@@ -195,6 +195,10 @@ Plug 'majutsushi/tagbar'
 " https://github.com/gregsexton/gitv
 Plug 'gregsexton/gitv'
 
+" open the current Markdown buffer in Marked.app
+" https://github.com/itspriddle/vim-marked
+Plug 'itspriddle/vim-marked'
+
 call plug#end()
 
 "
