@@ -116,10 +116,6 @@ Plug 'airblade/vim-gitgutter'
 " https://github.com/dag/vim-fish
 Plug 'dag/vim-fish'
 
-" indentLine: A vim plugin to display the indention levels with thin vertical lines
-" https://github.com/Yggdroot/indentLine
-Plug 'Yggdroot/indentLine'
-
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
 Plug 'sjl/gundo.vim'
@@ -137,8 +133,8 @@ Plug 'scrooloose/syntastic'
 "   Press <c-f> and <c-b> to cycle between modes.
 "   Press <c-d> to switch to filename only search instead of full path.
 "   Press <c-r> to switch to regexp mode.
-" https://github.com/kien/ctrlp.vim
-Plug 'kien/ctrlp.vim'
+" https://github.com/ctrlpvim/ctrlp.vim
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
@@ -194,6 +190,10 @@ Plug 'majutsushi/tagbar'
 " gitv is a repository viewer
 " https://github.com/gregsexton/gitv
 Plug 'gregsexton/gitv'
+
+" Markdown for Vim
+" https://github.com/gabrielelana/vim-markdown
+Plug 'gabrielelana/vim-markdown'
 
 " open the current Markdown buffer in Marked.app
 " https://github.com/itspriddle/vim-marked
@@ -386,16 +386,6 @@ let g:agprg="ag --column --smart-case"
 let NerdTreeIgnore=['.DS_Store[[file]]']
 
 "
-"  Indent Line
-"
-
-let g:indentLine_enabled = 0
-let g:indentLine_color_term = 239
-let g:indentLine_char = ''
-let g:indentLine_color_gui = '#4e4e4e'
-let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
-
-"
 " Ultisnips
 "
 
@@ -478,5 +468,8 @@ nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
 " Toggle Easybuffer
 nmap <leader>b :EasyBufferToggle<CR>
+
+" Delete in normal mode switches off highlighting till next search...
+nmap <silent> <BS> :nohlsearch<CR>
 
 " Key-mappings End <---
