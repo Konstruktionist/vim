@@ -99,13 +99,13 @@ hi Label           ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#0
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Keyword         ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=7        ctermbg=NONE      cterm=NONE        guifg=#b2b2b2     guibg=NONE        gui=NONE
+hi Comment         ctermfg=7        ctermbg=NONE      cterm=NONE        guifg=#767676     guibg=NONE        gui=NONE
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Tag             ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Delimiter       ctermfg=14       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
-hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#b2b2b2     guibg=NONE        gui=NONE
+hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#767676     guibg=NONE        gui=NONE
 hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#ffd7ff     guibg=NONE        gui=NONE
 
 " ----------
