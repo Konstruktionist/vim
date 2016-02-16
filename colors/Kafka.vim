@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 1.4 - 06-10-2015
+"     Version 1.5 - 16-02-2016
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -31,7 +31,7 @@ hi CursorLineNR    ctermfg=11    ctermbg=NONE      cterm=NONE        guifg=#fae3
 " -----------------
 hi CursorColumn   ctermfg=NONE      ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
 hi FoldColumn     ctermfg=239       ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
-hi SignColumn     ctermfg=245       ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE       gui=NONE
+hi SignColumn     ctermfg=245       ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE			gui=NONE
 hi Folded         ctermfg=239       ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
 
 " -------------------------
@@ -99,13 +99,13 @@ hi Label           ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#0
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Keyword         ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=7        ctermbg=NONE      cterm=NONE        guifg=#767676     guibg=NONE        gui=NONE
+hi Comment         ctermfg=7        ctermbg=NONE      cterm=NONE        guifg=#b2b2b2     guibg=NONE        gui=NONE
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Tag             ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Delimiter       ctermfg=14       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
-hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#767676     guibg=NONE        gui=NONE
+hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#b2b2b2     guibg=NONE        gui=NONE
 hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#ffd7ff     guibg=NONE        gui=NONE
 
 " ----------
@@ -196,9 +196,14 @@ hi cssColor       ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#8
 " --------------------------------
 " Markdown highlighting
 " --------------------------------
+hi markdownBold	ctermfg=178			ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownItalic	ctermfg=178			ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownBoldItalic	ctermfg=178	ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
 hi markdownCode    ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
 hi markdownError   ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi markdownCodeBlock ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownFencedCodeBlock ctermfg=6	ctermbg=NONE	cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownInlineCode ctermfg=6		ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
 hi markdownHeadingDelimiter ctermfg=94 ctermbg=NONE   cterm=NONE        guifg=#875f00     guibg=NONE        gui=NONE
 
 " --------------------------------
