@@ -171,6 +171,7 @@ Plug 'tomasr/molokai'
 " status/tabline for vim that's light as air
 " https://github.com/bling/vim-airline
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Shougo/neocomplete'
 
