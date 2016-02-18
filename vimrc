@@ -190,6 +190,7 @@ Plug 'majutsushi/tagbar'
 
 " gitv is a repository viewer
 " https://github.com/gregsexton/gitv
+"  Dependancy: A working fugitive installation
 Plug 'gregsexton/gitv'
 
 " Markdown for Vim
@@ -400,6 +401,11 @@ let NerdTreeIgnore=['.DS_Store[[file]]']
 
 let g:UltiSnipsExpandTrigger="<tab>"
 
+"
+" Gitv
+"
+
+let g:Gitv_OpenHorizontal=1
 
 "
 " Commands ---------------------------------------------------------------------
