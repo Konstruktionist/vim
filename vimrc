@@ -466,7 +466,7 @@ nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>g :Ag!<CR>
 
 " Toggle Gundo
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>gt :GundoToggle<CR>
 
 " Tip from http://www.catonmat.net/blog/sudo-vim/
 " save read-only files
