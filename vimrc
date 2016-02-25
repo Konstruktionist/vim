@@ -231,9 +231,9 @@ set showcmd                                      "sc:    display incomplete comm
 set hidden                                       "hid:   don't care about closing modified buffers
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
-set nowrap                                       "       don't wrap lines (mapped leader-W to toggle)
+set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
 set t_Co=256                                     "       set iTerm terminal to 256 colors
-set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:·       "       Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,extends:◉,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set showbreak=\ ↪︎\                               "sbr:   Show Unicode 21AA (RIGHTWARDS ARROW WITH HOOK) surrounded by spaces when soft-wrapping lines
