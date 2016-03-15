@@ -222,8 +222,7 @@ endif
 " Options
 "
 
-set updatetime=2000                              "ut:    If this many milliseconds nothing is typed the swap file will be written to disk
-set timeoutlen=3000                              "tm:    time out on mapping after three seconds
+set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
 set ruler                                        "ru:    show the cursor position all the time
@@ -327,7 +326,10 @@ set cursorline
 "
 
 set guifont=PragmataPro:h11
-set guioptions-=T
+set guioptions-=T " No toolbar
+set guioptions-=r " No scrollbar right
+set guioptions-=l " No scrollbar left
+set guioptions-=b " No scrollbar bottom
 
 "
 " File formats -----------------------------------------------------------------
