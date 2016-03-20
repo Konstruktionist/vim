@@ -79,25 +79,7 @@ Plug 'tpope/vim-repeat'
 " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
 
-" Unimpaired.vim provides shortcuts for various paired activities:
-"
-" ex cmds: ]q is :cnext, [q is :cprevious. ]b is :bnext, [b is :bprev.
-" See the documentation for the full set of 20 mappings and mnemonics.
-" All of them take a count.
-"
-" lines: [<Space> and ]<Space> add newlines before and after the
-" cursor line. [e and ]e exchange the current line with the one above
-" or below it.
-"
-" toggling options: [os, ]os, and cos perform :set spell, :set
-" nospell, and :set invspell, respectively. There's also l (list), n
-" (number), w (wrap), x (cursorline cursorcolumn), and several others,
-" plus mappings to help alleviate the set paste dance. Consult the
-" documentation.
-"
-" misc: [f and ]f to go to the next/previous file in the directory,
-" and [n and ]n to jump between SCM conflict markers.
-"
+" Unimpaired.vim provides shortcuts for various paired activities
 " https://github.com/tpope/vim-unimpaired
 Plug 'tpope/vim-unimpaired'
 
@@ -128,11 +110,7 @@ Plug 'tpope/vim-surround'
 " https://github.com/scrooloose/syntastic
 Plug 'scrooloose/syntastic'
 
-" CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder.
-" Open with CTRL-P, then:
-"   Press <c-f> and <c-b> to cycle between modes.
-"   Press <c-d> to switch to filename only search instead of full path.
-"   Press <c-r> to switch to regexp mode.
+" CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
 " https://github.com/ctrlpvim/ctrlp.vim
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -414,6 +392,7 @@ let g:Gitv_OpenHorizontal=1
 "
 
 " Set tabstop, softtabstop and shiftwidth to the same value
+"==========================================================
 command! -nargs=* Stab call Stab()
 function! Stab()
    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
@@ -439,6 +418,22 @@ function! SummarizeTabs()
    finally
       echohl None
    endtry
+endfunction
+
+" Make :help appear in a full-screen tab, instead of a window
+"============================================================
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter  *.txt   call HelpInNewTab()
+augroup END
+
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help'
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
 endfunction
 
 
