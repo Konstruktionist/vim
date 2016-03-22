@@ -143,8 +143,8 @@ Plug 'rking/ag.vim'
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
-Plug 'chriskempson/base16-vim'
-Plug 'tomasr/molokai'
+"Plug 'chriskempson/base16-vim'
+"Plug 'tomasr/molokai'
 
 " status/tabline for vim that's light as air
 " https://github.com/bling/vim-airline
@@ -178,6 +178,10 @@ Plug 'gabrielelana/vim-markdown'
 " open the current Markdown buffer in Marked.app
 " https://github.com/itspriddle/vim-marked
 Plug 'itspriddle/vim-marked'
+
+" Syntax highlighting for tmux
+" https://github.com/keith/tmux.vim
+Plug 'https://github.com/keith/tmux.vim'
 
 call plug#end()
 
