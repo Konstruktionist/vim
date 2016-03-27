@@ -371,7 +371,7 @@ let g:airline#extensions#tabline#right_alt_sep = '|'
 "  silver searcher
 "
 
-let g:agprg="ag --column --smart-case"
+let g:ag_prg="ag --column --smart-case"
 
 "
 "  NerdTree
@@ -396,7 +396,7 @@ let g:Gitv_OpenHorizontal=1
 "
 
 " Set tabstop, softtabstop and shiftwidth to the same value
-"==========================================================
+" =========================================================
 command! -nargs=* Stab call Stab()
 function! Stab()
    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
@@ -425,7 +425,7 @@ function! SummarizeTabs()
 endfunction
 
 " Make :help appear in a full-screen tab, instead of a window
-"============================================================
+" ===========================================================
 "Only apply to .txt files...
 augroup HelpInTabs
     autocmd!
@@ -445,7 +445,7 @@ endfunction
 " Key-mappings -----------------------------------------------------------------
 "
 
-" Space is easier than backslah
+" Space is easier than backslash
 let g:mapleader = "\<Space>"
 
 " Escape is hard to reach
