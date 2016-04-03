@@ -114,6 +114,11 @@ Plug 'scrooloose/syntastic'
 " https://github.com/ctrlpvim/ctrlp.vim
 Plug 'ctrlpvim/ctrlp.vim'
 
+" A code-completion engine for Vim
+"  The original (valloric) version I can't get working
+" https://github.com/oblitum/YouCompleteMe
+Plug 'oblitum/YouCompleteMe', { 'do': './install.py --clang-completer' }
+
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 " https://github.com/SirVer/ultisnips
@@ -268,7 +273,7 @@ set expandtab                                    "et:    uses spaces instead of 
 
 set number                                       "nu:    numbers lines
 set relativenumber                               "rnu    let vim calculate the vertical jumps
-set numberwidth=6                                "nuw:   width of number column
+set numberwidth=5                                "nuw:   width of number column
 set laststatus=2                                 "ls:    makes the status bar always visible
 set ttyfast                                      "tf:    improves redrawing for newer computers
 set lazyredraw                                   "lz:    will not redraw the screen while running macros (goes faster)
