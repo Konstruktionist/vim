@@ -95,8 +95,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 
 " This is an addon for Vim providing support for editing fish scripts.
-" https://github.com/dag/vim-fish
-Plug 'dag/vim-fish'
+" https://github.com/onodera-punpun/vim-fish
+"  which is a updated fork from https://github.com/dag/vim-fish
+Plug 'onodera-punpun/vim-fish'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 " https://github.com/sjl/gundo.vim/
@@ -133,7 +134,7 @@ Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Support for Apple's Swift language
-Plug 'keith/swift.vim'
+Plug 'kballard/vim-swift'
 
 " A front for ag, A.K.A. the_silver_searcher
 Plug 'rking/ag.vim'
@@ -156,7 +157,7 @@ Plug 'gerw/vim-HiLinkTrace'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'Shougo/neocomplete'
+"Plug 'Shougo/neocomplete'
 
 Plug 'godlygeek/tabular'
 
@@ -371,6 +372,19 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = '|'
+
+"
+"  Syntastic
+"
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "
 "  silver searcher
