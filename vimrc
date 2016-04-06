@@ -83,7 +83,9 @@ Plug 'tpope/vim-fugitive'
 " https://github.com/tpope/vim-unimpaired
 Plug 'tpope/vim-unimpaired'
 
-Plug 'tpope/vim-commentary'
+" Nice comment plugin
+" https://github.com/tomtom/tcomment_vim
+Plug 'tomtom/tcomment_vim'
 
 " A tree explorer plugin for vim
 " https://github.com/scrooloose/nerdtree
