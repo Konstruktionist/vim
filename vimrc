@@ -71,60 +71,50 @@ call plug#begin('~/.vim/plugged')
 " intro End
 " ---------
 
+"
+"  All plugins are on github unless noted otherwise
+"
+
 " enable repeating supported plugin maps with "."
-" https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
 
 " Fugitive is a highly-capable Git wrapper for Vim.
-" https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
 
 " Unimpaired.vim provides shortcuts for various paired activities
-" https://github.com/tpope/vim-unimpaired
 Plug 'tpope/vim-unimpaired'
 
 " Nice comment plugin
-" https://github.com/tomtom/tcomment_vim
 Plug 'tomtom/tcomment_vim'
 
 " A tree explorer plugin for vim
-" https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
 
 " A Vim plugin which shows a git diff in the gutter (sign column) and
  " stages/reverts hunks. Use [c and ]c to navigate changes.
- " https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
 
 " This is an addon for Vim providing support for editing fish scripts.
-" https://github.com/onodera-punpun/vim-fish
-"  which is a updated fork from https://github.com/dag/vim-fish
 Plug 'onodera-punpun/vim-fish'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
-" https://github.com/sjl/gundo.vim/
 Plug 'sjl/gundo.vim'
 
 " Surround.vim lets you add/change/remove surrounding chars and tags
-" https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 
 " Syntax checker for many languages
-" https://github.com/scrooloose/syntastic
 Plug 'scrooloose/syntastic'
 
 " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
-" https://github.com/ctrlpvim/ctrlp.vim
 Plug 'ctrlpvim/ctrlp.vim'
 
 " A code-completion engine for Vim
 "  The original (valloric) version I can't get working
-" https://github.com/oblitum/YouCompleteMe
 Plug 'oblitum/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
-" https://github.com/SirVer/ultisnips
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -155,41 +145,38 @@ Plug 'gerw/vim-HiLinkTrace'
 "Plug 'tomasr/molokai'
 
 " status/tabline for vim that's light as air
-" https://github.com/bling/vim-airline
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 "Plug 'Shougo/neocomplete'
 
+" Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
 
+" Delete all vim buffers but the current one
 Plug 'janson/bufonly.vim'
+
+" Unobtrusive scratch window
 Plug 'mtth/scratch.vim'
 
 " vim plugin to quickly switch between buffers
-" https://github.com/troydm/easybuffer.vim
 Plug 'troydm/easybuffer.vim'
 
 " plugin that displays tags in a window, ordered by scope
-" https://github.com/majutsushi/tagbar
 Plug 'majutsushi/tagbar'
 
 " gitv is a repository viewer
-" https://github.com/gregsexton/gitv
 "  Dependancy: A working fugitive installation
 Plug 'gregsexton/gitv'
 
 " Markdown for Vim
-" https://github.com/gabrielelana/vim-markdown
 Plug 'gabrielelana/vim-markdown'
 
 " open the current Markdown buffer in Marked.app
-" https://github.com/itspriddle/vim-marked
 Plug 'itspriddle/vim-marked'
 
 " Syntax highlighting for tmux
-" https://github.com/keith/tmux.vim
-Plug 'https://github.com/keith/tmux.vim'
+Plug 'keith/tmux.vim'
 
 call plug#end()
 
@@ -388,7 +375,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"
+"  YouCompleteMe
+"
 " Semantic code completion similar to that of Xcode
+" =================================================
 let g:ycm_semantic_triggers = {
  \ 'objc' : ['re!\@"\.*"\s',
  \ 're!\@\w+\.*\w*\s',
@@ -478,6 +469,11 @@ function! HelpInNewTab ()
     endif
 endfunction
 
+" yank to clipboard
+" =================
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+endif
 
 "
 " Key-mappings -----------------------------------------------------------------
