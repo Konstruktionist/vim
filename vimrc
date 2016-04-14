@@ -25,10 +25,10 @@ endif
 " Vim-Plug ---------------------------------------------------------------------
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+   silent !mkdir -p ~/.vim/autoload
+   silent !curl -fLo ~/.vim/autoload/plug.vim
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -91,7 +91,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 
 " A Vim plugin which shows a git diff in the gutter (sign column) and
- " stages/reverts hunks. Use [c and ]c to navigate changes.
+" stages/reverts hunks. Use [c and ]c to navigate changes.
 Plug 'airblade/vim-gitgutter'
 
 " This is an addon for Vim providing support for editing fish scripts.
@@ -381,20 +381,20 @@ let g:syntastic_check_on_wq = 0
 " Semantic code completion similar to that of Xcode
 " =================================================
 let g:ycm_semantic_triggers = {
- \ 'objc' : ['re!\@"\.*"\s',
- \ 're!\@\w+\.*\w*\s',
- \ 're!\@\(\w+\.*\w*\)\s',
- \ 're!\@\(\s*',
- \ 're!\@\[.*\]\s',
- \ 're!\@\[\s*',
- \ 're!\@\{.*\}\s',
- \ 're!\@\{\s*',
- \ "re!\@\’.*\’\s",
- \ '#ifdef ',
- \ 're!:\s*',
- \ 're!=\s*',
- \ 're!,\s*', ],
- \ }
+         \ 'objc' : ['re!\@"\.*"\s',
+         \ 're!\@\w+\.*\w*\s',
+         \ 're!\@\(\w+\.*\w*\)\s',
+         \ 're!\@\(\s*',
+         \ 're!\@\[.*\]\s',
+         \ 're!\@\[\s*',
+         \ 're!\@\{.*\}\s',
+         \ 're!\@\{\s*',
+         \ "re!\@\’.*\’\s",
+         \ '#ifdef ',
+         \ 're!:\s*',
+         \ 're!=\s*',
+         \ 're!,\s*', ],
+         \ }
 
 "
 "  silver searcher
@@ -457,22 +457,22 @@ endfunction
 " ===========================================================
 "Only apply to .txt files...
 augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter  *.txt   call HelpInNewTab()
+   autocmd!
+   autocmd BufEnter  *.txt   call HelpInNewTab()
 augroup END
 
 "Only apply to help files...
 function! HelpInNewTab ()
-    if &buftype == 'help'
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
+   if &buftype == 'help'
+      "Convert the help window to a tab...
+      execute "normal \<C-W>T"
+   endif
 endfunction
 
 " yank to clipboard
 " =================
 if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
+   set clipboard=unnamed " copy to the system clipboard
 endif
 
 "
@@ -521,5 +521,20 @@ nmap <leader>b :EasyBufferToggle<CR>
 
 " Delete in normal mode switches off highlighting till next search...
 nmap <silent> <BS> :nohlsearch<CR>
+
+" Call the :Tabularize command each time you insert a | character
+"  Very usefull for Markdown tables
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+   let p = '^\s*|\s.*\s|\s*$'
+   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+      Tabularize/|/l1
+      normal! 0
+      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+   endif
+endfunction
 
 " Key-mappings End <---
