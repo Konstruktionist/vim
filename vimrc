@@ -88,7 +88,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tomtom/tcomment_vim'
 
 " A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" A plugin of NERDTree showing git status
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " A Vim plugin which shows a git diff in the gutter (sign column) and
 " stages/reverts hunks. Use [c and ]c to navigate changes.
@@ -98,7 +101,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'onodera-punpun/vim-fish'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
+
+" UndoTree
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " Surround.vim lets you add/change/remove surrounding chars and tags
 Plug 'tpope/vim-surround'
@@ -302,7 +308,7 @@ set cursorline
 " gvim
 "
 
-set guifont=PragmataPro:h11
+set guifont=Iosevka-Light:h11
 set guioptions-=T " No toolbar
 set guioptions-=r " No scrollbar right
 set guioptions-=l " No scrollbar left
@@ -506,8 +512,8 @@ nmap <leader>n :NERDTreeToggle<CR>
 "Toggle Ag
 nmap <leader>g :Ag!<CR>
 
-" Toggle Gundo
-nnoremap <leader>gt :GundoToggle<CR>
+" Toggle Undotree
+nnoremap <leader>ut :UndotreeToggle<CR>
 
 " Tip from http://www.catonmat.net/blog/sudo-vim/
 " save read-only files
