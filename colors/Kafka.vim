@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 1.6 - 18-02-2016
+"     Version 1.7 - 28-04-2016
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -20,46 +20,46 @@ let g:colors_name="Kafka"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi Normal          ctermfg=253   ctermbg=NONE      cterm=NONE        guifg=#dadada     guibg=#2a303b        gui=NONE
-hi Cursor                                          cterm=reverse     guifg=#909090     guibg=#606060        gui=NONE
-hi CursorLine      ctermfg=NONE  ctermbg=237       cterm=NONE        guifg=NONE        guibg=#38404d        gui=NONE
-hi LineNr          ctermfg=8     ctermbg=NONE      cterm=NONE        guifg=#737373     guibg=NONE           gui=NONE
-hi CursorLineNR    ctermfg=11    ctermbg=NONE      cterm=NONE        guifg=#fae3a0     guibg=NONE           gui=NONE
+hi Normal           ctermfg=253   ctermbg=NONE      cterm=NONE        guifg=#dadada     guibg=#2a303b         gui=NONE
+hi Cursor           ctermfg=0     ctermbg=15        cterm=NONE        guifg=#000000     guibg=#eeeeee         gui=NONE
+hi CursorLine       ctermfg=NONE  ctermbg=237       cterm=NONE        guifg=NONE        guibg=#38404d         gui=NONE
+hi LineNr           ctermfg=8     ctermbg=NONE      cterm=NONE        guifg=#737373     guibg=NONE            gui=NONE
+hi CursorLineNR     ctermfg=11    ctermbg=NONE      cterm=NONE        guifg=#fae3a0     guibg=NONE            gui=NONE
 
 " -----------------
 " - Number column -
 " -----------------
-hi CursorColumn   ctermfg=NONE      ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
-hi FoldColumn     ctermfg=248       ctermbg=239       cterm=NONE        guifg=#a8a8a8     guibg=#4e4e4e     gui=NONE
-hi SignColumn     ctermfg=245       ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE			gui=NONE
-hi Folded         ctermfg=248       ctermbg=239       cterm=NONE        guifg=#a8a8a8     guibg=#4e4e4e     gui=NONE
+hi CursorColumn     ctermfg=NONE      ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
+hi FoldColumn       ctermfg=248       ctermbg=239       cterm=NONE        guifg=#a8a8a8     guibg=#4e4e4e     gui=NONE
+hi SignColumn       ctermfg=245       ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE        gui=NONE
+hi Folded           ctermfg=248       ctermbg=239       cterm=NONE        guifg=#a8a8a8     guibg=#4e4e4e     gui=NONE
 
 " -------------------------
 " - Window/Tab delimiters -
 " -------------------------
-hi VertSplit       ctermfg=244      ctermbg=7         cterm=NONE        guifg=#808080     guibg=#909090     gui=NONE
-hi ColorColumn     ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
-hi TabLine         ctermfg=245      ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE        gui=NONE
-hi TabLineFill     ctermfg=239      ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
-hi TabLineSel      ctermfg=112      ctermbg=NONE      cterm=NONE        guifg=#5f8700     guibg=NONE        gui=NONE
+hi VertSplit        ctermfg=244      ctermbg=7         cterm=NONE        guifg=#808080     guibg=#909090     gui=NONE
+hi ColorColumn      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
+hi TabLine          ctermfg=245      ctermbg=NONE      cterm=NONE        guifg=#8a8a8a     guibg=NONE        gui=NONE
+hi TabLineFill      ctermfg=239      ctermbg=NONE      cterm=NONE        guifg=#4e4e4e     guibg=NONE        gui=NONE
+hi TabLineSel       ctermfg=112      ctermbg=NONE      cterm=NONE        guifg=#5f8700     guibg=NONE        gui=NONE
 
 " -------------------------------
 " - File Navigation / Searching -
 " -------------------------------
-hi Directory       ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8   guibg=NONE          gui=NONE
-hi Search          ctermfg=239      ctermbg=11        cterm=NONE        guifg=#303030   guibg=#fae3a0       gui=NONE
-hi IncSearch       ctermfg=235      ctermbg=208       cterm=NONE        guifg=#262626   guibg=#ff8700       gui=NONE
+hi Directory        ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8   guibg=NONE          gui=NONE
+hi Search           ctermfg=239      ctermbg=11        cterm=NONE        guifg=#303030   guibg=#fae3a0       gui=NONE
+hi IncSearch        ctermfg=235      ctermbg=208       cterm=NONE        guifg=#262626   guibg=#ff8700       gui=NONE
 
 " -----------------
 " - Prompt/Status -
 " -----------------
-hi StatusLine      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
-hi StatusLineNC    ctermfg=NONE     ctermbg=238       cterm=NONE        guifg=NONE        guibg=#444444     gui=NONE
-hi WildMenu        ctermfg=0        ctermbg=6         cterm=NONE        guifg=#202020     guibg=#73a5c8     gui=NONE
-hi Question        ctermfg=10       ctermbg=NONE      cterm=NONE        guifg=#b6c2aa     guibg=NONE        gui=NONE
-hi Title           ctermfg=3        ctermbg=NONE      cterm=bold        guifg=#fbc692     guibg=NONE        gui=NONE
-hi ModeMsg         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
-hi MoreMsg         ctermfg=2        ctermbg=NONE      cterm=NONE        guifg=#93a48e     guibg=NONE        gui=NONE
+hi StatusLine       ctermfg=0         ctermbg=7        cterm=NONE        guifg=NONE        guibg=#909090     gui=NONE
+hi StatusLineNC     ctermfg=NONE      ctermbg=238      cterm=NONE        guifg=NONE        guibg=#444444     gui=NONE
+hi WildMenu         ctermfg=0        ctermbg=6         cterm=NONE        guifg=#202020     guibg=#73a5c8     gui=NONE
+hi Question         ctermfg=10       ctermbg=NONE      cterm=NONE        guifg=#b6c2aa     guibg=NONE        gui=NONE
+hi Title            ctermfg=3        ctermbg=NONE      cterm=bold        guifg=#fbc692     guibg=NONE        gui=NONE
+hi ModeMsg          ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
+hi MoreMsg          ctermfg=2        ctermbg=NONE      cterm=NONE        guifg=#93a48e     guibg=NONE        gui=NONE
 
 " --------------
 " - Visual aid -
@@ -67,7 +67,7 @@ hi MoreMsg         ctermfg=2        ctermbg=NONE      cterm=NONE        guifg=#9
 hi MatchParen      ctermfg=NONE     ctermbg=202       cterm=NONE        guifg=#ffffff     guibg=#ff5f00     gui=NONE
 hi Visual          ctermfg=NONE     ctermbg=25        cterm=NONE        guifg=NONE        guibg=#005faf     gui=NONE
 hi VisualNOS       ctermfg=9        ctermbg=25        cterm=NONE        guifg=#d14548     guibg=#005faf     gui=NONE
-hi NonText         ctermfg=4        ctermbg=NONE      cterm=bold        guifg=#43788c     guibg=NONE        gui=bold
+hi NonText         ctermfg=2        ctermbg=NONE      cterm=NONE        guifg=#43788c     guibg=NONE        gui=NONE
 
 hi Todo            ctermfg=14       ctermbg=3         cterm=NONE        guifg=#0f829d     guibg=#f9bb80     gui=NONE
 hi Underlined      ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#808080     guibg=NONE        gui=NONE
@@ -151,7 +151,7 @@ hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=#f
 hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=#ffffff     guibg=#5fd7ff     gui=NONE
 
 "--------------------------------------------------------------------
-" Specific settings                                                 |
+" Specific settings
 "--------------------------------------------------------------------
 
 " --------------------------------
@@ -196,29 +196,29 @@ hi cssColor       ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#8
 " --------------------------------
 " Markdown highlighting
 " --------------------------------
-hi markdownBold	ctermfg=178			ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
-hi markdownItalic	ctermfg=178			ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
-hi markdownBoldItalic	ctermfg=178	ctermbg=NONE      cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
-hi markdownCode    ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownError   ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
-hi markdownCodeBlock ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownFencedCodeBlock ctermfg=6	ctermbg=NONE	cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownInlineCode ctermfg=6		ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownHeadingDelimiter ctermfg=94 ctermbg=NONE   cterm=NONE        guifg=#875f00     guibg=NONE        gui=NONE
+hi markdownBold             ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownItalic           ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownBoldItalic       ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownCode             ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownError            ctermfg=9   ctermbg=NONE   cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
+hi markdownCodeBlock        ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownFencedCodeBlock  ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownInlineCode       ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownHeadingDelimiter ctermfg=94  ctermbg=NONE   cterm=NONE        guifg=#875f00     guibg=NONE        gui=NONE
 
 " --------------------------------
 " Ruby highlighting
 " --------------------------------
-hi rubyAttribute  ctermfg=229       ctermbg=NONE      cterm=NONE        guifg=#ffffaf     guibg=NONE        gui=NONE
-hi rubyConstant   ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
-hi rubyRegexp     ctermfg=12        ctermbg=NONE      cterm=NONE        guifg=#87a2b1     guibg=NONE        gui=NONE
-hi rubySymbol     ctermfg=11        ctermbg=NONE      cterm=NONE        guifg=#fbe8af     guibg=NONE        gui=NONE
-hi rubyInterpolation ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi rubyStringDelimiter  ctermfg=11  ctermbg=NONE      cterm=NONE        guifg=#fbe8af     guibg=NONE        gui=NONE
-hi rubyInterpolationDelimiter ctermfg=74  ctermbg=NONE   cterm=NONE     guifg=#5fafd7     guibg=NONE        gui=NONE
+hi rubyAttribute              ctermfg=229 ctermbg=NONE  cterm=NONE        guifg=#ffffaf     guibg=NONE        gui=NONE
+hi rubyConstant               ctermfg=111 ctermbg=NONE  cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
+hi rubyRegexp                 ctermfg=12  ctermbg=NONE  cterm=NONE        guifg=#87a2b1     guibg=NONE        gui=NONE
+hi rubySymbol                 ctermfg=11  ctermbg=NONE  cterm=NONE        guifg=#fbe8af     guibg=NONE        gui=NONE
+hi rubyInterpolation          ctermfg=6   ctermbg=NONE  cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi rubyStringDelimiter        ctermfg=11  ctermbg=NONE  cterm=NONE        guifg=#fbe8af     guibg=NONE        gui=NONE
+hi rubyInterpolationDelimiter ctermfg=74  ctermbg=NONE  cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 
 " --------------------------------
 " NERDTree highlighting
 " --------------------------------
-hi NERDTreeDirSlash ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi NERDTreeExecFile ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
+hi NERDTreeDirSlash   ctermfg=6       ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi NERDTreeExecFile   ctermfg=9       ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
