@@ -257,9 +257,9 @@ set matchtime=3                                  "mat:   How long to flash brack
 " Tabs
 "
 
-set tabstop=3                                    "ts:    number of spaces that a tab renders as
-set shiftwidth=3                                 "sw:    number of spaces to use for autoindent
-set softtabstop=3                                "sts:   number of spaces that tabs insert
+set tabstop=2                                    "ts:    number of spaces that a tab renders as
+set shiftwidth=2                                 "sw:    number of spaces to use for autoindent
+set softtabstop=2                                "sts:   number of spaces that tabs insert
 set smarttab                                     "sta:   helps with backspacing because of expandtab
 set expandtab                                    "et:    uses spaces instead of tab characters
 
@@ -308,7 +308,7 @@ set cursorline
 " gvim
 "
 
-set guifont=Iosevka-Light:h11
+set guifont=PragmataProMono:h11
 set guioptions-=T " No toolbar
 set guioptions-=r " No scrollbar right
 set guioptions-=l " No scrollbar left
@@ -489,7 +489,7 @@ endif
 let g:mapleader = "\<Space>"
 
 " Escape is hard to reach
-inoremap jk <esc>
+inoremap kj <esc>
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
