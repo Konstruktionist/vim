@@ -17,7 +17,7 @@ set nocompatible                                 " be iMproved, required
 "        bash as its shell.
 "
 if &shell =~# 'fish$'
-   set shell=/bin/bash
+  set shell=/bin/bash
 endif
 "
 
@@ -25,10 +25,10 @@ endif
 " Vim-Plug ---------------------------------------------------------------------
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
-   silent !mkdir -p ~/.vim/autoload
-   silent !curl -fLo ~/.vim/autoload/plug.vim
-            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   autocmd VimEnter * PlugInstall
+  silent !mkdir -p ~/.vim/autoload
+  silent !curl -fLo ~/.vim/autoload/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -197,7 +197,7 @@ call plug#end()
 "
 
 if has("autocmd")
-   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 
@@ -305,14 +305,17 @@ set background=dark
 set cursorline
 
 "
-" gvim
+" Gvim/MacVim
 "
 
-set guifont=PragmataProMono:h11
-set guioptions-=T " No toolbar
-set guioptions-=r " No scrollbar right
-set guioptions-=l " No scrollbar left
-set guioptions-=b " No scrollbar bottom
+if has ('gui_running')
+  set lines=80 columns=130          " Default window size
+  set guifont=PragmataProMono:h11
+  set guioptions-=T                 " No toolbar
+  set guioptions-=r                 " No scrollbar right
+  set guioptions-=l                 " No scrollbar left
+  set guioptions-=b                 " No scrollbar bottom
+endif
 
 "
 " File formats -----------------------------------------------------------------
@@ -387,20 +390,20 @@ let g:syntastic_check_on_wq = 0
 " Semantic code completion similar to that of Xcode
 " =================================================
 let g:ycm_semantic_triggers = {
-         \ 'objc' : ['re!\@"\.*"\s',
-         \ 're!\@\w+\.*\w*\s',
-         \ 're!\@\(\w+\.*\w*\)\s',
-         \ 're!\@\(\s*',
-         \ 're!\@\[.*\]\s',
-         \ 're!\@\[\s*',
-         \ 're!\@\{.*\}\s',
-         \ 're!\@\{\s*',
-         \ "re!\@\’.*\’\s",
-         \ '#ifdef ',
-         \ 're!:\s*',
-         \ 're!=\s*',
-         \ 're!,\s*', ],
-         \ }
+      \ 'objc' : ['re!\@"\.*"\s',
+      \ 're!\@\w+\.*\w*\s',
+      \ 're!\@\(\w+\.*\w*\)\s',
+      \ 're!\@\(\s*',
+      \ 're!\@\[.*\]\s',
+      \ 're!\@\[\s*',
+      \ 're!\@\{.*\}\s',
+      \ 're!\@\{\s*',
+      \ "re!\@\’.*\’\s",
+      \ '#ifdef ',
+      \ 're!:\s*',
+      \ 're!=\s*',
+      \ 're!,\s*', ],
+      \ }
 
 "
 "  silver searcher
@@ -434,51 +437,51 @@ let g:Gitv_OpenHorizontal=1
 " =========================================================
 command! -nargs=* Stab call Stab()
 function! Stab()
-   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-   if l:tabstop > 0
-      let &l:sts = l:tabstop
-      let &l:ts = l:tabstop
-      let &l:sw = l:tabstop
-   endif
-   call SummarizeTabs()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
 endfunction
 
 function! SummarizeTabs()
-   try
-      echohl ModeMsg
-      echon 'tabstop='.&l:ts
-      echon ' shiftwidth='.&l:sw
-      echon ' softtabstop='.&l:sts
-      if &l:et
-         echon ' expandtab'
-      else
-         echon ' noexpandtab'
-      endif
-   finally
-      echohl None
-   endtry
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
 endfunction
 
 " Make :help appear in a full-screen tab, instead of a window
 " ===========================================================
 "Only apply to .txt files...
 augroup HelpInTabs
-   autocmd!
-   autocmd BufEnter  *.txt   call HelpInNewTab()
+  autocmd!
+  autocmd BufEnter  *.txt   call HelpInNewTab()
 augroup END
 
 "Only apply to help files...
 function! HelpInNewTab ()
-   if &buftype == 'help'
-      "Convert the help window to a tab...
-      execute "normal \<C-W>T"
-   endif
+  if &buftype == 'help'
+    "Convert the help window to a tab...
+    execute "normal \<C-W>T"
+  endif
 endfunction
 
 " yank to clipboard
 " =================
 if has("clipboard")
-   set clipboard=unnamed " copy to the system clipboard
+  set clipboard=unnamed " copy to the system clipboard
 endif
 
 "
@@ -533,14 +536,14 @@ nmap <silent> <BS> :nohlsearch<CR>
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
-   let p = '^\s*|\s.*\s|\s*$'
-   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-      Tabularize/|/l1
-      normal! 0
-      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-   endif
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
 endfunction
 
 " Key-mappings End <---
