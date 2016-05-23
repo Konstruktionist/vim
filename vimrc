@@ -310,7 +310,7 @@ set cursorline
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=PragmataProMono:h11
+  set guifont=Iosevka:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
@@ -352,13 +352,14 @@ let g:gitgutter_sign_removed='-'
 "  Airline status bar options
 "
 
-let g:airline_theme='understated'
+let g:airline_theme='distinguished'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
-let g:airline_left_sep=' '
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=' '
-let g:airline_right_alt_sep='|'
+let g:airline_detect_iminsert=1
+"let g:airline_left_sep=' '
+"let g:airline_left_alt_sep='|'
+"let g:airline_right_sep=' '
+"let g:airline_right_alt_sep='|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
@@ -366,10 +367,10 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline#extensions#tabline#right_sep = ' '
+"let g:airline#extensions#tabline#right_alt_sep = '|'
 
 "
 "  Syntastic
