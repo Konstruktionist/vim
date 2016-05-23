@@ -116,8 +116,7 @@ Plug 'scrooloose/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " A code-completion engine for Vim
-"  The original (valloric) version I can't get working
-Plug 'oblitum/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Shougo/neocomplete.vim'
 
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
@@ -153,8 +152,6 @@ Plug 'gerw/vim-HiLinkTrace'
 " status/tabline for vim that's light as air
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-"Plug 'Shougo/neocomplete'
 
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
@@ -356,10 +353,6 @@ let g:airline_theme='distinguished'
 let g:airline_powerline_fonts=1
 let g:airline_inactive_collapse=1
 let g:airline_detect_iminsert=1
-"let g:airline_left_sep=' '
-"let g:airline_left_alt_sep='|'
-"let g:airline_right_sep=' '
-"let g:airline_right_alt_sep='|'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
@@ -367,10 +360,6 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#whitespace#enabled = 0
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-"let g:airline#extensions#tabline#right_sep = ' '
-"let g:airline#extensions#tabline#right_alt_sep = '|'
 
 "
 "  Syntastic
@@ -386,25 +375,14 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "
-"  YouCompleteMe
+"  NeoComplete
 "
-" Semantic code completion similar to that of Xcode
-" =================================================
-let g:ycm_semantic_triggers = {
-      \ 'objc' : ['re!\@"\.*"\s',
-      \ 're!\@\w+\.*\w*\s',
-      \ 're!\@\(\w+\.*\w*\)\s',
-      \ 're!\@\(\s*',
-      \ 're!\@\[.*\]\s',
-      \ 're!\@\[\s*',
-      \ 're!\@\{.*\}\s',
-      \ 're!\@\{\s*',
-      \ "re!\@\’.*\’\s",
-      \ '#ifdef ',
-      \ 're!:\s*',
-      \ 're!=\s*',
-      \ 're!,\s*', ],
-      \ }
+
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 "
 "  silver searcher
@@ -512,6 +490,28 @@ nmap <leader>ar :AirlineRefresh<CR>
 
 " Toggle NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
+
+"
+" NeoComplete key-mappings
+" ------------------------
+"
+inoremap <expr><C-l> neocomplete#complete_common_string()
+" Recommended key-mappings.
+" " <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+ endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
 
 "Toggle Ag
 nmap <leader>g :Ag!<CR>
