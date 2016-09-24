@@ -133,11 +133,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Support for Apple's Swift language
 Plug 'kballard/vim-swift'
 
-" A front for ag, A.K.A. the_silver_searcher
-Plug 'rking/ag.vim'
-
-"Plug 'ap/vim-buftabline'
-
 " Fantastic selection for vim
 " Plug 'gorkunov/smartpairs.vim'
 
@@ -307,7 +302,7 @@ set cursorline
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=Iosevka\ Light:h11
+  set guifont=PragmataPro-Regular:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
@@ -318,7 +313,8 @@ endif
 " File formats -----------------------------------------------------------------
 "
 autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 " http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+"from http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
 
 " Make json files human readable
 autocmd BufRead,BufNewFile *.json set filetype=json
@@ -383,12 +379,6 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-"
-"  silver searcher
-"
-
-let g:ag_prg="ag --column --smart-case"
 
 "
 "  NerdTree
@@ -512,9 +502,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-
-"Toggle Ag
-nmap <leader>g :Ag!<CR>
 
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
