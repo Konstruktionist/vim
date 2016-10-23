@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 1.7 - 28-04-2016
+"     Version 1.8 - 2016-10-18
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -99,7 +99,7 @@ hi Label           ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#0
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Keyword         ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=247      ctermbg=NONE      cterm=NONE        guifg=#9e9e9e     guibg=NONE        gui=NONE
+hi Comment         ctermfg=247      ctermbg=NONE      cterm=NONE        guifg=#9e9e9e     guibg=NONE        gui=italic
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
