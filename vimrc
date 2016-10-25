@@ -118,6 +118,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " A code-completion engine for Vim
 Plug 'Shougo/neocomplete.vim'
 
+" Speeds up folding
+Plug 'Konfekt/FastFold'
+
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 Plug 'sirver/ultisnips'
