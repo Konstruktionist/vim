@@ -302,7 +302,7 @@ set cursorline
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=PragmataPro-Regular:h11
+  set guifont=Iosevka-Extralight:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
@@ -399,6 +399,22 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:Gitv_OpenHorizontal=1
 
 "
+" nerdtree-git-plugin
+"
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "𝑚",
+    \ "Staged"    : "𝑠",
+    \ "Untracked" : "𝑢",
+    \ "Renamed"   : "𝑟",
+    \ "Unmerged"  : "𝑼",
+    \ "Deleted"   : "𝑑",
+    \ "Dirty"     : "𝛅",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+"
 " Commands ---------------------------------------------------------------------
 "
 
@@ -461,7 +477,7 @@ endif
 let g:mapleader = "\<Space>"
 
 " Escape is hard to reach
-inoremap kj <esc>
+inoremap jk <esc>
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
