@@ -170,7 +170,7 @@ Plug 'majutsushi/tagbar'
 Plug 'gregsexton/gitv'
 
 " Markdown for Vim
-Plug 'gabrielelana/vim-markdown'
+"Plug 'gabrielelana/vim-markdown'
 
 " open the current Markdown buffer in Marked.app
 Plug 'itspriddle/vim-marked'
