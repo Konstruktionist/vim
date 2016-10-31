@@ -11,3 +11,4 @@ tags
 *.vim.old
 # Folders
 plugged/*
+spell/*
