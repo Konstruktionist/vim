@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 1.8 - 2016-10-18
+"     Version 1.9 - 2016-10-31
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -196,15 +196,59 @@ hi cssColor       ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#8
 " --------------------------------
 " Markdown highlighting
 " --------------------------------
-hi markdownBold             ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
-hi markdownItalic           ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
-hi markdownBoldItalic       ctermfg=178 ctermbg=NONE   cterm=NONE        guifg=#d7af00     guibg=NONE        gui=NONE
+hi markdownBold             ctermfg=178 ctermbg=NONE   cterm=bold        guifg=#d7af00     guibg=NONE        gui=bold
+hi markdownItalic           ctermfg=183 ctermbg=NONE   cterm=NONE        guifg=#d7afff     guibg=NONE        gui=italic
+hi markdownBoldItalic       ctermfg=183 ctermbg=NONE   cterm=bold        guifg=#d7afff     guibg=NONE        gui=bolditalic
+
+"hi markdownPullRequestLinkInText
+"hi markdownUserLinkInText
+"hi markdownUrlLinkInText
+"hi markdownEmailLinkInText
+
+hi markdownLinkText              ctermfg=9      ctermbg=NONE   cterm=NONE  guifg=#dc5c5a     guibg=NONE        gui=NONE
+hi markdownLinkUrl               ctermfg=172    ctermbg=NONE   cterm=NONE  guifg=#d78700     guibg=NONE        gui=NONE
+hi markdownLinkTitleSingleQuoted ctermfg=249    ctermbg=NONE   cterm=NONE  guifg=#b2b2b2     guibg=NONE        gui=NONE
+hi markdownLinkTitleDoubleQuoted ctermfg=249    ctermbg=NONE   cterm=NONE  guifg=#b2b2b2     guibg=NONE        gui=NONE
+hi markdownLinkUrlContainer      ctermfg=172    ctermbg=NONE   cterm=NONE  guifg=#d78700     guibg=NONE        gui=NONE
+hi markdownLinkTextContainer     ctermfg=9      ctermbg=NONE   cterm=NONE  guifg=#dc5c5a     guibg=NONE        gui=NONE
+hi markdownLinkReference         ctermfg=172    ctermbg=NONE   cterm=NONE  guifg=#d78700     guibg=NONE        gui=NONE
+
+hi markdownCodeDelimiter    ctermfg=14  ctermbg=NONE   cterm=NONE    guifg=#0f829d     guibg=NONE        gui=NONE
+hi markdownInlineCode       ctermfg=6   ctermbg=NONE   cterm=NONE    guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownFencedCodeBlock  ctermfg=6   ctermbg=NONE   cterm=NONE    guifg=#73a5c8     guibg=NONE        gui=NONE
+hi markdownCodeBlock        ctermfg=6   ctermbg=NONE   cterm=NONE    guifg=#73a5c8     guibg=NONE        gui=NONE
+
+"hi markdownTableDelimiter
+"hi markdownTableHeader
+
+"hi markdownStrike
+hi markdownStrikeDelimiter     ctermfg=14  ctermbg=NONE   cterm=NONE    guifg=#0f829d     guibg=NONE        gui=NONE
+hi markdownBlockquote          ctermfg=2   ctermbg=NONE   cterm=NONE    guifg=#96a490     guibg=NONE        gui=NONE
+hi markdownBlockquoteDelimiter ctermfg=14  ctermbg=NONE   cterm=NONE    guifg=#0f829d     guibg=NONE        gui=NONE
+hi markdownInlineDelimiter     ctermfg=14  ctermbg=NONE   cterm=NONE    guifg=#0f829d     guibg=NONE        gui=NONE
+hi markdownListDelimiter       ctermfg=14  ctermbg=NONE   cterm=NONE    guifg=#0f829d     guibg=NONE        gui=NONE
+
+"hi markdownHeaderId
+hi markdownHeadingDelimiter ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00     guibg=#444444     gui=NONE
+hi markdownHeadingUnderline ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00     guibg=#444444     gui=NONE
+hi markdownHeader ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00     guibg=#444444     gui=NONE
+hi markdownH1  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+hi markdownH2  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+hi markdownH3  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+hi markdownH4  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+hi markdownH5  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+hi markdownH6  ctermfg=3  ctermbg=238   cterm=NONE        guifg=#fbc692     guibg=#444444        gui=NONE
+
+"hi markdownEmoticonKeyword
+hi markdownRule   ctermfg=232  ctermbg=249   cterm=NONE        guifg=#080808     guibg=#b2b2b2        gui=NONE
+
+"hi markdownXmlComment
+"hi markdownXmlElement
+"hi markdownXmlEmptyElement
+"hi markdownXmlEntities
+
 hi markdownCode             ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownError            ctermfg=9   ctermbg=NONE   cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
-hi markdownCodeBlock        ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownFencedCodeBlock  ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownInlineCode       ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
-hi markdownHeadingDelimiter ctermfg=94  ctermbg=NONE   cterm=NONE        guifg=#875f00     guibg=NONE        gui=NONE
+hi markdownError            ctermfg=1   ctermbg=NONE   cterm=NONE        guifg=#c8333c     guibg=NONE        gui=NONE
 
 " --------------------------------
 " Ruby highlighting
