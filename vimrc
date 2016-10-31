@@ -144,8 +144,7 @@ Plug 'kballard/vim-swift'
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
-"Plug 'chriskempson/base16-vim'
-"Plug 'tomasr/molokai'
+"Plug 'romainl/Apprentice'
 
 " status/tabline for vim that's light as air
 Plug 'bling/vim-airline'
@@ -480,7 +479,7 @@ endif
 let g:mapleader = "\<Space>"
 
 " Escape is hard to reach
-inoremap jk <esc>
+inoremap kj <esc>
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
