@@ -9,6 +9,7 @@ Session.vim
 # auto-generated tag files
 tags
 *.vim.old
-# Folders
+# directories
+autoload/*
 plugged/*
 spell/*
