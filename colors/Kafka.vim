@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.0 - 06-10-2016
+"     Version 2.1 - 06-10-2016
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -88,14 +88,14 @@ hi Number          ctermfg=172      ctermbg=NONE      cterm=NONE        guifg=#d
 hi Boolean         ctermfg=172      ctermbg=NONE      cterm=NONE        guifg=#d78700     guibg=NONE        gui=NONE
 hi Float           ctermfg=172      ctermbg=NONE      cterm=NONE        guifg=#d78700     guibg=NONE        gui=NONE
 
-hi Identifier      ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
+hi Identifier      ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#dc5c5a     guibg=NONE        gui=NONE
 hi Function        ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 
 " --------------------------------
 " Language constructs
 " --------------------------------
-hi Statement       ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
-hi Label           ctermfg=34       ctermbg=NONE      cterm=NONE        guifg=#00af00     guibg=NONE        gui=NONE
+hi Statement       ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi Label           ctermfg=101      ctermbg=NONE      cterm=NONE        guifg=#87875f     guibg=NONE        gui=NONE
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Keyword         ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Conditional     ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
