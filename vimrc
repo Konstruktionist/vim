@@ -274,7 +274,7 @@ set linebreak                                    "lbr    break lines at word end
 "
 
 set wildmenu                                     "wmnu:  enhanced ed command completion
-set wildmode=list,full                           "wim    list all matches and complete first match
+set wildmode=list:full                           "wim    list all matches and complete first match
 
 " Ignore these file-types for wildcard matching
 set wildignore+=.hg,.git,.svn                    " Version control
