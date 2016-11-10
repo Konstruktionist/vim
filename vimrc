@@ -97,7 +97,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " stages/reverts hunks. Use [c and ]c to navigate changes.
 Plug 'airblade/vim-gitgutter'
 
-" This is an addon for Vim providing support for editing fish scripts.
+" Providing support for editing fish scripts.
 Plug 'onodera-punpun/vim-fish'
 
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
@@ -127,7 +127,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Better whitespace highlighting for Vim
-"  to toggle whiespace highlighting, call:
+"  to toggle whitespace highlighting, call:
 "     :ToggleWhitespace
 "  to clean extra whitespace, call:
 "     :StripWhitespace
@@ -155,9 +155,6 @@ Plug 'godlygeek/tabular'
 
 " Delete all vim buffers but the current one
 Plug 'janson/bufonly.vim'
-
-" Unobtrusive scratch window
-Plug 'mtth/scratch.vim'
 
 " vim plugin to quickly switch between buffers
 Plug 'troydm/easybuffer.vim'
@@ -187,11 +184,11 @@ call plug#end()
 
 
 "
-" Reload changes to .vimrc
+" Reload changes to vimrc
 "
 
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost vimrc source $MYVIMRC
 endif
 
 
@@ -212,11 +209,12 @@ set t_Co=256                                     "       set iTerm terminal to 2
 set listchars=tab:▸\ ,eol:¬,extends:◉,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
-set showbreak=\ ↪︎\                               "sbr:   Show Unicode 21AA (RIGHTWARDS ARROW WITH HOOK) surrounded by spaces when soft-wrapping lines
+set breakindent                                  "bri:   wrapped line will continue visually indented
+set breakindentopt=shift:2                       "briopt: indent by 2 spaces
 set nobackup                                     "       Don't write backup files
 set nowritebackup
 set noswapfile
-set cmdwinheight=20                                " Height of command window
+set cmdwinheight=20                              "       Height of command window
 
 "
 " Folding
@@ -304,7 +302,7 @@ set cursorline
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=Iosevka-Extralight:h11
+  set guifont=Iosevka-Light:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
