@@ -101,7 +101,7 @@ hi Keyword         ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#a
 hi Conditional     ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Repeat          ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=247      ctermbg=NONE      cterm=NONE        guifg=#9e9e9e     guibg=NONE        gui=italic
+hi Comment         ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#808080     guibg=NONE        gui=italic
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
