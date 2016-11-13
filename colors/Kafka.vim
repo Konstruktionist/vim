@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.1 - 06-10-2016
+"     Version 2.2 - 14-11-2016
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -46,9 +46,9 @@ hi TabLineSel     ctermfg=112    ctermbg=NONE   cterm=NONE        guifg=#5f8700 
 " -------------------------------
 " - File Navigation / Searching -
 " -------------------------------
-hi Directory   ctermfg=6   ctermbg=NONE   cterm=NONE        guifg=#73a5c8  guibg=NONE     gui=NONE
-hi Search      ctermfg=239 ctermbg=11     cterm=NONE        guifg=#303030  guibg=#fae3a0  gui=NONE
-hi IncSearch   ctermfg=235 ctermbg=208    cterm=NONE        guifg=#262626  guibg=#ff8700  gui=NONE
+hi Directory   ctermfg=6      ctermbg=NONE   cterm=NONE        guifg=#73a5c8  guibg=NONE     gui=NONE
+hi Search      ctermfg=239    ctermbg=11     cterm=NONE        guifg=#303030  guibg=#fae3a0  gui=NONE
+hi IncSearch   ctermfg=235    ctermbg=208    cterm=NONE        guifg=#262626  guibg=#ff8700  gui=NONE
 
 " -----------------
 " - Prompt/Status -
@@ -94,7 +94,7 @@ hi Function        ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#a
 " --------------------------------
 " Language constructs
 " --------------------------------
-hi Statement       ctermfg=6        ctermbg=NONE      cterm=NONE        guifg=#73a5c8     guibg=NONE        gui=NONE
+hi Statement       ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
 hi Label           ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Keyword         ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
@@ -113,13 +113,13 @@ hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#f
 " ----------
 " - C like -
 " ----------
-hi PreProc         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
+hi PreProc         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#cc645e     guibg=NONE        gui=NONE
 hi Include         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Define          ctermfg=3        ctermbg=NONE      cterm=NONE        guifg=#fbc692     guibg=NONE        gui=NONE
 hi Macro           ctermfg=208      ctermbg=NONE      cterm=NONE        guifg=#ff8700     guibg=NONE        gui=NONE
 hi PreCondit       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
 
-hi Type            ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
+hi Type            ctermfg=73       ctermbg=NONE      cterm=NONE        guifg=#5fafaf     guibg=NONE        gui=NONE
 hi StorageClass    ctermfg=11       ctermbg=NONE      cterm=NONE        guifg=#fae3a0     guibg=NONE        gui=NONE
 hi Structure       ctermfg=10       ctermbg=NONE      cterm=NONE        guifg=#b6c2aa     guibg=NONE        gui=NONE
 hi Typedef         ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
