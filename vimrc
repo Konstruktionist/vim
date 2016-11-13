@@ -477,7 +477,7 @@ endif
 let g:mapleader = "\<Space>"
 
 " Escape is hard to reach
-inoremap kj <esc>
+inoremap jj <esc>
 
 " Shortcut to rapidly toggle set list
 nmap <leader>l :set list!<CR>
