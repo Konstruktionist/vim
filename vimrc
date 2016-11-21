@@ -87,12 +87,6 @@ Plug 'tpope/vim-unimpaired'
 " Nice comment plugin
 Plug 'tomtom/tcomment_vim'
 
-" A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" A plugin of NERDTree showing git status
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-
 " A Vim plugin which shows a git diff in the gutter (sign column) and
 " stages/reverts hunks. Use [c and ]c to navigate changes.
 Plug 'airblade/vim-gitgutter'
@@ -381,12 +375,6 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 "
-"  NerdTree
-"
-
-let NerdTreeIgnore=['.DS_Store[[file]]']
-
-"
 " Ultisnips
 "
 
@@ -397,22 +385,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "
 
 let g:Gitv_OpenHorizontal=1
-
-"
-" nerdtree-git-plugin
-"
-
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "𝑚",
-    \ "Staged"    : "𝑠",
-    \ "Untracked" : "𝑢",
-    \ "Renamed"   : "𝑟",
-    \ "Unmerged"  : "𝑼",
-    \ "Deleted"   : "𝑑",
-    \ "Dirty"     : "𝛅",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
 
 "
 " Commands ---------------------------------------------------------------------
@@ -493,9 +465,6 @@ nmap <leader>awt :AirlineToggleWhitespace<CR>
 
 " Refreshes all highlight groups and redraws the statusline.
 nmap <leader>ar :AirlineRefresh<CR>
-
-" Toggle NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
 
 "
 " NeoComplete key-mappings
