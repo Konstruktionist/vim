@@ -138,7 +138,7 @@ Plug 'kballard/vim-swift'
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
-"Plug 'romainl/Apprentice'
+"Plug 'romainl/Apprentice', { 'branch': 'fancylines-and-neovim' }
 
 " status/tabline for vim that's light as air
 Plug 'bling/vim-airline'
@@ -204,7 +204,7 @@ set listchars=tab:▸\ ,eol:¬,extends:◉,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
-set breakindentopt=shift:2                       "briopt: indent by 2 spaces
+set breakindentopt=shift:5                       "briopt: indent by 5 spaces
 set nobackup                                     "       Don't write backup files
 set nowritebackup
 set noswapfile
