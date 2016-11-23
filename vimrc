@@ -161,7 +161,7 @@ Plug 'majutsushi/tagbar'
 Plug 'gregsexton/gitv'
 
 " Markdown for Vim
-"Plug 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 
 " open the current Markdown buffer in Marked.app
 Plug 'itspriddle/vim-marked'
@@ -385,6 +385,13 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "
 
 let g:Gitv_OpenHorizontal=1
+
+"
+" CtrlP
+"
+let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+
 
 "
 " Commands ---------------------------------------------------------------------
