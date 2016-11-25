@@ -267,9 +267,3 @@ hi markdownEscape ctermfg=136   ctermbg=NONE  cterm=NONE        guifg=#af8700   
 hi rubyRegexp           ctermfg=12  ctermbg=NONE  cterm=NONE        guifg=#87a2b1   guibg=NONE  gui=NONE
 hi rubySymbol           ctermfg=11  ctermbg=NONE  cterm=NONE        guifg=#fbe8af   guibg=NONE  gui=NONE
 hi rubyStringDelimiter  ctermfg=253 ctermbg=NONE  cterm=NONE        guifg=#dadada   guibg=NONE  gui=NONE
-
-" --------------------------------
-" NERDTree highlighting
-" --------------------------------
-hi NERDTreeDirSlash   ctermfg=6  ctermbg=NONE   cterm=NONE     guifg=#73a5c8  guibg=NONE  gui=NONE
-hi NERDTreeExecFile   ctermfg=9  ctermbg=NONE   cterm=NONE     guifg=#d14548  guibg=NONE  gui=NONE
