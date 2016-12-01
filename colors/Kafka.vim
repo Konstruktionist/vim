@@ -147,10 +147,10 @@ hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NO
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=231      ctermbg=88        cterm=NONE        guifg=#ffffff     guibg=#870000     gui=NONE
-hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=#ffffff     guibg=#005faf     gui=NONE
-hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=#ffffff     guibg=#8700d7     gui=NONE
-hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=#ffffff     guibg=#5fd7ff     gui=NONE
+hi SpellBad        ctermfg=231      ctermbg=88        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 
 "--------------------------------------------------------------------
 " Specific settings
