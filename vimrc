@@ -162,6 +162,7 @@ Plug 'gregsexton/gitv'
 
 " Markdown for Vim
 Plug 'gabrielelana/vim-markdown'
+" Plug 'rhysd/vim-gfm-syntax' " github flavored markdown
 
 " open the current Markdown buffer in Marked.app
 Plug 'itspriddle/vim-marked'
@@ -175,6 +176,8 @@ call plug#end()
 " Vim-Plug End -----------------------------------------------------------------
 "
 
+" matchit lets you jump between begin and end of function with %
+packadd! matchit " add build-in matchit plugin
 
 
 "
@@ -200,7 +203,7 @@ set winwidth=84                                  "       The window width with m
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
 set t_Co=256                                     "       set iTerm terminal to 256 colors
-set listchars=tab:▸\ ,eol:¬,extends:◉,trail:※,nbsp:⎵
+set listchars=tab:▸\ ,eol:¬,extends:⇉,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -331,7 +334,6 @@ autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
 
 let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_eager=0
-highlight SignColumn ctermbg=NONE guibg=NONE
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_sign_removed='-'
 
