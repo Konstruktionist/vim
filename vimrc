@@ -343,14 +343,9 @@ let g:gitgutter_sign_removed='-'
 
 let g:airline_theme='distinguished'
 let g:airline_powerline_fonts=1
-let g:airline_inactive_collapse=1
 let g:airline_detect_iminsert=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#whitespace#enabled = 0
 
 "
