@@ -33,7 +33,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+"
 " vim-plug short intro
+" This is here, because there's no help file
+"
 " --------------------
 "
 " https://github.com/junegunn/vim-plug
@@ -71,9 +74,6 @@ call plug#begin('~/.vim/plugged')
 " intro End
 " ---------
 
-"
-"  All plugins are on github unless noted otherwise
-"
 
 " enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
