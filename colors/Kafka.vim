@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.2 - 14-11-2016
+"     Version 2.3 - 06-12-2016
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -69,8 +69,8 @@ hi Visual      ctermfg=NONE   ctermbg=25     cterm=NONE        guifg=NONE     gu
 hi VisualNOS   ctermfg=9      ctermbg=25     cterm=NONE        guifg=#d14548  guibg=#005faf  gui=NONE
 hi NonText     ctermfg=2      ctermbg=NONE   cterm=NONE        guifg=#43788c  guibg=NONE     gui=NONE
 
-hi Todo        ctermfg=14  ctermbg=NONE   cterm=NONE        guifg=#0f829d  guibg=NONE     gui=NONE
-hi Underlined  ctermfg=244 ctermbg=NONE   cterm=NONE        guifg=#808080  guibg=NONE     gui=NONE
+hi Todo        ctermfg=14  ctermbg=NONE   cterm=underline   guifg=#0f829d  guibg=NONE     gui=underline
+hi Underlined  ctermfg=244 ctermbg=NONE   cterm=underline   guifg=#808080  guibg=NONE     gui=underline
 hi Error       ctermfg=15  ctermbg=1      cterm=NONE        guifg=#fff0f0  guibg=#b91e2e  gui=NONE
 hi ErrorMsg    ctermfg=1   ctermbg=NONE   cterm=NONE        guifg=#b91e2e  guibg=NONE     gui=NONE
 hi WarningMsg  ctermfg=1   ctermbg=NONE   cterm=NONE        guifg=#b91e2e  guibg=NONE     gui=NONE
@@ -97,7 +97,7 @@ hi Function        ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#a
 hi Statement       ctermfg=111      ctermbg=NONE      cterm=NONE        guifg=#87afff     guibg=NONE        gui=NONE
 hi Label           ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Operator        ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
-hi Keyword         ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
+hi Keyword         ctermfg=183      ctermbg=NONE      cterm=NONE        guifg=#d7afff     guibg=NONE        gui=NONE
 hi Conditional     ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Repeat          ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
@@ -108,7 +108,7 @@ hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5
 hi Tag             ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
 hi Delimiter       ctermfg=14       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
 hi SpecialComment  ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#9e9e9e     guibg=NONE        gui=NONE
-hi Debug           ctermfg=225      ctermbg=NONE      cterm=bold        guifg=#ffd7ff     guibg=NONE        gui=NONE
+hi Debug           ctermfg=226      ctermbg=NONE      cterm=NONE        guifg=#ffff00     guibg=NONE        gui=NONE
 
 " ----------
 " - C like -
