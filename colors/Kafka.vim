@@ -67,7 +67,7 @@ hi MoreMsg        ctermfg=2      ctermbg=NONE   cterm=NONE        guifg=#93a48e 
 hi MatchParen  ctermfg=NONE   ctermbg=202    cterm=NONE        guifg=#ffffff  guibg=#ff5f00  gui=NONE
 hi Visual      ctermfg=NONE   ctermbg=25     cterm=NONE        guifg=NONE     guibg=#005faf  gui=NONE
 hi VisualNOS   ctermfg=9      ctermbg=25     cterm=NONE        guifg=#d14548  guibg=#005faf  gui=NONE
-hi NonText     ctermfg=2      ctermbg=NONE   cterm=NONE        guifg=#43788c  guibg=NONE     gui=NONE
+hi NonText     ctermfg=244    ctermbg=NONE   cterm=NONE        guifg=#808080  guibg=NONE     gui=NONE
 
 hi Todo        ctermfg=14  ctermbg=NONE   cterm=underline   guifg=#0f829d  guibg=NONE     gui=underline
 hi Underlined  ctermfg=244 ctermbg=NONE   cterm=underline   guifg=#808080  guibg=NONE     gui=underline
@@ -101,7 +101,7 @@ hi Keyword         ctermfg=183      ctermbg=NONE      cterm=NONE        guifg=#d
 hi Conditional     ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Repeat          ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=244      ctermbg=NONE      cterm=NONE        guifg=#808080     guibg=NONE        gui=italic
+hi Comment         ctermfg=244      ctermbg=NONE      cterm=italic      guifg=#808080     guibg=NONE        gui=italic
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
