@@ -104,7 +104,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
 
 " Syntax checker for many languages
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim'
@@ -146,12 +146,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
-
-" Delete all vim buffers but the current one
-Plug 'janson/bufonly.vim'
-
-" vim plugin to quickly switch between buffers
-Plug 'troydm/easybuffer.vim'
 
 " plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
@@ -280,7 +274,6 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX crappings
 set wildignore+=*.luac                           " Lua byte code
-set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=*/tmp/*                          " Temporary directories content
@@ -455,6 +448,10 @@ nmap <leader>awt :AirlineToggleWhitespace<CR>
 " Refreshes all highlight groups and redraws the statusline.
 nmap <leader>ar :AirlineRefresh<CR>
 
+" Always be 'very magic'
+nnoremap / /\v
+vnoremap / /\v
+
 "
 " NeoComplete key-mappings
 " ------------------------
@@ -486,9 +483,6 @@ cnoremap sudow w !sudo tee % >/dev/null
 
 " Testing colorscheme
 nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
-
-" Toggle Easybuffer
-nmap <leader>b :EasyBufferToggle<CR>
 
 " Delete in normal mode switches off highlighting till next search...
 nmap <silent> <BS> :nohlsearch<CR>
