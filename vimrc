@@ -266,7 +266,7 @@ set wildmenu                                     "wmnu:  enhanced ed command com
 set wildmode=list:full                           "wim    list all matches and complete first match
 
 " Ignore these file-types for wildcard matching
-set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
@@ -381,6 +381,7 @@ let g:Gitv_OpenHorizontal=1
 "
 let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+let g:ctrlp_switch_buffer = 'Et'
 
 
 "
