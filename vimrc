@@ -109,6 +109,11 @@ Plug 'tpope/vim-surround'
 " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim'
 
+" command-t
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
+    \ }
+
 " A code-completion engine for Vim
 Plug 'Shougo/neocomplete.vim'
 
