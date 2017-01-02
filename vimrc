@@ -107,7 +107,7 @@ Plug 'tpope/vim-surround'
 " Plug 'scrooloose/syntastic'
 
 " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " command-t
 Plug 'wincent/command-t', {
@@ -350,14 +350,14 @@ let g:airline#extensions#whitespace#enabled = 0
 "  Syntastic
 "
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 "
 "  NeoComplete
@@ -384,10 +384,14 @@ let g:Gitv_OpenHorizontal=1
 "
 " CtrlP
 "
-let g:ctrlp_user_command = 'find %s -type f'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
-let g:ctrlp_switch_buffer = 'Et'
+" let g:ctrlp_user_command = 'find %s -type f'
+" let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+" let g:ctrlp_switch_buffer = 'Et'
 
+"
+" vim-better-whitespace
+"   Don't hurt my eyes whith red, use a nice grey
+highlight ExtraWhitespace ctermbg=239 guibg=#3a3a3a
 
 "
 " Commands ---------------------------------------------------------------------
