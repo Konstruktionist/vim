@@ -114,6 +114,10 @@ Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
     \ }
 
+" terminus
+" vim terminal integration, change cursor shape, bracketed paste mode, etc
+Plug 'wincent/terminus'
+
 " A code-completion engine for Vim
 Plug 'Shougo/neocomplete.vim'
 
@@ -380,6 +384,13 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "
 
 let g:Gitv_OpenHorizontal=1
+
+"
+" command-t
+"
+if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
+  let g:CommandTCancelMap=['<ESC>', '<C-c>']
+endif
 
 "
 " CtrlP
