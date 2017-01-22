@@ -91,9 +91,6 @@ Plug 'tomtom/tcomment_vim'
 " stages/reverts hunks. Use [c and ]c to navigate changes.
 Plug 'airblade/vim-gitgutter'
 
-" Providing support for editing fish scripts.
-Plug 'onodera-punpun/vim-fish'
-
 " Gundo.vim is Vim plugin to visualize your Vim undo tree.
 "Plug 'sjl/gundo.vim'
 
@@ -136,9 +133,6 @@ Plug 'honza/vim-snippets'
 "     :StripWhitespace
 Plug 'ntpeters/vim-better-whitespace'
 
-" Support for Apple's Swift language
-Plug 'kballard/vim-swift'
-
 " Fantastic selection for vim
 " Plug 'gorkunov/smartpairs.vim'
 
@@ -162,6 +156,12 @@ Plug 'majutsushi/tagbar'
 " gitv is a repository viewer
 "  Dependancy: A working fugitive installation
 Plug 'gregsexton/gitv'
+
+" Providing support for editing fish scripts.
+Plug 'onodera-punpun/vim-fish'
+
+" Support for Apple's Swift language
+Plug 'keith/swift.vim'
 
 " Markdown for Vim
 Plug 'gabrielelana/vim-markdown'
