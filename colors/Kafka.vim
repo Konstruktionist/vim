@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.3 - 06-12-2016
+"     Version 2.4 - 03-02-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -198,56 +198,56 @@ hi cssColor       ctermfg=111       ctermbg=NONE      cterm=NONE        guifg=#8
 " --------------------------------
 " Markdown highlighting
 " --------------------------------
-hi markdownBold             ctermfg=178 ctermbg=NONE   cterm=bold        guifg=#d7af00     guibg=NONE        gui=bold
-hi markdownItalic           ctermfg=183 ctermbg=NONE   cterm=NONE        guifg=#d7afff     guibg=NONE        gui=italic
-hi markdownBoldItalic       ctermfg=183 ctermbg=NONE   cterm=bold        guifg=#d7afff     guibg=NONE        gui=bolditalic
+hi markdownBold             ctermfg=NONE ctermbg=NONE   cterm=bold        guifg=NONE     guibg=NONE        gui=bold
+hi markdownItalic           ctermfg=NONE ctermbg=NONE   cterm=italic      guifg=NONE     guibg=NONE        gui=italic
+hi markdownBoldItalic       ctermfg=NONE ctermbg=NONE   cterm=bolditalic  guifg=NONE     guibg=NONE        gui=bolditalic
 
 "hi markdownPullRequestLinkInText
 "hi markdownUserLinkInText
 "hi markdownUrlLinkInText
 "hi markdownEmailLinkInText
 
-hi markdownLinkTextDelimiter      ctermfg=9     ctermbg=NONE   cterm=NONE     guifg=#dc5c5a   guibg=NONE gui=NONE
-hi markdownLinkText               ctermfg=9     ctermbg=NONE   cterm=NONE     guifg=#dc5c5a   guibg=NONE gui=NONE
-hi markdownLinkUrl                ctermfg=172   ctermbg=NONE   cterm=NONE     guifg=#d78700   guibg=NONE gui=NONE
+hi markdownLinkTextDelimiter      ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#6abfc6   guibg=NONE gui=NONE
+hi markdownLinkText               ctermfg=248   ctermbg=NONE   cterm=NONE     guifg=#a8a8a8   guibg=NONE gui=NONE
+hi markdownLinkUrl                ctermfg=244   ctermbg=NONE   cterm=NONE     guifg=#808080   guibg=NONE gui=NONE
 hi markdownLinkTitleSingleQuoted  ctermfg=249   ctermbg=NONE   cterm=NONE     guifg=#b2b2b2   guibg=NONE gui=NONE
 hi markdownLinkTitleDoubleQuoted  ctermfg=249   ctermbg=NONE   cterm=NONE     guifg=#b2b2b2   guibg=NONE gui=NONE
-hi markdownLinkUrlContainer       ctermfg=172   ctermbg=NONE   cterm=NONE     guifg=#d78700   guibg=NONE gui=NONE
-hi markdownLinkTextContainer      ctermfg=9     ctermbg=NONE   cterm=NONE     guifg=#dc5c5a   guibg=NONE gui=NONE
-hi markdownLinkReference          ctermfg=172   ctermbg=NONE   cterm=NONE     guifg=#d78700   guibg=NONE gui=NONE
-hi markdownLinkDelimiter          ctermfg=172   ctermbg=NONE   cterm=NONE     guifg=#d78700   guibg=NONE gui=NONE
+hi markdownLinkUrlContainer       ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#6abfc6   guibg=NONE gui=NONE
+hi markdownLinkTextContainer      ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#6abfc6   guibg=NONE gui=NONE
+hi markdownLinkReference          ctermfg=244   ctermbg=NONE   cterm=NONE     guifg=#808080   guibg=NONE gui=NONE
+hi markdownLinkDelimiter          ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#6abfc6   guibg=NONE gui=NONE
 
-hi markdownCodeDelimiter          ctermfg=165   ctermbg=NONE   cterm=NONE     guifg=#d700ff   guibg=NONE  gui=NONE
-hi markdownInlineCode             ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#73a5c8   guibg=NONE  gui=NONE
-hi markdownFencedCodeBlock        ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#73a5c8   guibg=NONE  gui=NONE
-hi markdownCodeBlock              ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#73a5c8   guibg=NONE  gui=NONE
+hi markdownCodeDelimiter          ctermfg=6     ctermbg=NONE   cterm=NONE     guifg=#6abfc6   guibg=NONE  gui=NONE
+hi markdownInlineCode             ctermfg=248   ctermbg=NONE   cterm=NONE     guifg=#a8a8a8   guibg=NONE  gui=NONE
+hi markdownFencedCodeBlock        ctermfg=248   ctermbg=NONE   cterm=NONE     guifg=#a8a8a8   guibg=NONE  gui=NONE
+hi markdownCodeBlock              ctermfg=248   ctermbg=NONE   cterm=NONE     guifg=#a8a8a8   guibg=NONE  gui=NONE
 
 hi markdownFootnote               ctermfg=111   ctermbg=NONE   cterm=NONE     guifg=#87afff   guibg=NONE  gui=NONE
 hi markdownFootnoteDefinition     ctermfg=111   ctermbg=NONE   cterm=NONE     guifg=#87afff   guibg=NONE  gui=NONE
 
-hi markdownListMarker             ctermfg=74    ctermbg=NONE  cterm=NONE    guifg=#5fafd7 guibg=NONE  gui=NONE
-hi markdownOrderedListMarker      ctermfg=74    ctermbg=NONE  cterm=NONE    guifg=#5fafd7 guibg=NONE  gui=NONE
-hi markdownItemDelimiter          ctermfg=74    ctermbg=NONE  cterm=NONE    guifg=#5fafd7 guibg=NONE  gui=NONE
-"hi markdownTableDelimiter
+hi markdownListMarker             ctermfg=6    ctermbg=NONE  cterm=NONE    guifg=#6abfc6 guibg=NONE  gui=NONE
+hi markdownOrderedListMarker      ctermfg=6    ctermbg=NONE  cterm=NONE    guifg=#6abfc6 guibg=NONE  gui=NONE
+hi markdownItemDelimiter          ctermfg=6    ctermbg=NONE  cterm=NONE    guifg=#6abfc6 guibg=NONE  gui=NONE
+hi markdownTableDelimiter         ctermfg=6    ctermbg=NONE  cterm=NONE    guifg=#6abfc6 guibg=NONE  gui=NONE
 "hi markdownTableHeader
 
 "hi markdownStrike
-hi markdownStrikeDelimiter     ctermfg=14  ctermbg=NONE   cterm=NONE       guifg=#0f829d  guibg=NONE  gui=NONE
-hi markdownBlockquote          ctermfg=184 ctermbg=NONE   cterm=NONE       guifg=#d7d700  guibg=NONE  gui=NONE
-hi markdownBlockquoteDelimiter ctermfg=14  ctermbg=NONE   cterm=NONE       guifg=#0f829d  guibg=NONE  gui=NONE
-hi markdownInlineDelimiter     ctermfg=14  ctermbg=NONE   cterm=NONE       guifg=#0f829d  guibg=NONE  gui=NONE
-hi markdownListDelimiter       ctermfg=14  ctermbg=NONE   cterm=NONE       guifg=#0f829d  guibg=NONE  gui=NONE
+hi markdownStrikeDelimiter     ctermfg=6     ctermbg=NONE   cterm=NONE       guifg=#6abfc6  guibg=NONE  gui=NONE
+hi markdownBlockquote          ctermfg=248   ctermbg=NONE   cterm=NONE       guifg=#a8a8a8  guibg=NONE  gui=NONE
+hi markdownBlockquoteDelimiter ctermfg=6     ctermbg=NONE   cterm=NONE       guifg=#6abfc6  guibg=NONE  gui=NONE
+hi markdownInlineDelimiter     ctermfg=6     ctermbg=NONE   cterm=NONE       guifg=#6abfc6  guibg=NONE  gui=NONE
+hi markdownListDelimiter       ctermfg=6     ctermbg=NONE   cterm=NONE       guifg=#6abfc6  guibg=NONE  gui=NONE
 
 "hi markdownHeaderId
-hi markdownHeadingDelimiter   ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00   guibg=#444444  gui=NONE
-hi markdownHeadingUnderline   ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00   guibg=#444444  gui=NONE
-hi markdownHeader             ctermfg=94  ctermbg=238   cterm=NONE        guifg=#875f00   guibg=#444444  gui=NONE
-hi markdownH1                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
-hi markdownH2                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
-hi markdownH3                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
-hi markdownH4                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
-hi markdownH5                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
-hi markdownH6                 ctermfg=3   ctermbg=238   cterm=NONE        guifg=#fbc692   guibg=#444444  gui=NONE
+hi markdownHeadingDelimiter   ctermfg=6      ctermbg=238   cterm=NONE        guifg=#6abfc6   guibg=#444444  gui=NONE
+hi markdownHeadingUnderline   ctermfg=6      ctermbg=238   cterm=NONE        guifg=#6abfc6   guibg=#444444  gui=NONE
+hi markdownHeader             ctermfg=6      ctermbg=238   cterm=NONE        guifg=#6abfc6   guibg=#444444  gui=NONE
+hi markdownH1                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
+hi markdownH2                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
+hi markdownH3                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
+hi markdownH4                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
+hi markdownH5                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
+hi markdownH6                 ctermfg=NONE   ctermbg=238   cterm=bold        guifg=NONE      guibg=#444444  gui=bold
 
 "hi markdownEmoticonKeyword
 hi markdownRule   ctermfg=232  ctermbg=249   cterm=NONE        guifg=#080808     guibg=#b2b2b2        gui=NONE
