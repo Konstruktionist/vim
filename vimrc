@@ -151,7 +151,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 
 " plugin that displays tags in a window, ordered by scope
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 
 " gitv is a repository viewer
 "  Dependancy: A working fugitive installation
@@ -305,7 +305,7 @@ highlight Comment cterm=italic gui=italic
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=Iosevka-Light:h11
+  set guifont=Iosevka-Extralight:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
