@@ -158,7 +158,7 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 
 " Providing support for editing fish scripts.
-Plug 'onodera-punpun/vim-fish'
+Plug 'dag/vim-fish'
 
 " Support for Apple's Swift language
 Plug 'keith/swift.vim'
