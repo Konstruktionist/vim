@@ -75,7 +75,7 @@ hi Error       ctermfg=15  ctermbg=1      cterm=NONE        guifg=#fff0f0  guibg
 hi ErrorMsg    ctermfg=1   ctermbg=NONE   cterm=NONE        guifg=#b91e2e  guibg=NONE     gui=NONE
 hi WarningMsg  ctermfg=1   ctermbg=NONE   cterm=NONE        guifg=#b91e2e  guibg=NONE     gui=NONE
 hi Ignore      ctermfg=7   ctermbg=NONE   cterm=bold        guifg=#808080  guibg=#005faf  gui=NONE
-hi SpecialKey  ctermfg=2   ctermbg=NONE   cterm=NONE        guifg=#93a48e  guibg=NONE     gui=NONE
+hi SpecialKey  ctermfg=9   ctermbg=NONE   cterm=NONE        guifg=#cd645f  guibg=NONE     gui=NONE
 
 " --------------------------------
 " Variable types
@@ -101,7 +101,7 @@ hi Keyword         ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#a
 hi Conditional     ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Repeat          ctermfg=139      ctermbg=NONE      cterm=NONE        guifg=#af87af     guibg=NONE        gui=NONE
 hi Exception       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#5f87ff     guibg=NONE        gui=NONE
-hi Comment         ctermfg=244      ctermbg=NONE      cterm=italic      guifg=#808080     guibg=NONE        gui=italic
+hi Comment         ctermfg=250      ctermbg=NONE      cterm=italic      guifg=#bcbcbc     guibg=NONE        gui=italic
 
 hi Special         ctermfg=136      ctermbg=NONE      cterm=NONE        guifg=#af8700     guibg=NONE        gui=NONE
 hi SpecialChar     ctermfg=74       ctermbg=NONE      cterm=NONE        guifg=#5fafd7     guibg=NONE        gui=NONE
@@ -147,7 +147,7 @@ hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NO
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=231      ctermbg=88        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellBad        ctermfg=231      ctermbg=161       cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
