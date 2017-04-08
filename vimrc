@@ -242,7 +242,7 @@ set gdefault                                     "gd:    Substitute all matches 
 
 filetype plugin indent on                        "       load filetype-specific indent files
 syntax on                                        "syn:   syntax highlighting
-set showmatch                                    "sm:    flashes matching brackets or parenthasis
+set showmatch                                    "sm:    flashes matching brackets or parenthesis
 set matchtime=3                                  "mat:   How long to flash brackets
 
 "
@@ -305,7 +305,7 @@ highlight Comment cterm=italic gui=italic
 
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
-  set guifont=Iosevka-Extralight:h11
+  set guifont=Iosevka-Light:h11
   set guioptions-=T                 " No toolbar
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
