@@ -6,10 +6,6 @@
 "
 " Comment as much as possible, because we tend to forget things!
 " --------------------------------------------------------------
-"
-
-set nocompatible                                 " be iMproved, required
-
 
 "  fish
 "     from: https://github.com/dag/vim-fish
@@ -199,14 +195,12 @@ endif
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
-set ruler                                        "ru:    show the cursor position all the time
 set showcmd                                      "sc:    display incomplete commands
 set hidden                                       "hid:   don't care about closing modified buffers
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
-set t_Co=256                                     "       set iTerm terminal to 256 colors
-set listchars=tab:▸\ ,eol:¬,extends:⇉,trail:※,nbsp:⎵
+set listchars=tab:▸\ ,eol:¬,extends:»,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -215,6 +209,7 @@ set nobackup                                     "       Don't write backup file
 set nowritebackup
 set noswapfile
 set cmdwinheight=20                              "       Height of command window
+set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 
 "
 " Folding
@@ -292,7 +287,6 @@ set wildignore+=*/tmp/*                          " Temporary directories content
 "
 
 colorscheme Kafka
-set background=dark
 set cursorline
 " Iterm & Terminal.app can both display italics
 " (after patching terminfo database)
@@ -342,6 +336,7 @@ let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_eager=0
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_sign_removed='-'
+let g:gitgutter_sign_modified_removed='±'
 
 "
 "  Airline status bar options
@@ -350,7 +345,7 @@ let g:gitgutter_sign_removed='-'
 let g:airline_theme='distinguished'
 let g:airline_powerline_fonts=1
 let g:airline_detect_iminsert=1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#whitespace#enabled = 0
 
