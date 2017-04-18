@@ -117,7 +117,7 @@ hi PreProc         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#c
 hi Include         ctermfg=9        ctermbg=NONE      cterm=NONE        guifg=#d14548     guibg=NONE        gui=NONE
 hi Define          ctermfg=3        ctermbg=NONE      cterm=NONE        guifg=#fbc692     guibg=NONE        gui=NONE
 hi Macro           ctermfg=208      ctermbg=NONE      cterm=NONE        guifg=#ff8700     guibg=NONE        gui=NONE
-hi PreCondit       ctermfg=69       ctermbg=NONE      cterm=NONE        guifg=#0f829d     guibg=NONE        gui=NONE
+hi PreCondit       ctermfg=110      ctermbg=NONE      cterm=NONE        guifg=#8faed3     guibg=NONE        gui=NONE
 
 hi Type            ctermfg=73       ctermbg=NONE      cterm=NONE        guifg=#5fafaf     guibg=NONE        gui=NONE
 hi StorageClass    ctermfg=11       ctermbg=NONE      cterm=NONE        guifg=#fae3a0     guibg=NONE        gui=NONE
