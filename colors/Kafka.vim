@@ -46,7 +46,7 @@ hi TabLineSel     ctermfg=112    ctermbg=NONE   cterm=NONE        guifg=#5f8700 
 " -------------------------------
 " - File Navigation / Searching -
 " -------------------------------
-hi Directory   ctermfg=6      ctermbg=NONE   cterm=NONE        guifg=#73a5c8  guibg=NONE     gui=NONE
+hi Directory   ctermfg=12     ctermbg=NONE   cterm=NONE        guifg=#8ca1af  guibg=NONE     gui=NONE
 hi Search      ctermfg=239    ctermbg=11     cterm=NONE        guifg=#303030  guibg=#fae3a0  gui=NONE
 hi IncSearch   ctermfg=235    ctermbg=208    cterm=NONE        guifg=#262626  guibg=#ff8700  gui=NONE
 
