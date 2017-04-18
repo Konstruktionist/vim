@@ -151,10 +151,11 @@ Plug 'godlygeek/tabular'
 
 " gitv is a repository viewer
 "  Dependancy: A working fugitive installation
-Plug 'gregsexton/gitv'
+Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
 " Providing support for editing fish scripts.
-Plug 'dag/vim-fish'
+"Plug 'dag/vim-fish'
+Plug 'Konstruktionist/vim-fish', { 'branch': 'fishOption' }
 
 " Support for Apple's Swift language
 Plug 'keith/swift.vim'
