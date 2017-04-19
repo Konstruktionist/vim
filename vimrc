@@ -154,8 +154,8 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
 " Providing support for editing fish scripts.
-"Plug 'dag/vim-fish'
-Plug 'Konstruktionist/vim-fish', { 'branch': 'fishOption' }
+"Plug 'Konstruktionist/vim-fish', { 'branch': 'fishOption' }
+Plug 'Konstruktionist/vim-fish'
 
 " Support for Apple's Swift language
 Plug 'keith/swift.vim'
