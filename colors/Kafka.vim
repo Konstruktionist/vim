@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.6 - 17-04-2017
+"     Version 2.7 - 21-04-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -37,8 +37,8 @@ hi Folded         ctermfg=248    ctermbg=239    cterm=NONE        guifg=#a8a8a8 
 " -------------------------
 " - Window/Tab delimiters -
 " -------------------------
-hi VertSplit      ctermfg=244    ctermbg=7      cterm=NONE        guifg=#808080  guibg=#909090  gui=NONE
-hi ColorColumn    ctermfg=NONE   ctermbg=7      cterm=NONE        guifg=NONE     guibg=#909090  gui=NONE
+hi VertSplit      ctermfg=244    ctermbg=244    cterm=NONE        guifg=#808080  guibg=#808080  gui=NONE
+hi ColorColumn    ctermfg=NONE   ctermbg=8      cterm=NONE        guifg=NONE     guibg=#737373  gui=NONE
 hi TabLine        ctermfg=245    ctermbg=NONE   cterm=NONE        guifg=#8a8a8a  guibg=NONE     gui=NONE
 hi TabLineFill    ctermfg=239    ctermbg=NONE   cterm=NONE        guifg=#4e4e4e  guibg=NONE     gui=NONE
 hi TabLineSel     ctermfg=112    ctermbg=NONE   cterm=NONE        guifg=#5f8700  guibg=NONE     gui=NONE
