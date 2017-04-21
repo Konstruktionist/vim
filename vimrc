@@ -310,19 +310,33 @@ endif
 "
 " File formats -----------------------------------------------------------------
 "
-autocmd Filetype gitcommit setlocal spell textwidth=72
-"from http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
-autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
 
-" Make json files human readable
+" Git commit messages
+"   force the cursor onto a new line after 72 characters
+autocmd Filetype gitcommit setlocal spell textwidth=72
+"   colour the 73rd column
+autocmd FileType gitcommit set colorcolumn=+1
+"   also colour the 51st column (for titles)
+autocmd FileType gitcommit set colorcolumn+=51
+
+
+" Markdown
+"   Word wrap without line breaks for markdown
+"     from http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
+"   map *.md files so that syntax is recognized as markdown
+autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
+
+
+" JSON
+"   Make json files human readable
 autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json setlocal equalprg=json_reformat
 
-" Objective-C: map *.h & *.m files so syntax is recognized as objc
-autocmd BufNewFile,BufRead *.m,*.h set ft=objc
 
-" markdown: map *.md files so that syntax is recognized as markdown
-autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
+" Objective-C
+"   map *.h & *.m files so syntax is recognized as objc
+autocmd BufNewFile,BufRead *.m,*.h set ft=objc
 
 
 "
