@@ -321,12 +321,10 @@ autocmd FileType gitcommit set colorcolumn+=51
 
 
 " Markdown
-"   Word wrap without line breaks for markdown
-"     from http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
-autocmd Filetype markdown setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
 "   map *.md files so that syntax is recognized as markdown
 autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
-
+"   Word wrap without line breaks for markdown
+autocmd Filetype markdown setlocal wrap linebreak list textwidth=0 wrapmargin=0
 
 " JSON
 "   Make json files human readable
@@ -360,6 +358,9 @@ let g:gitgutter_sign_modified_removed='±'
 let g:airline_theme='distinguished'
 let g:airline_powerline_fonts=1
 let g:airline_detect_iminsert=1
+let g:airline_right_sep=''
+let g:airline_left_sep=''
+let g:airline_skip_empty_sections = 1
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -415,7 +416,7 @@ endif
 
 "
 " vim-better-whitespace
-"   Don't hurt my eyes whith red, use a nice grey
+"   Don't hurt my eyes with red, use a nice grey
 highlight ExtraWhitespace ctermbg=239 guibg=#3a3a3a
 
 "
@@ -519,7 +520,7 @@ cnoremap sudow w !sudo tee % >/dev/null
 " Testing colorscheme
 nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
-" Delete in normal mode switches off highlighting till next search...
+" Delete in normal mode switches off highlighting till next search
 nmap <silent> <BS> :nohlsearch<CR>
 
 " Call the :Tabularize command each time you insert a | character
