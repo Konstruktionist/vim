@@ -152,6 +152,19 @@ hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=NO
 hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
 
+" --------------------------------
+" User settings for statusbar
+" --------------------------------
+hi User1    ctermfg=0     ctermbg=8
+hi User2    ctermfg=15    ctermbg=9      cterm=bold
+hi User3    ctermfg=10    ctermbg=7
+hi User4    ctermfg=11    ctermbg=7
+hi User5    ctermfg=12    ctermbg=7
+hi User6    ctermfg=13    ctermbg=7
+hi User7    ctermfg=14    ctermbg=7
+hi User8    ctermfg=15    ctermbg=7
+hi User9    ctermfg=0     ctermbg=7
+
 "--------------------------------------------------------------------
 " Specific settings
 "--------------------------------------------------------------------
