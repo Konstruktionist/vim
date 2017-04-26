@@ -211,6 +211,9 @@ set nowritebackup
 set noswapfile
 set cmdwinheight=20                              "       Height of command window
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
+set scrolloff=3                                  "so:    Min. # of lines visible at top or bottom
+set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
+set fillchars=vert:┃                             " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 
 "
 " Folding
@@ -406,6 +409,9 @@ let g:Gitv_OpenHorizontal=1
 if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
+
+" Search for help with command-t plugin
+nmap <silent> <Leader>h <Plug>(CommandTHelp)
 
 "
 " CtrlP
