@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.7 - 21-04-2017
+"     Version 2.8 - 26-04-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -53,7 +53,7 @@ hi IncSearch   ctermfg=235    ctermbg=208    cterm=NONE        guifg=#262626  gu
 " -----------------
 " - Prompt/Status -
 " -----------------
-hi StatusLine     ctermfg=0      ctermbg=7      cterm=NONE        guifg=NONE     guibg=#909090  gui=NONE
+hi StatusLine     ctermfg=NONE   ctermbg=8      cterm=NONE        guifg=NONE     guibg=#909090  gui=NONE
 hi StatusLineNC   ctermfg=NONE   ctermbg=238    cterm=NONE        guifg=NONE     guibg=#444444  gui=NONE
 hi WildMenu       ctermfg=0      ctermbg=6      cterm=NONE        guifg=#202020  guibg=#73a5c8  gui=NONE
 hi Question       ctermfg=10     ctermbg=NONE   cterm=NONE        guifg=#b6c2aa  guibg=NONE     gui=NONE
@@ -147,23 +147,23 @@ hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NO
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=231      ctermbg=161       cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellCap        ctermfg=231      ctermbg=25        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellLocal      ctermfg=231      ctermbg=92        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellRare       ctermfg=231      ctermbg=81        cterm=NONE        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellBad        ctermfg=160      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellCap        ctermfg=33       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellLocal      ctermfg=51       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellRare       ctermfg=81       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
 
 " --------------------------------
 " User settings for statusbar
 " --------------------------------
-hi User1    ctermfg=0     ctermbg=8
-hi User2    ctermfg=15    ctermbg=9      cterm=bold
-hi User3    ctermfg=10    ctermbg=7
-hi User4    ctermfg=11    ctermbg=7
-hi User5    ctermfg=12    ctermbg=7
-hi User6    ctermfg=13    ctermbg=7
-hi User7    ctermfg=14    ctermbg=7
-hi User8    ctermfg=15    ctermbg=7
-hi User9    ctermfg=0     ctermbg=7
+hi User1    ctermfg=NONE  ctermbg=8   cterm=italic
+hi User2    ctermfg=NONE  ctermbg=8   cterm=bold
+hi User3    ctermfg=0     ctermbg=4   cterm=bold
+hi User4    ctermfg=4     ctermbg=8
+hi User5    ctermfg=4     ctermbg=8
+hi User6    ctermfg=5     ctermbg=8
+hi User7    ctermfg=6     ctermbg=8
+hi User8    ctermfg=7     ctermbg=8
+hi User9    ctermfg=9     ctermbg=8
 
 "--------------------------------------------------------------------
 " Specific settings
