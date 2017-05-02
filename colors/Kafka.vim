@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 2.8 - 26-04-2017
+"     Version 3.1 - 02-05-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -20,11 +20,11 @@ let g:colors_name="Kafka"
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi Normal         ctermfg=253    ctermbg=NONE   cterm=NONE        guifg=#dadada  guibg=#2a303b  gui=NONE
-hi Cursor         ctermfg=0      ctermbg=15     cterm=NONE        guifg=#000000  guibg=#eeeeee  gui=NONE
-hi CursorLine     ctermfg=NONE   ctermbg=237    cterm=NONE        guifg=NONE     guibg=#38404d  gui=NONE
-hi LineNr         ctermfg=8      ctermbg=NONE   cterm=NONE        guifg=#737373  guibg=NONE     gui=NONE
-hi CursorLineNR   ctermfg=11     ctermbg=NONE   cterm=NONE        guifg=#fae3a0  guibg=NONE     gui=NONE
+hi Normal         ctermfg=253     ctermbg=NONE    cterm=NONE        guifg=#dadada   guibg=#2a303b   gui=NONE
+hi Cursor         ctermfg=NONE    ctermbg=231     cterm=NONE        guifg=NONE      guibg=#ffffff   gui=NONE
+hi CursorLine     ctermfg=NONE    ctermbg=237     cterm=NONE        guifg=NONE      guibg=#38404d   gui=NONE
+hi LineNr         ctermfg=8       ctermbg=NONE    cterm=NONE        guifg=#737373   guibg=NONE      gui=NONE
+hi CursorLineNR   ctermfg=11      ctermbg=NONE    cterm=NONE        guifg=#fae3a0   guibg=NONE      gui=NONE
 
 " -----------------
 " - Number column -
@@ -46,15 +46,15 @@ hi TabLineSel     ctermfg=112    ctermbg=NONE   cterm=NONE        guifg=#5f8700 
 " -------------------------------
 " - File Navigation / Searching -
 " -------------------------------
-hi Directory   ctermfg=12     ctermbg=NONE   cterm=NONE        guifg=#8ca1af  guibg=NONE     gui=NONE
-hi Search      ctermfg=239    ctermbg=11     cterm=NONE        guifg=#303030  guibg=#fae3a0  gui=NONE
-hi IncSearch   ctermfg=235    ctermbg=208    cterm=NONE        guifg=#262626  guibg=#ff8700  gui=NONE
+hi Directory    ctermfg=12     ctermbg=NONE  cterm=NONE        guifg=#8ca1af  guibg=NONE     gui=NONE
+hi Search       ctermfg=232    ctermbg=10    cterm=NONE        guifg=#080808  guibg=#6d7f3f  gui=NONE
+hi IncSearch    ctermfg=231    ctermbg=2     cterm=NONE        guifg=#ffffff  guibg=#75a304  gui=NONE
 
 " -----------------
 " - Prompt/Status -
 " -----------------
 hi StatusLine     ctermfg=NONE   ctermbg=8      cterm=NONE        guifg=NONE     guibg=#909090  gui=NONE
-hi StatusLineNC   ctermfg=NONE   ctermbg=238    cterm=NONE        guifg=NONE     guibg=#444444  gui=NONE
+hi StatusLineNC   ctermfg=8      ctermbg=7      cterm=NONE        guifg=#909090  guibg=#444444  gui=NONE
 hi WildMenu       ctermfg=0      ctermbg=6      cterm=NONE        guifg=#202020  guibg=#73a5c8  gui=NONE
 hi Question       ctermfg=10     ctermbg=NONE   cterm=NONE        guifg=#b6c2aa  guibg=NONE     gui=NONE
 hi Title          ctermfg=3      ctermbg=NONE   cterm=bold        guifg=#fbc692  guibg=NONE     gui=NONE
@@ -152,18 +152,6 @@ hi SpellCap        ctermfg=33       ctermbg=NONE      cterm=underline        gui
 hi SpellLocal      ctermfg=51       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
 hi SpellRare       ctermfg=81       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
 
-" --------------------------------
-" User settings for statusbar
-" --------------------------------
-hi User1    ctermfg=NONE  ctermbg=8   cterm=italic
-hi User2    ctermfg=NONE  ctermbg=8   cterm=bold
-hi User3    ctermfg=0     ctermbg=4   cterm=bold
-hi User4    ctermfg=4     ctermbg=8
-hi User5    ctermfg=4     ctermbg=8
-hi User6    ctermfg=5     ctermbg=8
-hi User7    ctermfg=6     ctermbg=8
-hi User8    ctermfg=7     ctermbg=8
-hi User9    ctermfg=9     ctermbg=8
 
 "--------------------------------------------------------------------
 " Specific settings
