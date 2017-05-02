@@ -104,8 +104,8 @@ Plug 'tpope/vim-surround'
 
 " command-t
 Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
-    \ }
+      \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
+      \ }
 
 " terminus
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
@@ -121,13 +121,6 @@ Plug 'Konfekt/FastFold'
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Better whitespace highlighting for Vim
-"  to toggle whitespace highlighting, call:
-"     :ToggleWhitespace
-"  to clean extra whitespace, call:
-"     :StripWhitespace
-Plug 'ntpeters/vim-better-whitespace'
 
 " Fantastic selection for vim
 " Plug 'gorkunov/smartpairs.vim'
@@ -184,9 +177,9 @@ packadd! matchit " add build-in matchit plugin
 " Reload changes to vimrc
 "
 
-if has("autocmd")
-  autocmd bufwritepost vimrc source $MYVIMRC
-endif
+"if has("autocmd")
+"  autocmd bufwritepost vimrc source $MYVIMRC
+"endif
 
 
 "
@@ -308,36 +301,45 @@ if has ('gui_running')
   set guioptions-=r                 " No scrollbar right
   set guioptions-=l                 " No scrollbar left
   set guioptions-=b                 " No scrollbar bottom
+  set guioptions+=h                 " Limit horizontal scrolling
 endif
 
 "
 " File formats -----------------------------------------------------------------
 "
 
-" Git commit messages
-"   force the cursor onto a new line after 72 characters
-autocmd Filetype gitcommit setlocal spell textwidth=72
-"   colour the 73rd column
-autocmd FileType gitcommit set colorcolumn=+1
-"   also colour the 51st column (for titles)
-autocmd FileType gitcommit set colorcolumn+=51
+augroup FileFormats
+  autocmd!
+
+  " Git commit messages
+  "   force the cursor onto a new line after 72 characters
+  autocmd Filetype gitcommit setlocal spell textwidth=72
+  "   colour the 73rd column
+  autocmd FileType gitcommit set colorcolumn=+1
+  "   also colour the 51st column (for titles)
+  autocmd FileType gitcommit set colorcolumn+=51
 
 
-" Markdown
-"   map *.md files so that syntax is recognized as markdown
-autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
-"   Word wrap without line breaks for markdown
-autocmd Filetype markdown setlocal wrap linebreak list textwidth=0 wrapmargin=0
+  " Markdown
+  "   map *.md files so that syntax is recognized as markdown
+  autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
+  "   Word wrap without line breaks for markdown
+  autocmd Filetype markdown setlocal wrap linebreak list textwidth=0 wrapmargin=0
 
-" JSON
-"   Make json files human readable
-autocmd BufRead,BufNewFile *.json set filetype=json
-autocmd FileType json setlocal equalprg=json_reformat
+  " JSON
+  "   Make json files human readable
+  autocmd BufRead,BufNewFile *.json set filetype=json
+  autocmd FileType json setlocal equalprg=json_reformat
 
 
-" Objective-C
-"   map *.h & *.m files so syntax is recognized as objc
-autocmd BufNewFile,BufRead *.m,*.h set ft=objc
+  " Objective-C
+  "   map *.h & *.m files so syntax is recognized as objc
+  autocmd BufNewFile,BufRead *.m,*.h set ft=objc
+
+  " Reload changes to vimrc
+  autocmd bufwritepost vimrc source $MYVIMRC  
+
+augroup END
 
 
 "
@@ -420,10 +422,6 @@ nmap <silent> <Leader>h <Plug>(CommandTHelp)
 " let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
 " let g:ctrlp_switch_buffer = 'Et'
 
-"
-" vim-better-whitespace
-"   Don't hurt my eyes with red, use a nice grey
-highlight ExtraWhitespace ctermbg=239 guibg=#3a3a3a
 
 "
 " Commands ---------------------------------------------------------------------
@@ -458,6 +456,14 @@ function! SummarizeTabs()
   endtry
 endfunction
 
+" Trim trailing whitespace
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
 
 " yank to clipboard
 " =================
@@ -484,9 +490,6 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " Toggle wrap
 nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 
-" Toggle airline whitespace detection
-nmap <leader>awt :AirlineToggleWhitespace<CR>
-
 " Refreshes all highlight groups and redraws the statusline.
 nmap <leader>ar :AirlineRefresh<CR>
 
@@ -505,8 +508,8 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
- endfunction
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
