@@ -127,7 +127,7 @@ Plug 'honza/vim-snippets'
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
-Plug 'romainl/Apprentice'
+" Plug 'romainl/Apprentice'
 
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
@@ -140,7 +140,6 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
 " Providing support for editing fish scripts.
-"Plug 'Konstruktionist/vim-fish', { 'branch': 'fishOption' }
 Plug 'Konstruktionist/vim-fish'
 
 " Support for Apple's Swift language
@@ -197,14 +196,14 @@ set nowritebackup
 set noswapfile
 set cmdwinheight=20                              "       Height of command window
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
-set scrolloff=3                                  "so:    Min. # of lines visible at top or bottom
+set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 
 "
 " Folding
 "
 
-set foldmethod=syntax                            "fdm:   fold on the indentation by default
+set foldmethod=indent                            "fdm:   fold on the indentation by default
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
 set foldenable                                   "nofen: don't fold by default
 set foldlevel=1
