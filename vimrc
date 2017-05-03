@@ -467,9 +467,6 @@ if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
 
-" Search for help with command-t plugin
-nmap <silent> <Leader>h <Plug>(CommandTHelp)
-
 
 "
 " Commands ---------------------------------------------------------------------
@@ -541,6 +538,9 @@ nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 " Always be 'very magic'
 nnoremap / /\v
 vnoremap / /\v
+
+" Search for help with command-t plugin
+nmap <silent> <Leader>h <Plug>(CommandTHelp)
 
 "
 " NeoComplete key-mappings
