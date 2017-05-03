@@ -99,9 +99,6 @@ Plug 'tpope/vim-surround'
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
-" CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder
-" Plug 'ctrlpvim/ctrlp.vim'
-
 " command-t
 Plug 'wincent/command-t', {
       \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
@@ -130,11 +127,7 @@ Plug 'honza/vim-snippets'
 Plug 'gerw/vim-HiLinkTrace'
 
 " Color schemes
-Plug 'romainl/Apprentice', { 'branch': 'fancylines-and-neovim' }
-
-" status/tabline for vim that's light as air
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'romainl/Apprentice'
 
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
@@ -196,7 +189,7 @@ set mouse=a                                      "       Enable the use of a mou
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
 set listchars=tab:▸\ ,eol:¬,extends:»,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
-set noshowmode                                   "nosmd: Status-line shows the mode we're in
+"set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
 set breakindentopt=shift:5                       "briopt: indent by 5 spaces
 set nobackup                                     "       Don't write backup files
@@ -206,7 +199,6 @@ set cmdwinheight=20                              "       Height of command windo
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 set scrolloff=3                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
-set fillchars=vert:┃                             " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 
 "
 " Folding
@@ -258,6 +250,7 @@ set laststatus=2                                 "ls:    makes the status bar al
 set ttyfast                                      "tf:    improves redrawing for newer computers
 set lazyredraw                                   "lz:    will not redraw the screen while running macros (goes faster)
 set linebreak                                    "lbr    break lines at word end
+set cursorline                                   "cul:   highlight the screenline of the cursor
 
 "
 " Menu compilation
@@ -284,7 +277,6 @@ set wildignore+=*/tmp/*                          " Temporary directories content
 "
 
 colorscheme Kafka
-set cursorline
 " Iterm & Terminal.app can both display italics
 " (after patching terminfo database)
 " ensure comments are in italic, even if not set in colorscheme
@@ -303,6 +295,80 @@ if has ('gui_running')
   set guioptions-=b                 " No scrollbar bottom
   set guioptions+=h                 " Limit horizontal scrolling
 endif
+
+"
+" Statusline
+"
+
+function! GitStats() abort
+  let b:hunk_symbols = ['+', '~', '-']
+  let string = ''
+  let git = fugitive#head()
+  let gits = GitGutterGetHunkSummary()
+
+  " Are we in a repo?
+  if git == ''    " NO, therefore show empty string aka collapse
+    return string
+  elseif git != '' && gits == [0, 0, 0]  " A repo with no changes, show empty string aka collapse
+    return string
+  else    " In a repo with changes from HEAD
+    for i in [0, 1, 2]
+      let string .= printf('%s%s ', b:hunk_symbols[i], gits[i])   " Fill string with changes
+    endfor
+    return string
+  endif
+endfunction
+
+function! GitInfo() abort
+  let git = fugitive#head()
+  if git != ''
+    return '  '.fugitive#head()
+  else
+    return ''
+endfunction
+
+function! Fileprefix() abort
+  let l:basename=expand('%:h')
+  if l:basename == '' || l:basename == '.'
+    return ''
+  else
+    " Make sure we show $HOME as ~.
+    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
+  endif
+endfunction
+
+" Statusline (requires Powerline font)
+" ---------- Left-hand side ----------
+set statusline=
+set statusline+=%2*                         " set bold
+set statusline+=\                           " Space
+" Buffer number, don't show it for help files, followed by Powerline separator
+set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ \ %)%*
+set statusline+=%<                          " Where to truncate line
+set statusline+=%(%{GitStats()}%)           " How many changes
+set statusline+=%(%{GitInfo()}\ \ %)       " git branch, followed by Powerline separator
+set statusline+=%{Fileprefix()}             " Path to the file in the buffer, as typed or relative to current directory
+set statusline+=%2*                         " set bold
+set statusline+=%t                          " filename
+set statusline+=%{&modified?'\ +':''}
+set statusline+=%{&readonly?'\ ':''}
+set statusline+=\ %1*
+" ---------- Right-hand side ----------
+set statusline+=%=                          " Separation point between left and right aligned items.
+set statusline+=\ %{''!=#&filetype?&filetype:'none'}
+" If filetype encoding is utf-8 and file format is unix, don't show this as it
+" is the normal state. Only show this info if it is something unusual.
+set statusline+=%(\ %{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
+      \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
+set statusline+=\ %*
+set statusline+=\ %2v                       " Virtual column number.
+set statusline+=\ %3p%%                     " Percentage through file in lines as in |CTRL-G|
+
+" Logic for customizing the User1 highlight group is the following
+" - fg = StatusLine fg (if StatusLine colors are reverse)
+" - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
+hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
+hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
 
 "
 " File formats -----------------------------------------------------------------
@@ -336,6 +402,9 @@ augroup FileFormats
   "   map *.h & *.m files so syntax is recognized as objc
   autocmd BufNewFile,BufRead *.m,*.h set ft=objc
 
+  " Update GitStats
+  autocmd User GitGutter call GitStats()
+
   " Reload changes to vimrc
   autocmd bufwritepost vimrc source $MYVIMRC  
 
@@ -355,20 +424,6 @@ let g:gitgutter_eager=0
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_sign_removed='-'
 let g:gitgutter_sign_modified_removed='±'
-
-"
-"  Airline status bar options
-"
-
-let g:airline_theme='distinguished'
-let g:airline_powerline_fonts=1
-let g:airline_detect_iminsert=1
-let g:airline_right_sep=''
-let g:airline_left_sep=''
-let g:airline_skip_empty_sections = 1
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#whitespace#enabled = 0
 
 "
 "  Syntastic
@@ -414,13 +469,6 @@ endif
 
 " Search for help with command-t plugin
 nmap <silent> <Leader>h <Plug>(CommandTHelp)
-
-"
-" CtrlP
-"
-" let g:ctrlp_user_command = 'find %s -type f'
-" let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
-" let g:ctrlp_switch_buffer = 'Et'
 
 
 "
@@ -489,9 +537,6 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Toggle wrap
 nmap <leader>w :set invwrap<CR>:set wrap?<CR>
-
-" Refreshes all highlight groups and redraws the statusline.
-nmap <leader>ar :AirlineRefresh<CR>
 
 " Always be 'very magic'
 nnoremap / /\v
