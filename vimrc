@@ -320,10 +320,13 @@ endfunction
 
 function! GitInfo() abort
   let git = fugitive#head()
-  if git != ''
+  if &ft == 'help'    " Don't show in help files
+    return ''
+  elseif git != ''
     return '  '.fugitive#head()
   else
     return ''
+  endif
 endfunction
 
 function! Fileprefix() abort
@@ -336,22 +339,22 @@ function! Fileprefix() abort
   endif
 endfunction
 
-" Statusline (requires Powerline font)
+" Statusline (requires Powerline font for branch & lock)
 " ---------- Left-hand side ----------
 set statusline=
 set statusline+=%2*                         " set bold
 set statusline+=\                           " Space
-" Buffer number, don't show it for help files, followed by Powerline separator
-set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ \ %)%*
+" Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
+set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)%*
 set statusline+=%<                          " Where to truncate line
 set statusline+=%(%{GitStats()}%)           " How many changes
-set statusline+=%(%{GitInfo()}\ \ %)       " git branch, followed by Powerline separator
+set statusline+=%(%{GitInfo()}\ │\ %)       " git branch, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%{Fileprefix()}             " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                         " set bold
 set statusline+=%t                          " filename
 set statusline+=%{&modified?'\ +':''}
 set statusline+=%{&readonly?'\ ':''}
-set statusline+=\ %1*
+set statusline+=\ %1*
 " ---------- Right-hand side ----------
 set statusline+=%=                          " Separation point between left and right aligned items.
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
@@ -359,7 +362,7 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 " is the normal state. Only show this info if it is something unusual.
 set statusline+=%(\ %{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
-set statusline+=\ %*
+set statusline+=\ %*
 set statusline+=\ %2v                       " Virtual column number.
 set statusline+=\ %3p%%                     " Percentage through file in lines as in |CTRL-G|
 
