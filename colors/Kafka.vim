@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 3.1 - 02-05-2017
+"     Version 3.2 - 04-05-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -156,6 +156,13 @@ hi SpellRare       ctermfg=81       ctermbg=NONE      cterm=underline        gui
 "--------------------------------------------------------------------
 " Specific settings
 "--------------------------------------------------------------------
+
+" --------------------------------
+" Vim highlighting
+" --------------------------------
+hi vimCommentTitle  ctermfg=15       ctermbg=13      cterm=NONE        guifg=#fffffe     guibg=#aa88aa     gui=NONE
+hi helpNote         ctermfg=15       ctermbg=12      cterm=NONE        guifg=#fffffe     guibg=#6194bc     gui=NONE
+hi helpWarning      ctermfg=15       ctermbg=9       cterm=NONE        guifg=#fffffe     guibg=#f2797b     gui=NONE
 
 " --------------------------------
 " Git highlighting
