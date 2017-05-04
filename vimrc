@@ -112,22 +112,16 @@ Plug 'wincent/terminus'
 Plug 'Shougo/neocomplete.vim'
 
 " Speeds up folding
-Plug 'Konfekt/FastFold'
+"Plug 'Konfekt/FastFold'
 
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-" Fantastic selection for vim
-" Plug 'gorkunov/smartpairs.vim'
-
 " vim plugin to trace syntax highlight
 " activate with <leader>hlt or :HLT
 Plug 'gerw/vim-HiLinkTrace'
-
-" Color schemes
-" Plug 'romainl/Apprentice'
 
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
@@ -320,7 +314,7 @@ endfunction
 
 function! GitInfo() abort
   let git = fugitive#head()
-  if &ft == 'help'    " Don't show in help files
+  if &ft == 'help'    " Don't show in help files aka collapse
     return ''
   elseif git != ''
     return '  '.fugitive#head()
@@ -339,28 +333,36 @@ function! Fileprefix() abort
   endif
 endfunction
 
-" Statusline (requires Powerline font for branch & lock)
-" ---------- Left-hand side ----------
-set statusline=
-set statusline+=%2*                         " set bold
+" Building the statusline (requires Powerline font for branch & lock)
+
+set statusline=                             " Empty statusline
+
+" ------------------------------ Left-hand side ------------------------------
+
+set statusline+=%2*                         " set bold (User2)
 set statusline+=\                           " Space
+
 " Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)%*
+set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)%*   
 set statusline+=%<                          " Where to truncate line
 set statusline+=%(%{GitStats()}%)           " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)       " git branch, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%{Fileprefix()}             " Path to the file in the buffer, as typed or relative to current directory
-set statusline+=%2*                         " set bold
+set statusline+=%2*                         " set bold (User2)
 set statusline+=%t                          " filename
 set statusline+=%{&modified?'\ +':''}
 set statusline+=%{&readonly?'\ ':''}
-set statusline+=\ %1*
-" ---------- Right-hand side ----------
-set statusline+=%=                          " Separation point between left and right aligned items.
+set statusline+=\ %1*                       " Switch to color User1
+set statusline+=%=                          " Separation point between left and right groups.
+
+" ------------------------------ Right-hand side -----------------------------
+
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
+
 " If filetype encoding is utf-8 and file format is unix, don't show this as it
 " is the normal state. Only show this info if it is something unusual.
-set statusline+=%(\ %{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
+" Attention: first pipe-like charachter is NOT a pipe char but U2502 (BOX DRAWINGS LIGHT VERTICAL)
+set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 set statusline+=\ %*
 set statusline+=\ %2v                       " Virtual column number.
@@ -371,6 +373,7 @@ set statusline+=\ %3p%%                     " Percentage through file in lines a
 " - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
 hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
 hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
+
 
 "
 " File formats -----------------------------------------------------------------
@@ -387,7 +390,6 @@ augroup FileFormats
   "   also colour the 51st column (for titles)
   autocmd FileType gitcommit set colorcolumn+=51
 
-
   " Markdown
   "   map *.md files so that syntax is recognized as markdown
   autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
@@ -399,7 +401,6 @@ augroup FileFormats
   autocmd BufRead,BufNewFile *.json set filetype=json
   autocmd FileType json setlocal equalprg=json_reformat
 
-
   " Objective-C
   "   map *.h & *.m files so syntax is recognized as objc
   autocmd BufNewFile,BufRead *.m,*.h set ft=objc
@@ -409,7 +410,6 @@ augroup FileFormats
 
   " Reload changes to vimrc
   autocmd bufwritepost vimrc source $MYVIMRC  
-
 augroup END
 
 
