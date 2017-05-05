@@ -160,9 +160,11 @@ hi SpellRare       ctermfg=81       ctermbg=NONE      cterm=underline        gui
 " --------------------------------
 " Vim highlighting
 " --------------------------------
-hi vimCommentTitle  ctermfg=15       ctermbg=13      cterm=NONE        guifg=#fffffe     guibg=#aa88aa     gui=NONE
-hi helpNote         ctermfg=15       ctermbg=12      cterm=NONE        guifg=#fffffe     guibg=#6194bc     gui=NONE
-hi helpWarning      ctermfg=15       ctermbg=9       cterm=NONE        guifg=#fffffe     guibg=#f2797b     gui=NONE
+hi vimIsCommand     ctermfg=187     ctermbg=NONE   cterm=NONE        guifg=#d7d7af     guibg=NONE      gui=NONE
+hi vimFunction      ctermfg=186     ctermbg=NONE   cterm=NONE        guifg=#d7d787     guibg=NONE      gui=NONE
+hi vimCommentTitle  ctermfg=15      ctermbg=13     cterm=NONE        guifg=#fffffe     guibg=#aa88aa   gui=NONE
+hi helpNote         ctermfg=15      ctermbg=12     cterm=NONE        guifg=#fffffe     guibg=#6194bc   gui=NONE
+hi helpWarning      ctermfg=15      ctermbg=9      cterm=NONE        guifg=#fffffe     guibg=#f2797b   gui=NONE
 
 " --------------------------------
 " Git highlighting
