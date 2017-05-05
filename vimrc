@@ -358,20 +358,17 @@ let g:currentmode={
       \ 't'  : 'Terminal '
       \}
 
-
-
 " Building the statusline (requires Powerline font for branch & lock)
 
 set statusline=                             " Empty statusline
 
 " ------------------------------ Left-hand side ------------------------------
 
-set statusline+=%2*                         " set bold (User2)
-set statusline+=\                           " Space
+set statusline+=%2*                       " set bold (User2)
+set statusline+=\ %{toupper(g:currentmode[mode()])}%*\ │\  " Current mode
 
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\ │\  " Current mode
 " Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)%*   
+set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)   
 set statusline+=%<                          " Where to truncate line
 set statusline+=%(%{GitStats()}%)           " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)       " git branch, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
