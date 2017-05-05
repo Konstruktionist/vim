@@ -325,7 +325,9 @@ endfunction
 
 function! Fileprefix() abort
   let l:basename=expand('%:h')
-  if l:basename == '' || l:basename == '.'
+  if &ft == 'help'    " Don't show in help files aka collapse
+    return ''
+  elseif l:basename == '' || l:basename == '.'
     return ''
   else
     " Make sure we show $HOME as ~.
