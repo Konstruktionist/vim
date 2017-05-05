@@ -199,7 +199,7 @@ set nojoinspaces                                 "nojs:  Don't autoinsert two sp
 
 set foldmethod=indent                            "fdm:   fold on the indentation by default
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
-set foldenable                                   "nofen: don't fold by default
+set nofoldenable                                 "nofen: don't fold by default
 set foldlevel=1
 set foldlevelstart=10                            "       open most folds by default
 
