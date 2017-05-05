@@ -182,7 +182,7 @@ set mouse=a                                      "       Enable the use of a mou
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
 set listchars=tab:▸\ ,eol:¬,extends:»,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
-"set noshowmode                                   "nosmd: Status-line shows the mode we're in
+set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
 set breakindentopt=shift:5                       "briopt: indent by 5 spaces
 set nobackup                                     "       Don't write backup files
@@ -335,6 +335,31 @@ function! Fileprefix() abort
   endif
 endfunction
 
+" What modes are there
+let g:currentmode={
+      \ 'n'  : 'N ',
+      \ 'no' : 'N·Operator Pending ',
+      \ 'v'  : 'V ',
+      \ 'V'  : 'V·Line ',
+      \ '' : 'V·Block ',
+      \ 's'  : 'Select ',
+      \ 'S'  : 'S·Line ',
+      \ '' : 'S·Block ',
+      \ 'i'  : 'I ',
+      \ 'R'  : 'R ',
+      \ 'Rv' : 'V·Replace ',
+      \ 'c'  : 'Command ',
+      \ 'cv' : 'Vim Ex ',
+      \ 'ce' : 'Ex ',
+      \ 'r'  : 'Prompt ',
+      \ 'rm' : 'More ',
+      \ 'r?' : 'Confirm ',
+      \ '!'  : 'Shell ',
+      \ 't'  : 'Terminal '
+      \}
+
+
+
 " Building the statusline (requires Powerline font for branch & lock)
 
 set statusline=                             " Empty statusline
@@ -344,6 +369,7 @@ set statusline=                             " Empty statusline
 set statusline+=%2*                         " set bold (User2)
 set statusline+=\                           " Space
 
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\ │\  " Current mode
 " Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)%*   
 set statusline+=%<                          " Where to truncate line
@@ -367,8 +393,8 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 set statusline+=\ %*
-set statusline+=\ %2v                       " Virtual column number.
-set statusline+=\ %3p%%                     " Percentage through file in lines as in |CTRL-G|
+set statusline+=\ %2v\ ∙                       " Virtual column number.
+set statusline+=\ %3p%%\                      " Percentage through file in lines as in |CTRL-G|
 
 " Logic for customizing the User1 highlight group is the following
 " - fg = StatusLine fg (if StatusLine colors are reverse)
