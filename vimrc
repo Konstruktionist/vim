@@ -297,14 +297,14 @@ function! GitStats() abort
   let b:hunk_symbols = ['+', '~', '-']
   let string = ''
   let git = fugitive#head()
-  let gits = GitGutterGetHunkSummary()
+  let gits = GitGutterGetHunkSummary()    " Changes to current file
 
   " Are we in a repo?
-  if git == ''    " NO, therefore show empty string aka collapse
+  if git == ''                           " NO, therefore show empty string aka collapse
     return string
   elseif git != '' && gits == [0, 0, 0]  " A repo with no changes, show empty string aka collapse
     return string
-  else    " In a repo with changes from HEAD
+  else                                    " In a repo with changes from HEAD
     for i in [0, 1, 2]
       let string .= printf('%s%s ', b:hunk_symbols[i], gits[i])   " Fill string with changes
     endfor
@@ -312,13 +312,13 @@ function! GitStats() abort
   endif
 endfunction
 
-function! GitInfo() abort
+function! GitInfo() abort                 " Assumption: we are in a repo
   let git = fugitive#head()
-  if &ft == 'help'    " Don't show in help files aka collapse
+  if &ft == 'help'                        " Don't show in help files aka collapse
     return ''
-  elseif git != ''
+  elseif git != ''                        " Yes, we're in a repo
     return '  '.fugitive#head()
-  else
+  elseif git == ''                        " No repo, so don't show aka collapse
     return ''
   endif
 endfunction
@@ -339,13 +339,13 @@ endfunction
 let g:currentmode={
       \ 'n'  : 'N ',
       \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'V ',
+      \ 'v'  : 'Visual ',
       \ 'V'  : 'V·Line ',
       \ '' : 'V·Block ',
       \ 's'  : 'Select ',
       \ 'S'  : 'S·Line ',
       \ '' : 'S·Block ',
-      \ 'i'  : 'I ',
+      \ 'i'  : 'Insert ',
       \ 'R'  : 'R ',
       \ 'Rv' : 'V·Replace ',
       \ 'c'  : 'Command ',
@@ -398,6 +398,8 @@ set statusline+=\ %3p%%\                      " Percentage through file in lines
 " - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
 hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
 hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
+" Set background color to red for the + sign?
+hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
 
 
 "
