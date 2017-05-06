@@ -1,7 +1,7 @@
 " Vim colorscheme
 " An adaptation of the Slate theme included with vim
 " Maintained by Peter van Peursem
-"     Version 3.2 - 04-05-2017
+"     Version 3.3 - 06-05-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -175,10 +175,10 @@ hi gitCommitSummary  ctermfg=6      ctermbg=NONE      cterm=NONE        guifg=#7
 " --------------------------------
 " git gutter
 " --------------------------------
-hi GitGutterAdd    ctermfg=34       ctermbg=NONE      cterm=bold        guifg=#00af00     guibg=NONE        gui=bold
-hi GitGutterChange ctermfg=5        ctermbg=NONE      cterm=bold        guifg=#d743da     guibg=NONE        gui=bold
-hi GitGutterDelete ctermfg=1        ctermbg=NONE      cterm=bold        guifg=#b91e2e     guibg=NONE        gui=bold
-hi GitGutterChangeDelete ctermfg=13 ctermbg=NONE      cterm=bold        guifg=#87314e     guibg=NONE        gui=bold
+hi GitGutterAdd    ctermfg=28       ctermbg=NONE      cterm=bold        guifg=#008700     guibg=NONE        gui=bold
+hi GitGutterChange ctermfg=177      ctermbg=NONE      cterm=bold        guifg=#d787ff     guibg=NONE        gui=bold
+hi GitGutterDelete ctermfg=196      ctermbg=NONE      cterm=bold        guifg=#ff0000     guibg=NONE        gui=bold
+hi GitGutterChangeDelete ctermfg=176 ctermbg=NONE      cterm=bold        guifg=#d787d7     guibg=NONE        gui=bold
 
 " --------------------------------
 " C highlighting
