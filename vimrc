@@ -134,17 +134,17 @@ Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 
 " Providing support for editing fish scripts.
-Plug 'Konstruktionist/vim-fish'
+Plug 'Konstruktionist/vim-fish', { 'for': 'fish' }
 
 " Support for Apple's Swift language
-Plug 'keith/swift.vim'
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 " Markdown for Vim
-Plug 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 " Plug 'rhysd/vim-gfm-syntax' " github flavored markdown
 
 " open the current Markdown buffer in Marked.app
-Plug 'itspriddle/vim-marked'
+Plug 'itspriddle/vim-marked', { 'on': 'MarkedOpen' }
 
 " Syntax highlighting for tmux
 Plug 'keith/tmux.vim'
@@ -157,15 +157,6 @@ call plug#end()
 
 " matchit lets you jump between begin and end of function with %
 packadd! matchit " add build-in matchit plugin
-
-
-"
-" Reload changes to vimrc
-"
-
-"if has("autocmd")
-"  autocmd bufwritepost vimrc source $MYVIMRC
-"endif
 
 
 "
@@ -595,6 +586,9 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
+
+" Toggle MarkedOpen
+nnoremap <leader>mo :MarkedOpen<CR>
 
 " Tip from http://www.catonmat.net/blog/sudo-vim/
 " save read-only files
