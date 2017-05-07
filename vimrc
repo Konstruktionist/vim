@@ -1,4 +1,4 @@
-"
+
 " IMPORTANT REMINDER
 "
 " All color-values can be found with python script at:
@@ -18,7 +18,7 @@ endif
 "
 
 "
-" Vim-Plug ---------------------------------------------------------------------
+" Vim-Plug installation {{{
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !mkdir -p ~/.vim/autoload
@@ -28,11 +28,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" }}}
 
-"
-" vim-plug short intro
+" vim-plug Manual {{{
 " This is here, because there's no help file
-"
 " --------------------
 "
 " https://github.com/junegunn/vim-plug
@@ -67,10 +66,9 @@ call plug#begin('~/.vim/plugged')
 "  Remove old/unused plugins with:
 "     :PlugClean
 "
-" intro End
-" ---------
+" }}}
 
-
+" Plugins to load {{{
 " enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
 
@@ -149,20 +147,15 @@ Plug 'itspriddle/vim-marked', { 'on': 'MarkedOpen' }
 " Syntax highlighting for tmux
 Plug 'keith/tmux.vim'
 
-call plug#end()
-
-"
-" Vim-Plug End -----------------------------------------------------------------
-"
 
 " matchit lets you jump between begin and end of function with %
 packadd! matchit " add build-in matchit plugin
 
+call plug#end()
 
-"
-" Options
-"
+" }}}
 
+" Options {{{
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
@@ -183,50 +176,42 @@ set cmdwinheight=20                              "       Height of command windo
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
+" }}}
 
-"
-" Folding
-"
-
+" Folding {{{
 set foldmethod=indent                            "fdm:   fold on the indentation by default
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
 set nofoldenable                                 "nofen: don't fold by default
 set foldlevel=1
 set foldlevelstart=10                            "       open most folds by default
+" }}}
 
-"
-" Search
-"
-
+" Search {{{
 set incsearch                                    "is:    automatically begins searching as you type
 set hlsearch                                     "hls:   highlights search results; ctrl-n or :noh to unhighlight
 set ignorecase                                   "ic:    searches are case insensitive...
 set smartcase                                    "scs:   ... unless they contain at least one capital letter
 set gdefault                                     "gd:    Substitute all matches in a line by default
+" }}}
 
-"
-" Programming
-"
+" Programming {{{
 
 filetype plugin indent on                        "       load filetype-specific indent files
 syntax on                                        "syn:   syntax highlighting
 set showmatch                                    "sm:    flashes matching brackets or parenthesis
 set matchtime=3                                  "mat:   How long to flash brackets
+:w
+" }}}
 
-"
-" Tabs
-"
-
+" Tabs {{{
 set tabstop=2                                    "ts:    number of spaces that a tab renders as
 set shiftwidth=2                                 "sw:    number of spaces to use for autoindent
 set softtabstop=2                                "sts:   number of spaces that tabs insert
 set smarttab                                     "sta:   helps with backspacing because of expandtab
 set expandtab                                    "et:    uses spaces instead of tab characters
+" }}}
 
-"
-" Hud and status info
-"
-
+" Hud and status info {{{
 set number                                       "nu:    numbers lines
 set relativenumber                               "rnu    let vim calculate the vertical jumps
 set numberwidth=5                                "nuw:   width of number column
@@ -235,11 +220,9 @@ set ttyfast                                      "tf:    improves redrawing for 
 set lazyredraw                                   "lz:    will not redraw the screen while running macros (goes faster)
 set linebreak                                    "lbr    break lines at word end
 set cursorline                                   "cul:   highlight the screenline of the cursor
+" }}}
 
-"
-" Menu compilation
-"
-
+" Menu compilation {{{
 set wildmenu                                     "wmnu:  enhanced ed command completion
 set wildmode=list:full                           "wim    list all matches and complete first match
 
@@ -255,21 +238,17 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=*/tmp/*                          " Temporary directories content
+" }}}
 
-"
-" Colors
-"
-
+" Colors {{{
 colorscheme Kafka
 " Iterm & Terminal.app can both display italics
 " (after patching terminfo database)
 " ensure comments are in italic, even if not set in colorscheme
 highlight Comment cterm=italic gui=italic
+" }}}
 
-"
-" Gvim/MacVim
-"
-
+" Gvim/MacVim {{{
 if has ('gui_running')
   set lines=80 columns=130          " Default window size
   set guifont=Iosevka-Light:h11
@@ -279,11 +258,9 @@ if has ('gui_running')
   set guioptions-=b                 " No scrollbar bottom
   set guioptions+=h                 " Limit horizontal scrolling
 endif
+" }}}
 
-"
-" Statusline
-"
-
+" Statusline {{{
 function! GitStats() abort
   let b:hunk_symbols = ['+', '~', '-']
   let string = ''
@@ -359,7 +336,7 @@ set statusline+=%2*                       " set bold (User2)
 set statusline+=\ %{toupper(g:currentmode[mode()])}%*\ │\  " Current mode
 
 " Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)   
+set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)
 set statusline+=%<                          " Where to truncate line
 set statusline+=%(%{GitStats()}%)           " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)       " git branch, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
@@ -381,8 +358,8 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 set statusline+=\ %*
-set statusline+=\ %2v\ ∙                       " Virtual column number.
-set statusline+=\ %3p%%\                      " Percentage through file in lines as in |CTRL-G|
+set statusline+=\ %2v\ ∙                    " Virtual column number.
+set statusline+=\ %3p%%\                    " Percentage through file in lines as in |CTRL-G|
 
 " Logic for customizing the User1 highlight group is the following
 " - fg = StatusLine fg (if StatusLine colors are reverse)
@@ -391,12 +368,9 @@ hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
 hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
 " Set background color to red for the + sign?
 hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
+" }}}
 
-
-"
-" File formats -----------------------------------------------------------------
-"
-
+" File formats {{{
 augroup FileFormats
   autocmd!
 
@@ -427,14 +401,13 @@ augroup FileFormats
   autocmd User GitGutter call GitStats()
 
   " Reload changes to vimrc
-  autocmd bufwritepost vimrc source $MYVIMRC  
+  autocmd bufwritepost vimrc source $MYVIMRC
 augroup END
 
 
-"
-" Plugin settings --------------------------------------------------------------
-"
+" }}}
 
+" Plugin settings {{{
 "
 "  gitgutter
 "
@@ -486,11 +459,9 @@ let g:Gitv_OpenHorizontal=1
 if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
+" }}}
 
-
-"
-" Commands ---------------------------------------------------------------------
-"
+" Commands {{{
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 " =========================================================
@@ -535,10 +506,9 @@ command! TrimWhitespace call TrimWhitespace()
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
 endif
+" }}}
 
-"
-" Key-mappings -----------------------------------------------------------------
-"
+" Key-mappings {{{
 
 " Space is easier than backslash
 let g:mapleader = "\<Space>"
@@ -615,4 +585,6 @@ function! s:align()
   endif
 endfunction
 
-" Key-mappings End <---
+" }}}
+
+" vim:ft=vim:foldmethod=marker:foldenable:foldlevel=0
