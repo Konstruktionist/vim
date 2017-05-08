@@ -200,7 +200,6 @@ filetype plugin indent on                        "       load filetype-specific 
 syntax on                                        "syn:   syntax highlighting
 set showmatch                                    "sm:    flashes matching brackets or parenthesis
 set matchtime=3                                  "mat:   How long to flash brackets
-:w
 " }}}
 
 " Tabs {{{
@@ -370,7 +369,7 @@ hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090  
 hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
 " }}}
 
-" File formats {{{
+" File formats autocommands {{{
 augroup FileFormats
   autocmd!
 
