@@ -1,20 +1,29 @@
+" Fold settings for vim
 function! VimFolds()
   let thisline = getline(v:lnum)
-  if match(thisline, '^"--') >= 0
+  if match(thisline, '^"---') >= 0
+    return ">3"
+  elseif match(thisline, '^"--') >= 0
     return ">2"
-  else
-    if match(thisline, '^"-') >= 0
+  elseif match(thisline, '^"-') >= 0
     return ">1"
   else
     return "="
   endif
 endfunction
 setlocal foldenable
+setlocal foldlevel=1
 setlocal foldmethod=expr
 setlocal foldexpr=VimFolds()
 
-function! VimFoldText()
-  let foldsize = (v:foldend-v:foldstart)
-  return getline(v:foldstart).' ('.foldsize.' lines)'
+function! CustomFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
-setlocal foldtext=VimFoldText()
+setlocal foldtext=CustomFoldText()
