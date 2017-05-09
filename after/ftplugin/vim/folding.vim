@@ -12,7 +12,6 @@ function! VimFolds()
   endif
 endfunction
 setlocal foldenable
-setlocal foldlevel=1
 setlocal foldmethod=expr
 setlocal foldexpr=VimFolds()
 

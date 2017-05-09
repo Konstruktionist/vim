@@ -147,7 +147,7 @@ Plug 'keith/tmux.vim'
 
 
 " matchit lets you jump between begin and end of function with %
-packadd! matchit " add build-in matchit plugin
+packadd! matchit                                 " add built-in matchit plugin
 
 call plug#end()
 
@@ -176,7 +176,6 @@ set nojoinspaces                                 "nojs:  Don't autoinsert two sp
 
 "- Folding
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
-set foldenable
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -235,29 +234,31 @@ highlight Comment cterm=italic gui=italic
 
 "- Gvim/MacVim
 if has ('gui_running')
-  set lines=80 columns=130          " Default window size
+  set lines=80 columns=130                       " Default window size
   set guifont=Iosevka-Light:h11
-  set guioptions-=T                 " No toolbar
-  set guioptions-=r                 " No scrollbar right
-  set guioptions-=l                 " No scrollbar left
-  set guioptions-=b                 " No scrollbar bottom
-  set guioptions+=h                 " Limit horizontal scrolling
+  set guioptions-=T                              " No toolbar
+  set guioptions-=r                              " No scrollbar right
+  set guioptions-=l                              " No scrollbar left
+  set guioptions-=b                              " No scrollbar bottom
+  set guioptions+=h                              " Limit horizontal scrolling
 endif
 
 "- Statusline
 "-- Helper functions
+
+"--- Get diff statistics of file in buffer
 function! GitStats() abort
   let b:hunk_symbols = ['+', '~', '-']
   let string = ''
   let git = fugitive#head()
-  let gits = GitGutterGetHunkSummary()    " Changes to current file
+  let gits = GitGutterGetHunkSummary()           " Changes to current file
 
   " Are we in a repo?
-  if git == ''                           " NO, therefore show empty string aka collapse
+  if git == ''                                   " NO, therefore show empty string aka collapse
     return string
-  elseif git != '' && gits == [0, 0, 0]  " A repo with no changes, show empty string aka collapse
+  elseif git != '' && gits == [0, 0, 0]          " A repo with no changes, show empty string aka collapse
     return string
-  else                                    " In a repo with changes from HEAD
+  else                                           " In a repo with changes from HEAD
     for i in [0, 1, 2]
       let string .= printf('%s%s ', b:hunk_symbols[i], gits[i])   " Fill string with changes
     endfor
@@ -265,20 +266,22 @@ function! GitStats() abort
   endif
 endfunction
 
-function! GitInfo() abort                 " Assumption: we are in a repo
+"--- Get name of branch
+function! GitInfo() abort                        " Assumption: we are in a repo
   let git = fugitive#head()
-  if &ft == 'help'                        " Don't show in help files aka collapse
+  if &ft == 'help'                               " Don't show in help files aka collapse
     return ''
-  elseif git != ''                        " Yes, we're in a repo
+  elseif git != ''                               " Yes, we're in a repo
     return '  '.fugitive#head()
-  elseif git == ''                        " No repo, so don't show aka collapse
+  elseif git == ''                               " No repo, so don't show aka collapse
     return ''
   endif
 endfunction
 
+"--- Get the pathname to the file
 function! Fileprefix() abort
   let l:basename=expand('%:h')
-  if &ft == 'help'    " Don't show in help files aka collapse
+  if &ft == 'help'                               " Don't show in help files aka collapse
     return ''
   elseif l:basename == '' || l:basename == '.'
     return ''
@@ -288,7 +291,7 @@ function! Fileprefix() abort
   endif
 endfunction
 
-" What modes are there
+"--- What modes are there
 let g:currentmode={
       \ 'n'  : 'N ',
       \ 'no' : 'N·Operator Pending ',
@@ -299,7 +302,7 @@ let g:currentmode={
       \ 'S'  : 'S·Line ',
       \ '' : 'S·Block ',
       \ 'i'  : 'Insert ',
-      \ 'R'  : 'R ',
+      \ 'R'  : 'Replace ',
       \ 'Rv' : 'V·Replace ',
       \ 'c'  : 'Command ',
       \ 'cv' : 'Vim Ex ',
@@ -313,25 +316,27 @@ let g:currentmode={
 
 "-- Building the statusline (requires Powerline font for branch & lock)
 
-set statusline=                             " Empty statusline
+set statusline=                                  " Empty statusline
 
 " ------------------------------ Left-hand side ------------------------------
 
-set statusline+=%2*                       " set bold (User2)
-set statusline+=\ %{toupper(g:currentmode[mode()])}%*\ │\  " Current mode
+set statusline+=%2*                              " set bold (User2)
 
-" Buffer number, don't show it for help files, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
+" Current mode, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+set statusline+=%(\ %{toupper(g:currentmode[mode()])}%*\ │\ %)
+
+" Buffer number, don't show it for help files, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)
-set statusline+=%<                          " Where to truncate line
-set statusline+=%(%{GitStats()}%)           " How many changes
-set statusline+=%(%{GitInfo()}\ │\ %)       " git branch, followed by U2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%{Fileprefix()}             " Path to the file in the buffer, as typed or relative to current directory
-set statusline+=%2*                         " set bold (User2)
-set statusline+=%t                          " filename
+set statusline+=%<                               " Where to truncate line
+set statusline+=%(%{GitStats()}%)                " How many changes
+set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
+set statusline+=%2*                              " set bold (User2)
+set statusline+=%t                               " filename
 set statusline+=%{&modified?'\ +':''}
 set statusline+=%{&readonly?'\ ':''}
-set statusline+=\ %1*                       " Switch to color User1
-set statusline+=%=                          " Separation point between left and right groups.
+set statusline+=\ %1*                            " Switch to color User1
+set statusline+=%=                               " Separation point between left and right groups.
 
 " ------------------------------ Right-hand side -----------------------------
 
@@ -339,12 +344,13 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
 " If filetype encoding is utf-8 and file format is unix, don't show this as it
 " is the normal state. Only show this info if it is something unusual.
-" Attention: first pipe-like charachter is NOT a pipe char but U2502 (BOX DRAWINGS LIGHT VERTICAL)
+" Attention: first pipe-like charachter is NOT a pipe char but U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
+
 set statusline+=\ %*
-set statusline+=\ %2v\ ∙                    " Virtual column number.
-set statusline+=\ %3p%%\                    " Percentage through file in lines as in |CTRL-G|
+set statusline+=\ ｃ%2v\ ∙                       " Virtual column number, c is U+FF43 (FULLWIDTH LATIN SMALL LETTER C)
+set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
 " Logic for customizing the User1 highlight group is the following
 " - fg = StatusLine fg (if StatusLine colors are reverse)
