@@ -97,7 +97,7 @@ Plug 'tpope/vim-surround'
 
 " command-t
 Plug 'wincent/command-t', {
-      \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
+      \   'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
       \ }
 
 " terminus
@@ -451,6 +451,7 @@ if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
 
+let g:CommandTFileScanner = 'git'
 "- Commands
 
 " Set tabstop, softtabstop and shiftwidth to the same value
