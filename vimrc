@@ -104,12 +104,6 @@ Plug 'wincent/command-t', {
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
 Plug 'wincent/terminus'
 
-" A code-completion engine for Vim
-Plug 'Shougo/neocomplete.vim'
-
-" Speeds up folding
-"Plug 'Konfekt/FastFold'
-
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 Plug 'sirver/ultisnips'
@@ -140,7 +134,7 @@ Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 " Plug 'rhysd/vim-gfm-syntax' " github flavored markdown
 
 " open the current Markdown buffer in Marked.app
-Plug 'itspriddle/vim-marked', { 'on': 'MarkedOpen' }
+Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 
 " Syntax highlighting for tmux
 Plug 'keith/tmux.vim'
@@ -399,54 +393,20 @@ augroup END
 
 "- Plugin settings
 
-"
 "  gitgutter
-"
-
 let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_eager=0
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_sign_removed='-'
 let g:gitgutter_sign_modified_removed='±'
 
-"
-"  Syntastic
-"
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-"
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-"
-"  NeoComplete
-"
-
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-"
 " Ultisnips
-"
-
 let g:UltiSnipsExpandTrigger="<tab>"
 
-"
 " Gitv
-"
-
 let g:Gitv_OpenHorizontal=1
 
-"
 " command-t
-"
 if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
@@ -525,28 +485,6 @@ vnoremap / /\v
 
 " Search for help with command-t plugin
 nmap <silent> <Leader>h <Plug>(CommandTHelp)
-
-"
-" NeoComplete key-mappings
-" ------------------------
-"
-inoremap <expr><C-l> neocomplete#complete_common_string()
-" Recommended key-mappings.
-" " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
 
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
