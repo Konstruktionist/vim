@@ -237,9 +237,8 @@ if has ('gui_running')
   set guioptions+=h                              " Limit horizontal scrolling
 endif
 
-"- Statusline
-"-- Helper functions
-
+"- Statusline (requires Powerline font for branch & lock)
+"           Some helper functions used in statusline
 "--- Get diff statistics of file in buffer
 function! GitStats() abort
   let b:hunk_symbols = ['+', '~', '-']
@@ -266,7 +265,7 @@ function! GitInfo() abort                        " Assumption: we are in a repo
   if &ft == 'help'                               " Don't show in help files aka collapse
     return ''
   elseif git != ''                               " Yes, we're in a repo
-    return '  '.fugitive#head()
+    return '  '.fugitive#head()                 " branch-symbol is U+E0A0 (in private use area)
   elseif git == ''                               " No repo, so don't show aka collapse
     return ''
   endif
@@ -308,7 +307,7 @@ let g:currentmode={
       \ 't'  : 'Terminal '
       \}
 
-"-- Building the statusline (requires Powerline font for branch & lock)
+"-- Building the statusline
 
 set statusline=                                  " Empty statusline
 
@@ -328,7 +327,7 @@ set statusline+=%{Fileprefix()}                  " Path to the file in the buffe
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t                               " filename
 set statusline+=%{&modified?'\ +':''}
-set statusline+=%{&readonly?'\ ':''}
+set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
 set statusline+=\ %1*                            " Switch to color User1
 set statusline+=%=                               " Separation point between left and right groups.
 
