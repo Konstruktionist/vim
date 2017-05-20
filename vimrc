@@ -4,8 +4,8 @@
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
 "
-" Comment as much as possible, because we tend to forget things!
-" --------------------------------------------------------------
+" Comment as much as possible, because humans tend to forget things!
+" ------------------------------------------------------------------
 
 "  fish
 "     from: https://github.com/dag/vim-fish
@@ -64,7 +64,19 @@ call plug#begin('~/.vim/plugged')
 "  Remove old/unused plugins with:
 "     :PlugClean
 "
-
+"
+"   Plug options
+"
+"   Option                Description
+"   ------                -----------
+"   branch/tag/commit	    Branch/tag/commit of the repository to use
+"   rtp	                  Subdirectory that contains Vim plugin
+"   dir	                  Custom directory for the plugin
+"   as	                  Use different name for the plugin
+"   do	                  Post-update hook (string or funcref)
+"   on	                  On-demand loading: Commands or <Plug>-mappings
+"   for	                  On-demand loading: File types
+"   frozen	              Do not update unless explicitly specified
 
 "- Plugins to load
 " enable repeating supported plugin maps with "."
@@ -167,6 +179,7 @@ set cmdwinheight=20                              "       Height of command windo
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
+set clipboard=unnamed                            "       copy to the system clipboard
 
 "- Folding
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
@@ -247,7 +260,7 @@ function! GitStats() abort
   let gits = GitGutterGetHunkSummary()           " Changes to current file
 
   " Are we in a repo?
-  if git == ''                                   " NO, therefore show empty string aka collapse
+  if git == ''                                   " Not a repo,therefore show empty string aka collapse
     return string
   elseif git != '' && gits == [0, 0, 0]          " A repo with no changes, show empty string aka collapse
     return string
@@ -276,7 +289,7 @@ function! Fileprefix() abort
   let l:basename=expand('%:h')
   if &ft == 'help'                               " Don't show in help files aka collapse
     return ''
-  elseif l:basename == '' || l:basename == '.'
+  elseif l:basename == '' || l:basename == '.'   " If empty or current working directory don't show path
     return ''
   else
     " Make sure we show $HOME as ~.
@@ -350,7 +363,7 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 " - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
 hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
 hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
-" Set background color to red for the + sign?
+" Todo: Set background color to red for the + sign?
 hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
 
 "- File formats autocommands
@@ -450,12 +463,6 @@ function! TrimWhitespace()
 endfun
 
 command! TrimWhitespace call TrimWhitespace()
-
-" yank to clipboard
-" =================
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-endif
 
 "- Key-mappings
 
