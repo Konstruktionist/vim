@@ -300,24 +300,24 @@ endfunction
 "--- What modes are there
 let g:currentmode={
       \ 'n'  : 'N ',
-      \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'Visual ',
-      \ 'V'  : 'V·Line ',
-      \ '' : 'V·Block ',
-      \ 's'  : 'Select ',
-      \ 'S'  : 'S·Line ',
-      \ '' : 'S·Block ',
-      \ 'i'  : 'Insert ',
-      \ 'R'  : 'Replace ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
-      \ 'cv' : 'Vim Ex ',
-      \ 'ce' : 'Ex ',
-      \ 'r'  : 'Prompt ',
-      \ 'rm' : 'More ',
-      \ 'r?' : 'Confirm ',
-      \ '!'  : 'Shell ',
-      \ 't'  : 'Terminal '
+      \ 'no' : 'N·OPERATOR PENDING ',
+      \ 'v'  : 'VISUAL ',
+      \ 'V'  : 'V·LINE ',
+      \ '' : 'V·BLOCK ',
+      \ 's'  : 'SELECT ',
+      \ 'S'  : 'S·LINE ',
+      \ '' : 'S·BLOCK ',
+      \ 'i'  : 'INSERT ',
+      \ 'R'  : 'REPLACE ',
+      \ 'Rv' : 'V·REPLACE ',
+      \ 'c'  : 'COMMAND ',
+      \ 'cv' : 'VIM EX ',
+      \ 'ce' : 'EX ',
+      \ 'r'  : 'PROMPT ',
+      \ 'rm' : 'MORE ',
+      \ 'r?' : 'CONFIRM ',
+      \ '!'  : 'SHELL ',
+      \ 't'  : 'TERMINAL '
       \}
 
 "-- Building the statusline
@@ -329,7 +329,7 @@ set statusline=                                  " Empty statusline
 set statusline+=%2*                              " set bold (User2)
 
 " Current mode, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(\ %{toupper(g:currentmode[mode()])}%*\ │\ %)
+set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
 
 " Buffer number, don't show it for help files, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)
