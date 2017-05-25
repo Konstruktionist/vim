@@ -107,10 +107,9 @@ Plug 'tpope/vim-surround'
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
-" command-t
-Plug 'wincent/command-t', {
-      \   'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
-      \ }
+" fzf - a fuzzy file finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " terminus
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
@@ -167,7 +166,7 @@ set hidden                                       "hid:   don't care about closin
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
-set listchars=tab:▸\ ,eol:¬,extends:»,trail:※,nbsp:⎵
+set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:※,nbsp:⎵
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -407,9 +406,7 @@ augroup END
 
 "  gitgutter
 let g:gitgutter_override_sign_column_highlight=0
-let g:gitgutter_eager=0
 let g:gitgutter_sign_column_always=1
-let g:gitgutter_sign_removed='-'
 let g:gitgutter_sign_modified_removed='±'
 
 " Ultisnips
@@ -418,12 +415,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Gitv
 let g:Gitv_OpenHorizontal=1
 
-" command-t
-if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
-  let g:CommandTCancelMap=['<ESC>', '<C-c>']
-endif
-
-let g:CommandTFileScanner = 'git'
 "- Commands
 
 " Set tabstop, softtabstop and shiftwidth to the same value
@@ -501,6 +492,12 @@ nnoremap <leader>mo :MarkedOpen<CR>
 " Tip from http://www.catonmat.net/blog/sudo-vim/
 " save read-only files
 cnoremap sudow w !sudo tee % >/dev/null
+
+" move lines up or down while adjusting indentation
+nnoremap <silent> ,<Up>   :<C-u>move-2<CR>==
+nnoremap <silent> ,<Down> :<C-u>move+<CR>==
+xnoremap <silent> ,<Up>   :move-2<CR>gv=gv
+xnoremap <silent> ,<Down> :move'>+<CR>gv=gv
 
 " Testing colorscheme
 nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
