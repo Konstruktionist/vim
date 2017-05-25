@@ -95,9 +95,6 @@ Plug 'tomtom/tcomment_vim'
 " stages/reverts hunks. Use [c and ]c to navigate changes.
 Plug 'airblade/vim-gitgutter'
 
-" Gundo.vim is Vim plugin to visualize your Vim undo tree.
-"Plug 'sjl/gundo.vim'
-
 " UndoTree
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
@@ -107,9 +104,10 @@ Plug 'tpope/vim-surround'
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
-" fzf - a fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" command-t
+Plug 'wincent/command-t', {
+      \ 'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
+      \ }
 
 " terminus
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
@@ -415,6 +413,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Gitv
 let g:Gitv_OpenHorizontal=1
 
+" command-t
+if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
+  let g:CommandTCancelMap=['<ESC>', '<C-c>']
+endif
+
+let g:CommandTFileScanner = 'git'
 "- Commands
 
 " Set tabstop, softtabstop and shiftwidth to the same value
