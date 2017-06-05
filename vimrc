@@ -298,25 +298,25 @@ endfunction
 
 "--- What modes are there
 let g:currentmode={
-      \ 'n'  : 'N ',
-      \ 'no' : 'N·OPERATOR PENDING ',
-      \ 'v'  : 'VISUAL ',
-      \ 'V'  : 'V·LINE ',
-      \ '' : 'V·BLOCK ',
-      \ 's'  : 'SELECT ',
-      \ 'S'  : 'S·LINE ',
-      \ '' : 'S·BLOCK ',
-      \ 'i'  : 'INSERT ',
-      \ 'R'  : 'REPLACE ',
-      \ 'Rv' : 'V·REPLACE ',
-      \ 'c'  : 'COMMAND ',
-      \ 'cv' : 'VIM EX ',
-      \ 'ce' : 'EX ',
-      \ 'r'  : 'PROMPT ',
-      \ 'rm' : 'MORE ',
-      \ 'r?' : 'CONFIRM ',
-      \ '!'  : 'SHELL ',
-      \ 't'  : 'TERMINAL '
+      \ 'n'  : 'N',
+      \ 'no' : 'N·OPERATOR PENDING',
+      \ 'v'  : 'VISUAL',
+      \ 'V'  : 'V·LINE',
+      \ '' : 'V·BLOCK',
+      \ 's'  : 'SELECT',
+      \ 'S'  : 'S·LINE',
+      \ '' : 'S·BLOCK',
+      \ 'i'  : 'INSERT',
+      \ 'R'  : 'REPLACE',
+      \ 'Rv' : 'V·REPLACE',
+      \ 'c'  : 'COMMAND',
+      \ 'cv' : 'VIM EX',
+      \ 'ce' : 'EX',
+      \ 'r'  : 'PROMPT',
+      \ 'rm' : 'MORE',
+      \ 'r?' : 'CONFIRM',
+      \ '!'  : 'SHELL',
+      \ 't'  : 'TERMINAL'
       \}
 
 "-- Building the statusline
@@ -340,11 +340,11 @@ set statusline+=%2*                              " set bold (User2)
 set statusline+=%t                               " filename
 set statusline+=%{&modified?'\ +':''}
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
-set statusline+=\ %1*                            " Switch to color User1
 set statusline+=%=                               " Separation point between left and right groups.
 
 " ------------------------------ Right-hand side -----------------------------
 
+set statusline+=\ %1*                            " Switch to color User1
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
 " If filetype encoding is utf-8 and file format is unix, don't show this as it
@@ -353,7 +353,7 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 
-set statusline+=\ %*
+set statusline+=\ %*                             " reset color to colorscheme StatusLine
 set statusline+=\ ｃ%2v\ ∙                       " Virtual column number, c is U+FF43 (FULLWIDTH LATIN SMALL LETTER C)
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
@@ -361,7 +361,7 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 " - fg = StatusLine fg (if StatusLine colors are reverse)
 " - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
 hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
-hi User2  ctermfg=NONE  ctermbg=8   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
+hi User2  ctermfg=NONE  ctermbg=7   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
 " Todo: Set background color to red for the + sign?
 hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
 
