@@ -247,36 +247,38 @@ if has ('gui_running')
   set guioptions+=h                              " Limit horizontal scrolling
 endif
 
-"- Statusline (requires Powerline font for branch & lock)
+"- Statusline (requires Powerline enabled font for branch & lock)
 "           Some helper functions used in statusline
 "--- Get diff statistics of file in buffer
 function! GitStats() abort
+  " These are variables only for the current buffer
   let b:hunk_symbols = ['+', '~', '-']
-  let string = ''
-  let git = fugitive#head()
-  let gits = GitGutterGetHunkSummary()           " Changes to current file
+  let b:string = ''
+  let b:git = fugitive#head()
+  let b:gits = GitGutterGetHunkSummary()         " Changes to current file
 
   " Are we in a repo?
-  if git == ''                                   " Not a repo,therefore show empty string aka collapse
-    return string
-  elseif git != '' && gits == [0, 0, 0]          " A repo with no changes, show empty string aka collapse
-    return string
+  if b:git == ''                                 " Not a repo,therefore show empty string aka collapse
+    return b:string
+  elseif b:git != '' && b:gits == [0, 0, 0]      " A repo with no changes, show empty string aka collapse
+    return b:string
   else                                           " In a repo with changes from HEAD
     for i in [0, 1, 2]
-      let string .= printf('%s%s ', b:hunk_symbols[i], gits[i])   " Fill string with changes
+      let b:string .= printf('%s%s ', b:hunk_symbols[i], b:gits[i])   " Fill string with changes
     endfor
-    return string
+    return b:string
   endif
 endfunction
 
 "--- Get name of branch
 function! GitInfo() abort                        " Assumption: we are in a repo
-  let git = fugitive#head()
   if &ft == 'help'                               " Don't show in help files aka collapse
     return ''
-  elseif git != ''                               " Yes, we're in a repo
-    return '  '.fugitive#head()                 " branch-symbol is U+E0A0 (in private use area)
-  elseif git == ''                               " No repo, so don't show aka collapse
+  elseif b:git != '' && b:string == ''           " Yes, we're in a repo & file has no changes
+    return ' '.fugitive#head()                  " branch-symbol is U+E0A0 (in private use area)
+  elseif b:git != '' && b:string != ''           " Yes, in a repo, but file has changes, add space before branch symbol
+    return '  '.fugitive#head()
+  elseif b:git == ''                             " No repo, so don't show aka collapse
     return ''
   endif
 endfunction
