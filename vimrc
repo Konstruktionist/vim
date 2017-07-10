@@ -327,7 +327,7 @@ set statusline=                                  " Empty statusline
 
 set statusline+=%2*                              " set bold (User2)
 
-" Current mode, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+" Space, Current mode, reset bold, space followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
 
 " Buffer number, don't show it for help files, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
@@ -457,7 +457,7 @@ function! TrimWhitespace()
   let l:save = winsaveview()
   %s/\s\+$//e
   call winrestview(l:save)
-endfun
+endfunction
 
 command! TrimWhitespace call TrimWhitespace()
 
@@ -492,7 +492,7 @@ nmap <silent> <Leader>h <Plug>(CommandTHelp)
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
 
-" Toggle MarkedOpen
+" Open markdown files in Marked to preview
 nnoremap <leader>mo :MarkedOpen<CR>
 
 " Tip from http://www.catonmat.net/blog/sudo-vim/
