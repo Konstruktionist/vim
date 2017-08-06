@@ -177,6 +177,7 @@ set nrformats-=octal                             "nf:    Don't assume numbers st
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 set clipboard=unnamed                            "       copy to the system clipboard
+colorscheme Kafka
 
 "- Folding
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
@@ -228,13 +229,6 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=*/tmp/*                          " Temporary directories content
-
-"- Colors
-colorscheme Kafka
-" Iterm & Terminal.app can both display italics
-" (after patching terminfo database)
-" ensure comments are in italic, even if not set in colorscheme
-highlight Comment cterm=italic gui=italic
 
 "- Gvim/MacVim
 if has ('gui_running')
@@ -360,10 +354,10 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 " Logic for customizing the User1 highlight group is the following
 " - fg = StatusLine fg (if StatusLine colors are reverse)
 " - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
-hi User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
-hi User2  ctermfg=NONE  ctermbg=7   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
+highlight User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
+highlight User2  ctermfg=NONE  ctermbg=7   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
 " Todo: Set background color to red for the + sign?
-hi User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
+highlight User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
 
 "- File formats autocommands
 augroup FileFormats
@@ -421,7 +415,7 @@ if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
 endif
 
 let g:CommandTFileScanner = 'git'
-"- Commands
+"- Commands & Functions
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 " =========================================================
@@ -453,6 +447,7 @@ function! SummarizeTabs()
 endfunction
 
 " Trim trailing whitespace
+" ========================
 function! TrimWhitespace()
   let l:save = winsaveview()
   %s/\s\+$//e
@@ -460,6 +455,20 @@ function! TrimWhitespace()
 endfunction
 
 command! TrimWhitespace call TrimWhitespace()
+
+" Change colors to my preference
+" ==============================
+function! MyColours() abort
+  " Iterm & Terminal.app can both display italics
+  " (after patching terminfo database)
+  " ensure comments are in italic, even if not set in colorscheme
+  highlight Comment cterm=italic gui=italic
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd Colorscheme * call MyColours()
+augroup END
 
 "- Key-mappings
 
