@@ -400,7 +400,9 @@ augroup END
 
 "  gitgutter
 let g:gitgutter_override_sign_column_highlight=0
-let g:gitgutter_sign_column_always=1
+if exists('&signcolumn')  " Vim > 7.4.2201
+  set signcolumn=yes
+endif
 let g:gitgutter_sign_modified_removed='±'
 
 " Ultisnips
