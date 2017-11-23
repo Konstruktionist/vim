@@ -104,10 +104,13 @@ Plug 'tpope/vim-surround'
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
+" Control-P
+Plug 'ctrlpvim/ctrlp.vim'
+
 " command-t
-Plug 'wincent/command-t', {
-      \ 'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
-      \ }
+" Plug 'wincent/command-t', {
+"       \ 'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
+"       \ }
 
 " terminus
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
@@ -160,7 +163,7 @@ set timeoutlen=3000                              "tm:    time in ms waiting for 
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
 set showcmd                                      "sc:    display incomplete commands
-set hidden                                       "hid:   don't care about closing modified buffers
+set hidden                                       "hid:   allow switch to another buffer with unsaved changes in current one
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
@@ -399,10 +402,10 @@ augroup END
 "- Plugin settings
 
 "  gitgutter
-let g:gitgutter_override_sign_column_highlight=0
 if exists('&signcolumn')  " Vim > 7.4.2201
   set signcolumn=yes
 endif
+let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_sign_modified_removed='±'
 
 " Ultisnips
@@ -412,11 +415,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:Gitv_OpenHorizontal=1
 
 " command-t
-if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
-  let g:CommandTCancelMap=['<ESC>', '<C-c>']
-endif
+" if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
+"   let g:CommandTCancelMap=['<ESC>', '<C-c>']
+" endif
+"
+" let g:CommandTFileScanner = 'git'
 
-let g:CommandTFileScanner = 'git'
 "- Commands & Functions
 
 " Set tabstop, softtabstop and shiftwidth to the same value
@@ -472,6 +476,7 @@ augroup MyColors
   autocmd Colorscheme * call MyColours()
 augroup END
 
+
 "- Key-mappings
 
 " Space is easier than backslash
@@ -487,6 +492,9 @@ nmap <leader>l :set list!<CR>
 nnoremap <silent> <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <leader><Space> zf
 
+" Fold all except current line and keep current cursor position
+nnoremap <leader>zv :normal mazMzv`a<CR>
+
 " open .vimrc in a new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
@@ -497,8 +505,11 @@ nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 nnoremap / /\v
 vnoremap / /\v
 
+" Underline current line
+nnoremap <leader>u YpVr
+
 " Search for help with command-t plugin
-nmap <silent> <Leader>h <Plug>(CommandTHelp)
+" nmap <silent> <Leader>h <Plug>(CommandTHelp)
 
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
