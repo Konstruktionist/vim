@@ -316,6 +316,21 @@ let g:currentmode={
       \ 't'  : 'TERMINAL'
       \}
 
+"--- Count how many modified buffers we have
+
+func! CountModifiedBuffer()
+  return len(filter(getbufinfo(), 'v:val.changed == 1'))
+endfunc
+
+" + if only current modified, +3 if 3 modified including current buffer.
+" 3 if 3 modified and current not, '' if none modified.
+function! BuffersModified()
+    let cnt = CountModifiedBuffer()
+    " Buffers changed indicated by U+1D6C5 (MATHEMATICAL BOLD SMALL DELTA)
+    return cnt == 0 ? '' : ( &modified ? ' 𝛅 +'. (cnt>1?cnt:'  ') .'' : ' 𝛅 '.cnt.'')
+endfunc
+
+
 "-- Building the statusline
 
 set statusline=                                  " Empty statusline
@@ -334,33 +349,34 @@ set statusline+=%(%{GitStats()}%)                " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
-set statusline+=%t                               " filename
-set statusline+=%{&modified?'\ +':''}
+set statusline+=%t\                              " filename followed by space
+"set statusline+=%1*                              " Switch to color User1
+set statusline+=%(%{BuffersModified()}%)         " number of modified buffers
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
+"set statusline+=\ %*                             " reset color to colorscheme StatusLine
 set statusline+=%=                               " Separation point between left and right groups.
 
 " ------------------------------ Right-hand side -----------------------------
 
 set statusline+=\ %1*                            " Switch to color User1
+" If filetype is unknown or not set
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
 " If filetype encoding is utf-8 and file format is unix, don't show this as it
 " is the normal state. Only show this info if it is something unusual.
 " Attention: first pipe-like charachter is NOT a pipe char but U+2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '.&fileencoding.(&bomb?'-bom':''):'')
+set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '
+      \.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 
 set statusline+=\ %*                             " reset color to colorscheme StatusLine
-set statusline+=\ ｃ%2v\ ∙                       " Virtual column number, c is U+FF43 (FULLWIDTH LATIN SMALL LETTER C)
+set statusline+=\ ｃ%3v\ ∙                       " Virtual column number, c is U+FF43 (FULLWIDTH LATIN SMALL LETTER C)
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
-" Logic for customizing the User1 highlight group is the following
-" - fg = StatusLine fg (if StatusLine colors are reverse)
-" - bg = StatusLineNC bg (if StatusLineNC colors are reverse)
-highlight User1  ctermfg=8     ctermbg=7                 guifg=#909090  guibg=#444444
-highlight User2  ctermfg=NONE  ctermbg=7   cterm=bold    guifg=NONE     guibg=#909090   gui=bold
-" Todo: Set background color to red for the + sign?
-highlight User3  ctermfg=NONE  ctermbg=1   cterm=bold    guifg=NONE     guibg=#d14548   gui=bold
+" - highlight User1 = fore & background statusline colors switched
+" - highlight User2 = White bold text on statusline background
+highlight User1  ctermfg=246   ctermbg=238                guifg=#909090  guibg=#444444
+highlight User2  ctermfg=NONE  ctermbg=246  cterm=bold    guifg=NONE     guibg=#909090   gui=bold
 
 "- File formats autocommands
 augroup FileFormats
@@ -413,15 +429,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 
 " Gitv
 let g:Gitv_OpenHorizontal=1
-
-" command-t
-" if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
-"   let g:CommandTCancelMap=['<ESC>', '<C-c>']
-" endif
-"
-" let g:CommandTFileScanner = 'git'
-
-"- Commands & Functions
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 " =========================================================
@@ -547,4 +554,3 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
