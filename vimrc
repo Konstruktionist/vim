@@ -269,7 +269,7 @@ endfunction
 
 "--- Get name of branch
 function! GitInfo() abort                        " Assumption: we are in a repo
-  if &ft == 'help'                               " Don't show in help files aka collapse
+  if &filetype == 'help'                         " Do not show in help files aka collapse
     return ''
   elseif b:git != '' && b:string == ''           " Yes, we're in a repo & file has no changes
     return ' '.fugitive#head()                  " branch-symbol is U+E0A0 (in private use area)
@@ -283,7 +283,7 @@ endfunction
 "--- Get the pathname to the file
 function! Fileprefix() abort
   let l:basename=expand('%:h')
-  if &ft == 'help'                               " Don't show in help files aka collapse
+  if &filetype == 'help'                         " Do not show in help files aka collapse
     return ''
   elseif l:basename == '' || l:basename == '.'   " If empty or current working directory don't show path
     return ''
@@ -318,16 +318,16 @@ let g:currentmode={
 
 "--- Count how many modified buffers we have
 
-func! CountModifiedBuffer()
+function! CountModifiedBuffer()
   return len(filter(getbufinfo(), 'v:val.changed == 1'))
 endfunc
 
 " + if only current modified, +3 if 3 modified including current buffer.
 " 3 if 3 modified and current not, '' if none modified.
 function! BuffersModified()
-    let cnt = CountModifiedBuffer()
-    " Buffers changed indicated by U+1D6C5 (MATHEMATICAL BOLD SMALL DELTA)
-    return cnt == 0 ? '' : ( &modified ? ' 𝛅 +'. (cnt>1?cnt:'  ') .'' : ' 𝛅 '.cnt.'')
+  let l:cnt = CountModifiedBuffer()
+  " Buffers changed indicated by U+1D6C5 (MATHEMATICAL BOLD SMALL DELTA)
+  return l:cnt == 0 ? '' : ( &modified ? ' 𝛅 +'. (l:cnt>1?l:cnt:'  ') .'' : ' 𝛅 '.l:cnt.'')
 endfunc
 
 
@@ -343,13 +343,14 @@ set statusline+=%2*                              " set bold (User2)
 set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
 
 " Buffer number, don't show it for help files, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(%{'help'!=&filetype?bufnr('%'):''}\ │\ %)
-set statusline+=%<                               " Where to truncate line
+set statusline+=%(%{&filetype!='help'?bufnr('%'):''}\ │\ %)
+set statusline+=%<                               " Where to truncate line if too long
 set statusline+=%(%{GitStats()}%)                " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t\                              " filename followed by space
+
 " Number of modified buffers, hide BuffersModified in the help files.
 set statusline+=%{&filetype!='help'?BuffersModified():''}
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
@@ -358,6 +359,7 @@ set statusline+=%=                               " Separation point between left
 " ------------------------------ Right-hand side -----------------------------
 
 set statusline+=\ %1*                            " Switch to color User1
+
 " If filetype is unknown or not set
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
@@ -408,7 +410,6 @@ augroup FileFormats
   autocmd User GitGutter call GitStats()
 
   " Reload changes to vimrc
-  " some test for folding
   autocmd bufwritepost vimrc source $MYVIMRC
 augroup END
 
