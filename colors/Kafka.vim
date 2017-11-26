@@ -2,7 +2,7 @@
 " Started as an adaptation of the slate colorscheme included with vim
 "   now we're way beyond that
 " Maintained by Peter van Peursem
-"     Version 3.5 - 05-06-2017
+"     Version 3.6 - 26-12-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -54,8 +54,8 @@ hi IncSearch    ctermfg=231    ctermbg=2     cterm=NONE        guifg=#ffffff  gu
 " -----------------
 " - Prompt/Status -
 " -----------------
-hi StatusLine     ctermfg=238    ctermbg=246    cterm=NONE        guifg=#444444  guibg=#909090  gui=NONE
-hi StatusLineNC   ctermfg=8      ctermbg=7      cterm=italic      guifg=#909090  guibg=#444444  gui=italic
+hi StatusLine     ctermfg=238    ctermbg=246    cterm=NONE        guifg=#444444  guibg=#949494  gui=NONE
+hi StatusLineNC   ctermfg=246    ctermbg=238    cterm=italic      guifg=#949494  guibg=#444444  gui=italic
 hi WildMenu       ctermfg=0      ctermbg=6      cterm=NONE        guifg=#202020  guibg=#73a5c8  gui=NONE
 hi Question       ctermfg=10     ctermbg=NONE   cterm=NONE        guifg=#b6c2aa  guibg=NONE     gui=NONE
 hi Title          ctermfg=3      ctermbg=NONE   cterm=bold        guifg=#fbc692  guibg=NONE     gui=NONE
