@@ -350,12 +350,12 @@ set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t\                              " filename followed by space
-" NOTE: find a way to hide BuffersModified in the help files. It doesn't seem
-" to work by hiding it in the function itself with ft check.
-set statusline+=%(%{BuffersModified()}%)         " number of modified buffers
+" Number of modified buffers, hide BuffersModified in the help files.
+set statusline+=%{&filetype!='help'?BuffersModified():''}
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
 set statusline+=%=                               " Separation point between left and right groups.
 
+:
 " ------------------------------ Right-hand side -----------------------------
 
 set statusline+=\ %1*                            " Switch to color User1
