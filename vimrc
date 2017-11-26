@@ -288,7 +288,7 @@ function! Fileprefix() abort
   elseif l:basename == '' || l:basename == '.'   " If empty or current working directory don't show path
     return ''
   else
-    " Make sure we show $HOME as ~.
+    " Make sure we show $HOME as ~
     return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
   endif
 endfunction
@@ -350,10 +350,10 @@ set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t\                              " filename followed by space
-"set statusline+=%1*                              " Switch to color User1
+" NOTE: find a way to hide BuffersModified in the help files. It doesn't seem
+" to work by hiding it in the function itself with ft check.
 set statusline+=%(%{BuffersModified()}%)         " number of modified buffers
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
-"set statusline+=\ %*                             " reset color to colorscheme StatusLine
 set statusline+=%=                               " Separation point between left and right groups.
 
 " ------------------------------ Right-hand side -----------------------------
@@ -375,8 +375,8 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 
 " - highlight User1 = fore & background statusline colors switched
 " - highlight User2 = White bold text on statusline background
-highlight User1  ctermfg=246   ctermbg=238                guifg=#909090  guibg=#444444
-highlight User2  ctermfg=NONE  ctermbg=246  cterm=bold    guifg=NONE     guibg=#909090   gui=bold
+highlight User1  ctermfg=246   ctermbg=238                guifg=#949494  guibg=#444444
+highlight User2  ctermfg=NONE  ctermbg=246  cterm=bold    guifg=NONE     guibg=#949494   gui=bold
 
 "- File formats autocommands
 augroup FileFormats
