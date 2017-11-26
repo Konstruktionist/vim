@@ -355,7 +355,6 @@ set statusline+=%{&filetype!='help'?BuffersModified():''}
 set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
 set statusline+=%=                               " Separation point between left and right groups.
 
-:
 " ------------------------------ Right-hand side -----------------------------
 
 set statusline+=\ %1*                            " Switch to color User1
