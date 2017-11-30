@@ -462,9 +462,11 @@ endfunction
 " Trim trailing whitespace
 " ========================
 function! TrimWhitespace()
-  let l:save = winsaveview()
-  %s/\s\+$//e
-  call winrestview(l:save)
+  if &filetype!='markdown'    " trailing whitespace have meaning in markdown
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+  endif
 endfunction
 
 command! TrimWhitespace call TrimWhitespace()
