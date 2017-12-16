@@ -371,7 +371,9 @@ set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 
 set statusline+=\ %*                             " reset color to colorscheme StatusLine
-set statusline+=\ ｃ%3v\ ∙                       " Virtual column number, c is U+FF43 (FULLWIDTH LATIN SMALL LETTER C)
+" Virtual column number, 𝗖 is U+1D5D6 (MATHEMATICAL SANS-SERIF BOLD CAPITAL C)
+" separator between columns & percentage is U+25C6 (BLACK DIAMOND)
+set statusline+=\ 𝗖\ %3v\ ◆
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
 " - highlight User1 = fore & background statusline colors switched
