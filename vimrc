@@ -101,6 +101,9 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Surround.vim lets you add/change/remove surrounding chars and tags
 Plug 'tpope/vim-surround'
 
+" Unicode Plugin
+Plug 'chrisbra/unicode.vim'
+
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
@@ -498,6 +501,9 @@ inoremap jj <esc>
 
 " Toggle set list
 nmap <leader>l :set list!<CR>
+
+" make ga mapping use the UnicodeGA command
+nmap ga <Plug>(UnicodeGA)
 
 " Toggle folds
 nnoremap <silent> <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
