@@ -183,7 +183,8 @@ set nrformats-=octal                             "nf:    Don't assume numbers st
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 set clipboard=unnamed                            "       copy to the system clipboard
-colorscheme Kafka
+colorscheme dark
+" sometext
 
 "- Folding
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
