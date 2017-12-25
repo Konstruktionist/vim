@@ -2,7 +2,7 @@
 " Started as an adaptation of the slate colorscheme included with vim
 "   now we're way beyond that
 " Maintained by Peter van Peursem
-"     Version 3.6 - 26-12-2017
+"     Version 3.7 - 20-12-2017
 "
 " All color-values can be found with python script at:
 " https://github.com/eikenb/terminal-colors
@@ -148,10 +148,10 @@ hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NO
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=160      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellCap        ctermfg=33       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellLocal      ctermfg=51       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
-hi SpellRare       ctermfg=81       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl
+hi SpellBad        ctermfg=210      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#ff8787
+hi SpellCap        ctermfg=75       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#5fafff
+hi SpellLocal      ctermfg=178      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#dfaf00
+hi SpellRare       ctermfg=149      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#afd75f
 
 
 " --------------------------------------------------------------------
