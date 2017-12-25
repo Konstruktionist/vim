@@ -119,6 +119,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
 Plug 'wincent/terminus'
 
+" Loupe
+" Enhaced in-file search
+Plug 'wincent/loupe'
+
+" ferret
+" Enhanced multi-file search
+Plug 'wincent/ferret'
+
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 Plug 'sirver/ultisnips'
@@ -184,7 +192,6 @@ set scrolloff=2                                  "so:    Min. # of lines visible
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 set clipboard=unnamed                            "       copy to the system clipboard
 colorscheme dark
-" sometext
 
 "- Folding
 set foldnestmax=10                               "fdn:   deepest fold is 10 levels
