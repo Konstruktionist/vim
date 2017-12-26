@@ -350,21 +350,21 @@ set statusline=                                  " Empty statusline
 
 set statusline+=%2*                              " set bold (User2)
 
-" Space, Current mode, reset bold, space followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+" space, Current mode, reset bold, space, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
 set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
 
-" Buffer number, don't show it for help files, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+" buffer number, don't show it for help files, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
 set statusline+=%(%{&filetype!='help'?bufnr('%'):''}\ │\ %)
 set statusline+=%<                               " Where to truncate line if too long
 set statusline+=%(%{GitStats()}%)                " How many changes
-set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, followed by U+2502 (BOX DRAWINGS LIGHT VERTICAL)
+set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t\                              " filename followed by space
 
-" Number of modified buffers, hide BuffersModified in the help files.
+" Number of modified buffers, hide it in the help files.
 set statusline+=%{&filetype!='help'?BuffersModified():''}
-set statusline+=%{&readonly?'\ ':''}            " lock-symbol is U+E0A2 (in private use area)
+set statusline+=%{&readonly?'\ ':''}            " space, U+E0A2 (POWERLINE LOCK-SYMBOL: in private use area)
 set statusline+=%=                               " Separation point between left and right groups.
 
 " ------------------------------ Right-hand side -----------------------------
@@ -526,9 +526,9 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " Toggle wrap
 nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 
-" Always be 'very magic'
-nnoremap / /\v
-vnoremap / /\v
+" Always be 'very magic' (now handled by loupe plugin)
+"nnoremap / /\v
+"vnoremap / /\v
 
 " Underline current line
 nnoremap <leader>u YpVr
