@@ -9,9 +9,26 @@
 "
 "   Therefore there are some assumptions for this colorscheme:
 "	* The background for the terminal is set at #383f4c, which is a dark grey.
-"	* The terminal text colors 0-16 should also be WCAG2.0 compliant.
-" I didn't get all green results, because that limited the color range
-" extensively. But values that got 3 out of 4 were accepted.
+"	* The terminal text colors should also be WCAG2.0 compliant.
+"
+"	I have them set up as follows:
+"						ANSI Colors
+"		color#	label	normal value	color#	bright value
+"		0		Black	#1a1a1a			8		#bdc3c7
+"		1		Red		#ff8787			9		#f1a9a0
+"		2		Green	#9acd32			10		#abe338
+"		3		Yellow	#f1f227			11		#f5d76e
+"		4		Blue	#00bfff			12		#34b9db
+"		5		Magenta	#dda0dd			13		#aea8d3
+"		6		Cyan	#00e0e0			14		#81cfe0
+"		7		White	#bfbfbf			15		#e5e5e5
+"
+"	There's also the Text (or Foreground) color #f2f1ef,
+"	and the Bold color #a1a1a1.
+"
+" I didn't get all green checkmark results, because that limited the color range
+" extensively.
+" But values that got 3 out of 4 (both AA normal/large & AAA large text) were accepted.
 "
 " Maintained by Peter van Peursem
 "	  Version 0.1 - 19-12-2017
@@ -83,6 +100,8 @@ hi Question					ctermfg=10		ctermbg=NONE		cterm=NONE		guifg=#b6c2aa	guibg=NONE		
 hi Title					ctermfg=3		ctermbg=NONE		cterm=bold		guifg=#fbc692	guibg=NONE		gui=NONE
 hi ModeMsg					ctermfg=136		ctermbg=NONE		cterm=NONE		guifg=#af8700	guibg=NONE		gui=NONE
 hi MoreMsg					ctermfg=2		ctermbg=NONE		cterm=NONE		guifg=#93a48e	guibg=NONE		gui=NONE
+hi StatusLineTerm			ctermfg=235		ctermbg=218			cterm=NONE		guifg=#262626	guibg=#ffafdf	gui=NONE
+hi StatusLineTermNC			ctermfg=218		ctermbg=235			cterm=NONE		guifg=#ffafdf	guibg=#262626	gui=NONE
 
 " --------------
 " - Visual aid -
@@ -150,15 +169,15 @@ hi Typedef					ctermfg=81		ctermbg=NONE		cterm=NONE		guifg=#5fd7ff	guibg=NONE		g
 " --------------------------------
 " Diff
 " --------------------------------
-hi DiffAdd				ctermfg=34		ctermbg=NONE		cterm=NONE		guifg=#00af00		guibg=NONE		gui=NONE
-hi DiffChange			ctermfg=5		ctermbg=NONE		cterm=NONE		guifg=#d743da		guibg=NONE		gui=NONE
+hi DiffAdd				ctermfg=82		ctermbg=NONE		cterm=NONE		guifg=#5fff00		guibg=NONE		gui=NONE
+hi DiffChange			ctermfg=5		ctermbg=NONE		cterm=NONE		guifg=#dda0dd		guibg=NONE		gui=NONE
 hi DiffDelete			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NONE		gui=NONE
 hi DiffText				ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf		guibg=NONE		gui=NONE
-hi DiffAdded			ctermfg=34		ctermbg=NONE		cterm=NONE		guifg=#00af00		guibg=NONE		gui=NONE
-hi DiffFile				ctermfg=6		ctermbg=NONE		cterm=NONE		guifg=#6193bc		guibg=NONE		gui=NONE
-hi DiffNewFile			ctermfg=34		ctermbg=NONE		cterm=NONE		guifg=#00af00		guibg=NONE		gui=NONE
+hi DiffAdded			ctermfg=40		ctermbg=NONE		cterm=NONE		guifg=#00d700		guibg=NONE		gui=NONE
+hi DiffFile				ctermfg=75		ctermbg=NONE		cterm=NONE		guifg=#5fafff		guibg=NONE		gui=NONE
+hi DiffNewFile			ctermfg=120		ctermbg=NONE		cterm=NONE		guifg=#87ff87		guibg=NONE		gui=NONE
 hi DiffLine				ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf		guibg=NONE		gui=NONE
-hi DiffRemoved			ctermfg=1		ctermbg=NONE		cterm=NONE		guifg=#b91e2e		guibg=NONE		gui=NONE
+hi DiffRemoved			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NONE		gui=NONE
 " --------------------------------
 " Completion menu
 " --------------------------------
@@ -192,15 +211,15 @@ hi SpellRare				ctermfg=149		ctermbg=NONE		cterm=underline		guifg=NONE	guibg=NON
 " --------------------------------
 " Git highlighting
 " --------------------------------
-hi gitCommitOverflow		ctermfg=1		ctermbg=NONE		cterm=NONE		guifg=#b91e2e	guibg=NONE		gui=NONE
-hi gitCommitSummary			ctermfg=6		ctermbg=NONE		cterm=NONE		guifg=#73a5c8	guibg=NONE		gui=NONE
+hi gitCommitOverflow		ctermfg=1		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
+hi gitCommitSummary			ctermfg=6		ctermbg=NONE		cterm=NONE		guifg=#00e0e0	guibg=NONE		gui=NONE
 
 " --------------------------------
 " git gutter
 " --------------------------------
-hi GitGutterAdd				ctermfg=40		ctermbg=NONE		cterm=bold		guifg=#00ff00	guibg=NONE		gui=bold
-hi GitGutterChange			ctermfg=213		ctermbg=NONE		cterm=bold		guifg=#ff87ff	guibg=NONE		gui=bold
-hi GitGutterDelete			ctermfg=196		ctermbg=NONE		cterm=bold		guifg=#ff0000	guibg=NONE		gui=bold
-hi GitGutterChangeDelete	ctermfg=212		ctermbg=NONE		cterm=bold		guifg=#ff87df	guibg=NONE		gui=bold
+hi GitGutterAdd				ctermfg=40		ctermbg=NONE		cterm=NONE		guifg=#00d700	guibg=NONE		gui=NONE
+hi GitGutterChange			ctermfg=5		ctermbg=NONE		cterm=NONE		guifg=#dda0dd	guibg=NONE		gui=NONE
+hi GitGutterDelete			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
+hi GitGutterChangeDelete	ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf	guibg=NONE		gui=NONE
 
-"   vim:tw=120 ts=4 sts=4 sw=4 noet ft=vim
+"   vim:tw=120 ts=4 sts=4 sw=4 noet
