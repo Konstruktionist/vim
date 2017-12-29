@@ -178,7 +178,7 @@ set hidden                                       "hid:   allow switch to another
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
-set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:※,nbsp:⎵
+set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:●,nbsp:◼︎
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -194,7 +194,7 @@ set clipboard=unnamed                            "       copy to the system clip
 colorscheme dark
 
 "- Folding
-set foldnestmax=10                               "fdn:   deepest fold is 10 levels
+set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -399,10 +399,6 @@ augroup FileFormats
   " Git commit messages
   "   force the cursor onto a new line after 72 characters
   autocmd Filetype gitcommit setlocal spell textwidth=72
-  "   colour the 73rd column
-  autocmd FileType gitcommit set colorcolumn=+1
-  "   also colour the 51st column (for titles)
-  autocmd FileType gitcommit set colorcolumn+=51
 
   " Markdown
   "   map *.md files so that syntax is recognized as markdown
