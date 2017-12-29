@@ -148,10 +148,10 @@ hi PmenuThumb      ctermfg=NONE     ctermbg=7         cterm=NONE        guifg=NO
 " --------------------------------
 " Spelling
 " --------------------------------
-hi SpellBad        ctermfg=210      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#ff8787
-hi SpellCap        ctermfg=75       ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#5fafff
-hi SpellLocal      ctermfg=178      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#dfaf00
-hi SpellRare       ctermfg=149      ctermbg=NONE      cterm=underline        guifg=NONE     guibg=NONE     gui=undercurl    guisp=#afd75f
+hi SpellBad        ctermfg=210      ctermbg=NONE      cterm=underline        guisp=#ff8787     gui=undercurl
+hi SpellCap        ctermfg=75       ctermbg=NONE      cterm=underline        guisp=#5fafff     gui=undercurl
+hi SpellLocal      ctermfg=178      ctermbg=NONE      cterm=underline        guisp=#dfaf00     gui=undercurl
+hi SpellRare       ctermfg=149      ctermbg=NONE      cterm=underline        guisp=#afd75f     gui=undercurl
 
 
 " --------------------------------------------------------------------
