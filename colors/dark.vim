@@ -123,9 +123,9 @@ hi SpecialKey				ctermfg=9		ctermbg=NONE		cterm=NONE		guifg=#cd645f	guibg=NONE		
 "" Variable types
 "" --------------------------------
 hi Constant					ctermfg=113		ctermbg=NONE		cterm=NONE		guifg=#87af5f	guibg=NONE		gui=NONE
-hi String					ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#87d700	guibg=NONE		gui=NONE
+hi String					ctermfg=148		ctermbg=NONE		cterm=NONE		guifg=#afd700	guibg=NONE		gui=NONE
 hi StringDelimiter			ctermfg=248		ctermbg=NONE		cterm=NONE		guifg=#fff0f0	guibg=NONE		gui=NONE
-hi Character				ctermfg=148		ctermbg=NONE		cterm=NONE		guifg=#afd700	guibg=NONE		gui=NONE
+hi Character				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#87d700	guibg=NONE		gui=NONE
 hi link Number Character
 hi link Boolean Character
 hi link Float Character
@@ -138,17 +138,17 @@ hi Function					ctermfg=217		ctermbg=NONE		cterm=NONE		guifg=#ffaf87	guibg=NONE	
 " --------------------------------
 hi Statement				ctermfg=110		ctermbg=NONE		cterm=NONE		guifg=#87afd7	guibg=NONE		gui=NONE
 hi Label					ctermfg=139		ctermbg=NONE		cterm=NONE		guifg=#af87af	guibg=NONE		gui=NONE
-hi Operator					ctermfg=116		ctermbg=NONE		cterm=NONE		guifg=#87d7d7	guibg=NONE		gui=NONE
+hi link Operator Statement
 hi link Keyword Label
 hi link Conditional Label
 hi link Repeat Label
 hi Exception				ctermfg=75		ctermbg=NONE		cterm=NONE		guifg=#5fafff	guibg=NONE		gui=NONE
 hi Comment					ctermfg=249		ctermbg=NONE		cterm=italic	guifg=#b2b2b2	guibg=NONE		gui=italic
 
-hi Special					ctermfg=221		ctermbg=NONE		cterm=NONE		guifg=#ffdf5f	guibg=NONE		gui=NONE
+hi Special					ctermfg=223		ctermbg=NONE		cterm=NONE		guifg=#ffd7af	guibg=NONE		gui=NONE
 hi SpecialChar				ctermfg=228		ctermbg=NONE		cterm=NONE		guifg=#ffff87	guibg=NONE		gui=NONE
-hi Tag						ctermfg=222		ctermbg=NONE		cterm=NONE		guifg=#ffdf87	guibg=NONE		gui=NONE
-hi Delimiter				ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf	guibg=NONE		gui=NONE
+hi Tag						ctermfg=221		ctermbg=NONE		cterm=NONE		guifg=#ffdf5f	guibg=NONE		gui=NONE
+hi link Delimiter Special
 hi SpecialComment			ctermfg=249		ctermbg=NONE		cterm=NONE		guifg=#b2b2b2	guibg=NONE		gui=NONE
 hi Debug					ctermfg=226		ctermbg=NONE		cterm=NONE		guifg=#ffff00	guibg=NONE		gui=NONE
 
@@ -217,9 +217,9 @@ hi gitCommitSummary			ctermfg=6		ctermbg=NONE		cterm=NONE		guifg=#00e0e0	guibg=N
 " --------------------------------
 " git gutter
 " --------------------------------
-hi GitGutterAdd				ctermfg=40		ctermbg=NONE		cterm=NONE		guifg=#00d700	guibg=NONE		gui=NONE
-hi GitGutterChange			ctermfg=5		ctermbg=NONE		cterm=NONE		guifg=#dda0dd	guibg=NONE		gui=NONE
-hi GitGutterDelete			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
-hi GitGutterChangeDelete	ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf	guibg=NONE		gui=NONE
+hi GitGutterAdd				ctermfg=40		ctermbg=NONE		cterm=bold		guifg=#00d700	guibg=NONE		gui=bold
+hi GitGutterChange			ctermfg=5		ctermbg=NONE		cterm=bold		guifg=#dda0dd	guibg=NONE		gui=bold
+hi GitGutterDelete			ctermfg=210		ctermbg=NONE		cterm=bold		guifg=#ff8787	guibg=NONE		gui=bold
+hi GitGutterChangeDelete	ctermfg=229		ctermbg=NONE		cterm=bold		guifg=#ffffaf	guibg=NONE		gui=bold
 
-"   vim:tw=120 ts=4 sts=4 sw=4 noet
+"   vim:tw=140 ts=4 sts=4 sw=4 noet

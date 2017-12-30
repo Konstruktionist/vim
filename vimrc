@@ -369,8 +369,6 @@ set statusline+=%=                               " Separation point between left
 
 " ------------------------------ Right-hand side -----------------------------
 
-set statusline+=\ %1*                            " Switch to color User1
-
 " If filetype is unknown or not set
 set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
@@ -389,8 +387,8 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 
 " - highlight User1 = fore & background statusline colors switched
 " - highlight User2 = White bold text on statusline background
-highlight User1  ctermfg=246   ctermbg=238                guifg=#949494  guibg=#444444
-highlight User2  ctermfg=NONE  ctermbg=246  cterm=bold    guifg=NONE     guibg=#949494   gui=bold
+highlight User1  ctermfg=249  ctermbg=235                guifg=#949494     guibg=#444444
+highlight User2  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
 
 "- File formats autocommands
 augroup FileFormats
