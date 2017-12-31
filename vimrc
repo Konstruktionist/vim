@@ -178,7 +178,16 @@ set hidden                                       "hid:   allow switch to another
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
-set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:●,nbsp:◼︎
+" listchars:  tab       = ▶︎\  (U+25B6, BLACK RIGHT-POINTING TRIANGLE & space
+"             eol       = ¬   (U+00AC, NOT SIGN)
+"             extends   = »   (U+00BB, RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK)
+"             precedes  = «   (U+00AB, LEFT-POINTING DOUBLE ANGLE QUOTATION MARK)
+"             trail     = ●   (U+25CF, BLACK CIRCLE)
+"             nbsp      = ╬   (U+256C, BOX DRAWINGS DOUBLE VERTICAL AND HORIZONTAL)
+set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:●,nbsp:╬
+" fillchars:  vertical split    = ┃ (U+2503, BOX DRAWINGS HEAVY VERTICAL)
+"             filling foldtext  = · (U+00B7, MIDDLE DOT)
+set fillchars=vert:┃,fold:·
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -195,6 +204,7 @@ colorscheme dark
 
 "- Folding
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
+set foldlevelstart=0                             "fdls:  Start with all folds closed
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -364,6 +374,7 @@ set statusline+=%t\                              " filename followed by space
 
 " Number of modified buffers, hide it in the help files.
 set statusline+=%{&filetype!='help'?BuffersModified():''}
+set statusline+=\ %*                             " reset color to colorscheme StatusLine
 set statusline+=%{&readonly?'\ ':''}            " space, U+E0A2 (POWERLINE LOCK-SYMBOL: in private use area)
 set statusline+=%=                               " Separation point between left and right groups.
 
@@ -386,7 +397,7 @@ set statusline+=\ 𝗖\ %3v\ ◆
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
 " - highlight User1 = fore & background statusline colors switched
-" - highlight User2 = White bold text on statusline background
+" - highlight User2 = bold text
 highlight User1  ctermfg=249  ctermbg=235                guifg=#949494     guibg=#444444
 highlight User2  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
 
@@ -417,10 +428,8 @@ augroup FileFormats
   autocmd User GitGutter call GitStats()
 
   " Reload changes to vimrc
-  autocmd bufwritepost vimrc source $MYVIMRC
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
-
-
 
 "- Plugin settings
 
@@ -436,6 +445,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 
 " Gitv
 let g:Gitv_OpenHorizontal=1
+
+"- Functions
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 " =========================================================
@@ -550,7 +561,8 @@ xnoremap <silent> ,<Down> :move'>+<CR>gv=gv
 nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
 " Delete in normal mode switches off highlighting till next search
-nmap <silent> <BS> :nohlsearch<CR>
+" Now handled by loupe plugin
+" nmap <silent> <BS> :nohlsearch<CR>
 
 " Call the :Tabularize command each time you insert a | character
 "  Very usefull for Markdown tables
