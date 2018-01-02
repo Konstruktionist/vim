@@ -70,14 +70,14 @@ hi CursorLineNR				ctermfg=11		ctermbg=NONE		cterm=NONE		guifg=#fae3a0	guibg=NON
 " - Number column -
 " -----------------
 hi CursorColumn				ctermfg=NONE	ctermbg=7			cterm=NONE		guifg=NONE		guibg=#909090	gui=NONE
-hi FoldColumn				ctermfg=0		ctermbg=110			cterm=NONE		guifg=#000000	guibg=#87afd7	gui=NONE
+hi FoldColumn				ctermfg=110		ctermbg=NONE		cterm=NONE		guifg=#87afd7	guibg=NONE		gui=NONE
 hi SignColumn				ctermfg=245		ctermbg=NONE		cterm=NONE		guifg=#8a8a8a	guibg=NONE		gui=NONE
 hi Folded					ctermfg=249		ctermbg=NONE		cterm=NONE		guifg=#b2b2b2	guibg=NONE		gui=NONE
 
 " -------------------------
 " - Window/Tab delimiters -
 " -------------------------
-hi VertSplit				ctermfg=244		ctermbg=244			cterm=NONE		guifg=#808080	guibg=#808080	gui=NONE
+hi VertSplit				ctermfg=254		ctermbg=NONE		cterm=NONE		guifg=#e4e4e4	guibg=#383f4c	gui=NONE
 hi ColorColumn				ctermfg=NONE	ctermbg=8			cterm=NONE		guifg=NONE		guibg=#737373	gui=NONE
 hi TabLine					ctermfg=245		ctermbg=NONE		cterm=NONE		guifg=#8a8a8a	guibg=NONE		gui=NONE
 hi TabLineFill				ctermfg=239		ctermbg=NONE		cterm=NONE		guifg=#4e4e4e	guibg=NONE		gui=NONE
@@ -106,14 +106,14 @@ hi StatusLineTermNC			ctermfg=218		ctermbg=235			cterm=NONE		guifg=#ffafdf	guibg
 " --------------
 " - Visual aid -
 " --------------
-hi MatchParen				ctermfg=NONE	ctermbg=210			cterm=NONE		guifg=#ffffff	guibg=#ff8787	gui=NONE
+hi MatchParen				ctermfg=232		ctermbg=117			cterm=NONE		guifg=#080808	guibg=#87d7ff	gui=NONE
 hi Visual					ctermfg=NONE	ctermbg=25			cterm=NONE		guifg=NONE		guibg=#005faf	gui=NONE
 hi VisualNOS				ctermfg=9		ctermbg=25			cterm=NONE		guifg=#d14548	guibg=#005faf	gui=NONE
 hi NonText					ctermfg=244		ctermbg=NONE		cterm=NONE		guifg=#808080	guibg=NONE		gui=NONE
 
 hi Todo						ctermfg=14		ctermbg=NONE		cterm=underline guifg=#00ffff	guibg=NONE		gui=underline
 hi Underlined				ctermfg=249		ctermbg=NONE		cterm=underline guifg=#b2b2b2	guibg=NONE		gui=underline
-hi Error					ctermfg=15		ctermbg=160			cterm=NONE		guifg=#ffffff	guibg=#d70000	gui=NONE
+hi Error					ctermfg=232		ctermbg=1			cterm=NONE		guifg=#080808	guibg=#ff8787	gui=NONE
 hi ErrorMsg					ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
 hi WarningMsg				ctermfg=227		ctermbg=NONE		cterm=NONE		guifg=#ffff5f	guibg=NONE		gui=NONE
 hi Ignore					ctermfg=7		ctermbg=NONE		cterm=bold		guifg=#808080	guibg=#005faf	gui=NONE
