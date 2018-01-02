@@ -108,7 +108,7 @@ Plug 'chrisbra/unicode.vim'
 " Plug 'scrooloose/syntastic'
 
 " Control-P
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " command-t
 " Plug 'wincent/command-t', {
@@ -170,6 +170,8 @@ call plug#end()
 
 
 "- Options
+set encoding=utf-8
+scriptencoding=utf-8
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set history=50                                   "hi:    keep 50 lines of command line history
@@ -178,16 +180,14 @@ set hidden                                       "hid:   allow switch to another
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
-" listchars:  tab       = ▶︎\  (U+25B6, BLACK RIGHT-POINTING TRIANGLE & space
-"             eol       = ¬   (U+00AC, NOT SIGN)
-"             extends   = »   (U+00BB, RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK)
-"             precedes  = «   (U+00AB, LEFT-POINTING DOUBLE ANGLE QUOTATION MARK)
-"             trail     = ●   (U+25CF, BLACK CIRCLE)
-"             nbsp      = ╬   (U+256C, BOX DRAWINGS DOUBLE VERTICAL AND HORIZONTAL)
-set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:●,nbsp:╬
-" fillchars:  vertical split    = ┃ (U+2503, BOX DRAWINGS HEAVY VERTICAL)
-"             filling foldtext  = · (U+00B7, MIDDLE DOT)
-set fillchars=vert:┃,fold:·
+set listchars=tab:▸\                             "       U+25B8, BLACK RIGHT-POINTING SMALL TRIANGLE & space
+set listchars+=eol:¬                             "       U+00AC, NOT SIGN
+set listchars+=extends:»                         "       U+00BB, RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+set listchars+=precedes:«                        "       U+00AB, LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+set listchars+=trail:●                           "       U+25CF, BLACK CIRCLE
+set listchars+=nbsp:╬                            "       U+256C, BOX DRAWINGS DOUBLE VERTICAL AND HORIZONTAL
+set fillchars=vert:┃                             "       U+2503, BOX DRAWINGS HEAVY VERTICAL
+set fillchars+=fold:·                            "       U+00B7, MIDDLE DOT
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -203,8 +203,10 @@ set clipboard=unnamed                            "       copy to the system clip
 colorscheme dark
 
 "- Folding
+"   folding is mostly setup in after/ftplugin per filetype, but here are some general settings
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
-set foldlevelstart=0                             "fdls:  Start with all folds closed
+set foldmethod=indent                            "fm:    Not smart, but fast, AND no ugly markers
+set foldtext=folding#foldtext()                  "       General foldmethod from autoload/folding
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -341,7 +343,7 @@ let g:currentmode={
 
 function! CountModifiedBuffer()
   return len(filter(getbufinfo(), 'v:val.changed == 1'))
-endfunc
+endfunction
 
 " + if only current modified, +3 if 3 modified including current buffer.
 " 3 if 3 modified and current not, '' if none modified.
@@ -349,7 +351,7 @@ function! BuffersModified()
   let l:cnt = CountModifiedBuffer()
   " Buffers changed indicated by U+1D6C5 (MATHEMATICAL BOLD SMALL DELTA)
   return l:cnt == 0 ? '' : ( &modified ? ' 𝛅 +'. (l:cnt>1?l:cnt:'  ') .'' : ' 𝛅 '.l:cnt.'')
-endfunc
+endfunction
 
 
 "-- Building the statusline
@@ -514,6 +516,12 @@ inoremap jj <esc>
 
 " Toggle set list
 nmap <leader>l :set list!<CR>
+
+" Move between splits
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " make ga mapping use the UnicodeGA command
 nmap ga <Plug>(UnicodeGA)
