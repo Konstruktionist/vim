@@ -120,7 +120,7 @@ Plug 'chrisbra/unicode.vim'
 Plug 'wincent/terminus'
 
 " Loupe
-" Enhaced in-file search
+" Enhanced in-file search
 Plug 'wincent/loupe'
 
 " ferret
@@ -206,7 +206,8 @@ colorscheme dark
 "   folding is mostly setup in after/ftplugin per filetype, but here are some general settings
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
 set foldmethod=indent                            "fm:    Not smart, but fast, AND no ugly markers
-set foldtext=folding#foldtext()                  "       General foldmethod from autoload/folding
+set foldtext=folding#foldtext()                  "       General foldtext from autoload/folding
+set foldlevel=99                                 "       Start unfolded
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type

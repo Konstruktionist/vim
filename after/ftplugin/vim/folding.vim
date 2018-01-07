@@ -17,7 +17,8 @@ function! VimFolds()
   endif
 endfunction
 setlocal foldenable
-setlocal foldlevelstart=0                             "fdls:  Start with all folds closed
+set foldlevel=0                                  "  Start folded
+setlocal foldlevelstart=0                        "fdls:  Start with all folds closed
 setlocal foldmethod=expr
 setlocal foldexpr=VimFolds()
 
