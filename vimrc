@@ -207,7 +207,6 @@ colorscheme dark
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
 set foldmethod=indent                            "fm:    Not smart, but fast, AND no ugly markers
 set foldtext=folding#foldtext()                  "       General foldtext from autoload/folding
-set foldlevel=99                                 "       Start unfolded
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -365,9 +364,6 @@ set statusline+=%2*                              " set bold (User2)
 
 " space, Current mode, reset bold, space, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
 set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
-
-" buffer number, don't show it for help files, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
-set statusline+=%(%{&filetype!='help'?bufnr('%'):''}\ │\ %)
 set statusline+=%<                               " Where to truncate line if too long
 set statusline+=%(%{GitStats()}%)                " How many changes
 set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
