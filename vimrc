@@ -362,11 +362,11 @@ set statusline=                                  " Empty statusline
 
 set statusline+=%2*                              " set bold (User2)
 
-" space, Current mode, reset bold, space, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
-set statusline+=%(\ %{(g:currentmode[mode()])}%*\ │\ %)
+" space, Current mode, reset bold, space, U+2503 (BOX DRAWINGS HEAVY VERTICAL), space
+set statusline+=%(\ %{(g:currentmode[mode()])}%*\ ┃\ %)
 set statusline+=%<                               " Where to truncate line if too long
 set statusline+=%(%{GitStats()}%)                " How many changes
-set statusline+=%(%{GitInfo()}\ │\ %)            " git branch, U+2502 (BOX DRAWINGS LIGHT VERTICAL), space
+set statusline+=%(%{GitInfo()}\ ┃\ %)            " git branch, U+2503 (BOX DRAWINGS HEAVY VERTICAL), space
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
 set statusline+=%2*                              " set bold (User2)
 set statusline+=%t\                              " filename followed by space
@@ -384,8 +384,8 @@ set statusline+=\ %{''!=#&filetype?&filetype:'none'}
 
 " If filetype encoding is utf-8 and file format is unix, don't show this as it
 " is the normal state. Only show this info if it is something unusual.
-" Attention: first pipe-like charachter is NOT a pipe char but U+2502 (BOX DRAWINGS LIGHT VERTICAL)
-set statusline+=%(\ │%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '
+" Attention: first pipe-like charachter (after `%(\ `)is NOT a pipe char but U+2503 (BOX DRAWINGS HEAVY VERTICAL)
+set statusline+=%(\ ┃%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '
       \.&fileencoding.(&bomb?'-bom':''):'')
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 
