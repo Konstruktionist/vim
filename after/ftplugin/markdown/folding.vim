@@ -23,7 +23,7 @@ function! MarkdownFolds()
   endif
 endfunction
 setlocal foldenable
-setlocal foldlevelstart=0                             "fdls:  Start with all folds closed
+setlocal foldlevelstart=0                        "fdls:  Start with all folds closed
 setlocal foldmethod=expr
 setlocal foldexpr=MarkdownFolds()
 
