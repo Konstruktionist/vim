@@ -31,9 +31,9 @@
 " But values that got 3 out of 4 (both AA normal/large & AAA large text) were accepted.
 "
 " Maintained by Peter van Peursem
-"	  Version 0.1 - 19-12-2017
+"	  Version 0.3 - 08-02-2018
 "
-" All color-values can be found with python script at:
+" All color-values can be found with the python script from:
 " https://github.com/eikenb/terminal-colors
 "
 
@@ -79,8 +79,8 @@ hi Folded					ctermfg=249		ctermbg=NONE		cterm=NONE		guifg=#b2b2b2	guibg=NONE		g
 " -------------------------
 hi VertSplit				ctermfg=254		ctermbg=NONE		cterm=NONE		guifg=#e4e4e4	guibg=#383f4c	gui=NONE
 hi ColorColumn				ctermfg=NONE	ctermbg=8			cterm=NONE		guifg=NONE		guibg=#737373	gui=NONE
-hi TabLine					ctermfg=245		ctermbg=NONE		cterm=NONE		guifg=#8a8a8a	guibg=NONE		gui=NONE
-hi TabLineFill				ctermfg=239		ctermbg=NONE		cterm=NONE		guifg=#4e4e4e	guibg=NONE		gui=NONE
+hi TabLine					ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
+hi TabLineFill				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
 hi TabLineSel				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE		gui=NONE
 
 " -------------------------------
@@ -181,10 +181,10 @@ hi DiffRemoved			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NON
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi Pmenu				ctermfg=0		ctermbg=254			cterm=NONE		guifg=#202020		guibg=#e4e4e4	gui=NONE
+hi Pmenu				ctermfg=0		ctermbg=249			cterm=NONE		guifg=#202020		guibg=#b2b2b2	gui=NONE
 hi PmenuSel				ctermfg=0		ctermbg=6			cterm=NONE		guifg=#202020		guibg=#73a5c8	gui=NONE
-hi PmenuSbar			ctermfg=NONE	ctermbg=15			cterm=NONE		guifg=NONE			guibg=#fff0f0	gui=NONE
-hi PmenuThumb			ctermfg=NONE	ctermbg=7			cterm=NONE		guifg=NONE			guibg=#909090	gui=NONE
+hi PmenuSbar			ctermfg=NONE	ctermbg=249			cterm=NONE		guifg=NONE			guibg=#b2b2b2	gui=NONE
+hi PmenuThumb			ctermfg=NONE	ctermbg=15			cterm=NONE		guifg=NONE			guibg=#e5e5e5	gui=NONE
 
 " --------------------------------
 " Spelling
