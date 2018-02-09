@@ -479,7 +479,7 @@ endfunction
 " Trim trailing whitespace
 " ========================
 function! TrimWhitespace()
-  if &filetype!='markdown'    " trailing whitespace have meaning in markdown
+  if &filetype!='markdown'    " trailing whitespaces have meaning in markdown
     let l:save = winsaveview()
     %s/\s\+$//e
     call winrestview(l:save)
@@ -502,6 +502,13 @@ augroup MyColors
   autocmd Colorscheme * call MyColours()
 augroup END
 
+" Show the current highlighting settings
+" ======================================
+function! HighlightTest()
+  normal :source $VIMRUNTIME/syntax/hitest.vim
+endfunction
+
+command! HighlightTest call HighlightTest()
 
 "- Key-mappings
 
@@ -561,9 +568,6 @@ nnoremap <silent> ,<Up>   :<C-u>move-2<CR>==
 nnoremap <silent> ,<Down> :<C-u>move+<CR>==
 xnoremap <silent> ,<Up>   :move-2<CR>gv=gv
 xnoremap <silent> ,<Down> :move'>+<CR>gv=gv
-
-" Testing colorscheme
-nmap <leader>hil :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
 " Delete in normal mode switches off highlighting till next search
 " Now handled by loupe plugin
