@@ -10,6 +10,6 @@ Session.vim
 tags
 *.vim.old
 # directories
-autoload/*
+autoload/plug.vim
 plugged/*
 spell/*
