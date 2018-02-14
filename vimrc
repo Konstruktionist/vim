@@ -203,10 +203,12 @@ set clipboard=unnamed                            "       copy to the system clip
 colorscheme dark
 
 "- Folding
-"   folding is mostly setup in after/ftplugin per filetype, but here are some general settings
+"   folding is mostly set up per filetype in ~/.config/vim/after/ftplugin, but
+"   here are some settings for filestypes that have no defined folding method
+"   foldtext is defined in ~/.config/vim/autoload/foldingtext.vim
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
 set foldmethod=indent                            "fm:    Not smart, but fast, AND no ugly markers
-set foldtext=folding#foldtext()                  "       General foldtext from autoload/folding
+set foldtext=foldingtext#foldtext()              "       In autoload directory
 
 "- Search
 set incsearch                                    "is:    automatically begins searching as you type
@@ -426,7 +428,7 @@ augroup FileFormats
   " Update GitStats
   autocmd User GitGutter call GitStats()
 
-  " Reload changes to vimrc
+  " Auto-load changes to vimrc
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 
@@ -479,7 +481,8 @@ endfunction
 " Trim trailing whitespace
 " ========================
 function! TrimWhitespace()
-  if &filetype!='markdown'    " trailing whitespaces have meaning in markdown
+  " trailing whitespaces have meaning in markdown so don't try there
+  if &filetype!='markdown'
     let l:save = winsaveview()
     %s/\s\+$//e
     call winrestview(l:save)
