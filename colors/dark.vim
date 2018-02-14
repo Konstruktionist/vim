@@ -62,7 +62,7 @@ let g:colors_name="dark"
 "" --------------------------------
 hi Normal					ctermfg=254		ctermbg=NONE		cterm=NONE		guifg=#e4e4e4	guibg=#383f4c	gui=NONE
 hi Cursor					ctermfg=NONE	ctermbg=231			cterm=NONE		guifg=NONE		guibg=#ffffff	gui=NONE
-hi CursorLine				ctermfg=NONE	ctermbg=237			cterm=NONE		guifg=NONE		guibg=#38404d	gui=NONE
+hi CursorLine				ctermfg=NONE	ctermbg=237			cterm=NONE		guifg=NONE		guibg=#3a3a3a	gui=NONE
 hi LineNr					ctermfg=8		ctermbg=NONE		cterm=NONE		guifg=#808080	guibg=NONE		gui=NONE
 hi CursorLineNR				ctermfg=11		ctermbg=NONE		cterm=NONE		guifg=#fae3a0	guibg=NONE		gui=NONE
 
@@ -95,7 +95,7 @@ hi IncSearch				ctermfg=232		ctermbg=154			cterm=NONE		guifg=#000000	guibg=#aff0
 " -----------------
 hi StatusLine				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
 hi StatusLineNC				ctermfg=243		ctermbg=241			cterm=italic	guifg=#767676	guibg=#626262	gui=italic
-hi WildMenu					ctermfg=0		ctermbg=6			cterm=NONE		guifg=#202020	guibg=#73a5c8	gui=NONE
+hi WildMenu					ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE		gui=NONE
 hi Question					ctermfg=10		ctermbg=NONE		cterm=NONE		guifg=#b6c2aa	guibg=NONE		gui=NONE
 hi Title					ctermfg=3		ctermbg=NONE		cterm=bold		guifg=#fbc692	guibg=NONE		gui=NONE
 hi ModeMsg					ctermfg=136		ctermbg=NONE		cterm=NONE		guifg=#af8700	guibg=NONE		gui=NONE
@@ -126,9 +126,9 @@ hi Constant					ctermfg=113		ctermbg=NONE		cterm=NONE		guifg=#87af5f	guibg=NONE	
 hi String					ctermfg=148		ctermbg=NONE		cterm=NONE		guifg=#afd700	guibg=NONE		gui=NONE
 hi StringDelimiter			ctermfg=248		ctermbg=NONE		cterm=NONE		guifg=#fff0f0	guibg=NONE		gui=NONE
 hi Character				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#87d700	guibg=NONE		gui=NONE
-hi link Number Character
-hi link Boolean Character
-hi link Float Character
+hi Number					ctermfg=183		ctermbg=NONE		cterm=NONE		guifg=#d7afff	guibg=NONE		gui=NONE
+hi link Boolean Number
+hi link Float Number
 
 hi Identifier				ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
 hi Function					ctermfg=217		ctermbg=NONE		cterm=NONE		guifg=#ffaf87	guibg=NONE		gui=NONE
@@ -182,7 +182,7 @@ hi DiffRemoved			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NON
 " Completion menu
 " --------------------------------
 hi Pmenu				ctermfg=0		ctermbg=249			cterm=NONE		guifg=#202020		guibg=#b2b2b2	gui=NONE
-hi PmenuSel				ctermfg=0		ctermbg=6			cterm=NONE		guifg=#202020		guibg=#73a5c8	gui=NONE
+hi PmenuSel				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700		guibg=NONE		gui=NONE
 hi PmenuSbar			ctermfg=NONE	ctermbg=249			cterm=NONE		guifg=NONE			guibg=#b2b2b2	gui=NONE
 hi PmenuThumb			ctermfg=NONE	ctermbg=15			cterm=NONE		guifg=NONE			guibg=#e5e5e5	gui=NONE
 
