@@ -203,9 +203,9 @@ set clipboard=unnamed                            "       copy to the system clip
 colorscheme dark
 
 "- Folding
-"   folding is mostly set up per filetype in ~/.config/vim/after/ftplugin, but
+"   folding is mostly set up per filetype in ~/.vim/after/ftplugin, but
 "   here are some settings for filestypes that have no defined folding method
-"   foldtext is defined in ~/.config/vim/autoload/foldingtext.vim
+"   foldtext is defined in ~/.vim/autoload/foldingtext.vim
 set foldnestmax=10                               "fdn:   10 levels (for indent & syntax methods)
 set foldmethod=indent                            "fm:    Not smart, but fast, AND no ugly markers
 set foldtext=foldingtext#foldtext()              "       In autoload directory
@@ -590,3 +590,9 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+"- Modeline settings
+"  To keep vim from applying the indent foldmethod for this file we use a
+"  modeline & we get the nicely formatted folds we set up in
+"  ~/.vim/after/ftplugin/vim/folding
+" vim: foldmethod=expr
