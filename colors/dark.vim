@@ -94,7 +94,7 @@ hi IncSearch				ctermfg=232		ctermbg=154			cterm=NONE		guifg=#000000	guibg=#aff0
 " - Prompt/Status -
 " -----------------
 hi StatusLine				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
-hi StatusLineNC				ctermfg=243		ctermbg=241			cterm=italic	guifg=#767676	guibg=#626262	gui=italic
+hi StatusLineNC				ctermfg=254		ctermbg=238			cterm=italic	guifg=#e4e4e4	guibg=#444444	gui=italic
 hi WildMenu					ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE		gui=NONE
 hi Question					ctermfg=10		ctermbg=NONE		cterm=NONE		guifg=#b6c2aa	guibg=NONE		gui=NONE
 hi Title					ctermfg=3		ctermbg=NONE		cterm=bold		guifg=#fbc692	guibg=NONE		gui=NONE
