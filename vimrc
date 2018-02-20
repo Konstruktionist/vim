@@ -160,7 +160,7 @@ Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 
 " Syntax highlighting for tmux
-Plug 'keith/tmux.vim'
+Plug 'keith/tmux.vim', { 'for': 'tmux' }
 
 
 " matchit lets you jump between begin and end of function with %
@@ -174,7 +174,7 @@ set encoding=utf-8
 scriptencoding=utf-8
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
-set history=50                                   "hi:    keep 50 lines of command line history
+set history=100                                  "hi:    keep 100 lines of command line history
 set showcmd                                      "sc:    display incomplete commands
 set hidden                                       "hid:   allow switch to another buffer with unsaved changes in current one
 set winwidth=84                                  "       The window width with multiple windows
@@ -224,12 +224,12 @@ syntax on                                        "syn:   syntax highlighting
 set showmatch                                    "sm:    flashes matching brackets or parenthesis
 set matchtime=3                                  "mat:   How long to flash brackets
 
-"- Tabs
+"- Tabs & Spaces
 set tabstop=2                                    "ts:    number of spaces that a tab renders as
 set shiftwidth=2                                 "sw:    number of spaces to use for autoindent
 set softtabstop=2                                "sts:   number of spaces that tabs insert
 set smarttab                                     "sta:   helps with backspacing because of expandtab
-set expandtab                                    "et:    uses spaces instead of tab characters
+set expandtab                                    "et:    use spaces instead of tab characters
 
 "- Hud and status info
 set number                                       "nu:    numbers lines
@@ -362,7 +362,7 @@ set statusline=                                  " Empty statusline
 
 " ------------------------------ Left-hand side ------------------------------
 
-set statusline+=%2*                              " set bold (User2)
+set statusline+=%1*                              " set bold (User1)
 
 " space, Current mode, reset bold, space, U+2503 (BOX DRAWINGS HEAVY VERTICAL), space
 set statusline+=%(\ %{(g:currentmode[mode()])}%*\ ┃\ %)
@@ -370,7 +370,7 @@ set statusline+=%<                               " Where to truncate line if too
 set statusline+=%(%{GitStats()}%)                " How many changes
 set statusline+=%(%{GitInfo()}\ ┃\ %)            " git branch, U+2503 (BOX DRAWINGS HEAVY VERTICAL), space
 set statusline+=%{Fileprefix()}                  " Path to the file in the buffer, as typed or relative to current directory
-set statusline+=%2*                              " set bold (User2)
+set statusline+=%1*                              " set bold (User1)
 set statusline+=%t\                              " filename followed by space
 
 " Number of modified buffers, hide it in the help files.
@@ -392,15 +392,14 @@ set statusline+=%(\ ┃%{(&bomb\|\|'^$\|utf-8'!~#&fileencoding?'\ '
       \.('unix'!=#&fileformat?'\ '.&fileformat:'')}%)
 
 set statusline+=\ %*                             " reset color to colorscheme StatusLine
+" Separator is U+2503 (BOX DRAWINGS HEAVY VERTICAL) followed by
 " Virtual column number, 𝗖 is U+1D5D6 (MATHEMATICAL SANS-SERIF BOLD CAPITAL C)
 " separator between columns & percentage is U+25C6 (BLACK DIAMOND)
-set statusline+=\ 𝗖\ %3v\ ◆
+set statusline+=\ ┃\ 𝗖\ %3v\ ◆
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
-" - highlight User1 = fore & background statusline colors switched
-" - highlight User2 = bold text
-highlight User1  ctermfg=249  ctermbg=235                guifg=#949494     guibg=#444444
-highlight User2  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
+" - highlight User1 = bold text
+highlight User1  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
 
 "- File formats autocommands
 augroup FileFormats
@@ -423,7 +422,7 @@ augroup FileFormats
 
   " Objective-C
   "   map *.h & *.m files so syntax is recognized as objc
-  autocmd BufNewFile,BufRead *.m,*.h set ft=objc
+  autocmd BufNewFile,BufRead *.m,*.h set filetype=objc
 
   " Update GitStats
   autocmd User GitGutter call GitStats()
@@ -447,7 +446,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Gitv
 let g:Gitv_OpenHorizontal=1
 
-"- Functions
+"- Functions & commands
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 " =========================================================
@@ -512,6 +511,11 @@ function! HighlightTest()
 endfunction
 
 command! HighlightTest call HighlightTest()
+
+" Reverse order of lines in file or visually selected range.
+" ==========================================================
+"  from: https://vi.stackexchange.com/a/2107/11066
+command! -bar -range=% Reverse <line1>,<line2>global/^/m<line1>-1
 
 "- Key-mappings
 
