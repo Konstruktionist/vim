@@ -174,6 +174,7 @@ set encoding=utf-8
 scriptencoding=utf-8
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
+set updatetime=100                               "ut:    time in ms for updating swapfiles (I don't use those, but gitgutter uses it for updating signs)
 set history=100                                  "hi:    keep 100 lines of command line history
 set showcmd                                      "sc:    display incomplete commands
 set hidden                                       "hid:   allow switch to another buffer with unsaved changes in current one
@@ -195,7 +196,7 @@ set breakindentopt=shift:5                       "briopt: indent by 5 spaces
 set nobackup                                     "       Don't write backup files
 set nowritebackup
 set noswapfile
-set cmdwinheight=20                              "       Height of command window
+" set cmdwinheight=20                              "       Height of command window
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
@@ -407,13 +408,13 @@ augroup FileFormats
 
   " Git commit messages
   "   force the cursor onto a new line after 72 characters
-  autocmd Filetype gitcommit setlocal spell textwidth=72
+  autocmd FileType gitcommit setlocal spell textwidth=72
 
   " Markdown
   "   map *.md files so that syntax is recognized as markdown
   autocmd Bufread,BufNewFile,BufReadPost *.md set filetype=markdown
   "   Word wrap without line breaks for markdown
-  autocmd Filetype markdown setlocal wrap linebreak list textwidth=0 wrapmargin=0
+  autocmd FileType markdown setlocal wrap linebreak list textwidth=0 wrapmargin=0
 
   " JSON
   "   Make json files human readable
@@ -549,6 +550,9 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Toggle wrap
 nmap <leader>w :set invwrap<CR>:set wrap?<CR>
+
+" indent whole file and return to my current cursor location
+nnoremap g= mmgg=G`m
 
 " Always be 'very magic' (now handled by loupe plugin)
 "nnoremap / /\v
