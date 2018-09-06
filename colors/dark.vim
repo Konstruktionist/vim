@@ -87,8 +87,8 @@ hi TabLineSel				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE
 " - File Navigation / Searching -
 " -------------------------------
 hi Directory				ctermfg=12		ctermbg=NONE		cterm=NONE		guifg=#8ca1af	guibg=NONE		gui=NONE
-hi Search					ctermfg=154		ctermbg=NONE		cterm=underline guifg=#aff000	guibg=NONE		gui=underline
-hi IncSearch				ctermfg=232		ctermbg=154			cterm=NONE		guifg=#000000	guibg=#aff000	gui=NONE
+hi Search					ctermfg=226		ctermbg=NONE		cterm=underline guifg=#ffff00	guibg=NONE		gui=underline
+hi IncSearch				ctermfg=232		ctermbg=226			cterm=NONE		guifg=#000000	guibg=#ffff00	gui=NONE
 
 " -----------------
 " - Prompt/Status -
