@@ -20,65 +20,18 @@ endif
 "- Vim-Plug installation
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
 
-"- Vim-Plug Manual
-" This is here, because there's no help file
-" ------------------------------------------
-"
-" https://github.com/junegunn/vim-plug
-"
-"
-" Make sure you use SINGLE quotes
-" Plug 'junegunn/seoul256.vim'
-" Plug 'junegunn/vim-easy-align'
-"
-"  On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"
-"  Branch loading
-" Plug 'scrooloose/nerdtree', { 'branch': 'WhatEverYouWant' }
-"
-"  Using git URL
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-"
-"  Plugin options
-" Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
-"
-"  Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-"
-"  Unmanaged plugin (manually installed and updated)
-" Plug '~/my-prototype-plugin'
-"
-"  Install new plugins with:
-"     :PlugInstall
-"
-"  Remove old/unused plugins with:
-"     :PlugClean
-"
-"
-"   Plug options
-"
-"   Option                Description
-"   ------                -----------
-"   branch/tag/commit	    Branch/tag/commit of the repository to use
-"   rtp	                  Subdirectory that contains Vim plugin
-"   dir	                  Custom directory for the plugin
-"   as	                  Use different name for the plugin
-"   do	                  Post-update hook (string or funcref)
-"   on	                  On-demand loading: Commands or <Plug>-mappings
-"   for	                  On-demand loading: File types
-"   frozen	              Do not update unless explicitly specified
-
 "- Plugins to load
+
+" Register vim-plug as a plugin to access its help file
+Plug 'junegunn/vim-plug'
+
 " enable repeating supported plugin maps with "."
 Plug 'tpope/vim-repeat'
 
@@ -162,6 +115,9 @@ Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 " Syntax highlighting for tmux
 Plug 'keith/tmux.vim', { 'for': 'tmux' }
 
+" Colorschemes
+Plug 'fxn/vim-monochrome'
+Plug 'pbrisbin/vim-colors-off'
 
 " matchit lets you jump between begin and end of function with %
 packadd! matchit                                 " add built-in matchit plugin
@@ -570,9 +526,9 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 " Open markdown files in Marked to preview
 nnoremap <leader>mo :MarkedOpen<CR>
 
-" Tip from http://www.catonmat.net/blog/sudo-vim/
+" Tip from https://jovicailic.org/2015/05/saving-read-only-files-in-vim-sudo-trick/ 
 " save read-only files
-cnoremap sudow w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null
 
 " move lines up or down while adjusting indentation
 nnoremap <silent> ,<Up>   :<C-u>move-2<CR>==
