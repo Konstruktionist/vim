@@ -218,7 +218,7 @@ set wildignore+=*/tmp/*                          " Temporary directories content
 "- Gvim/MacVim
 if has ('gui_running')
   set lines=80 columns=130                       " Default window size
-  set guifont=Iosevka-Light:h11
+  set guifont=Iosevka:h11
   set guioptions-=T                              " No toolbar
   set guioptions-=r                              " No scrollbar right
   set guioptions-=l                              " No scrollbar left
