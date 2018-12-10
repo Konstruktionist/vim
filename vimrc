@@ -526,9 +526,9 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 " Open markdown files in Marked to preview
 nnoremap <leader>mo :MarkedOpen<CR>
 
-" Tip from https://jovicailic.org/2015/05/saving-read-only-files-in-vim-sudo-trick/ 
+" Tip from https://dev.to/jovica/the-vim-trick-which-will-save-your-time-and-nerves-45pg
 " save read-only files
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! execute 'silent write !sudo tee % >/dev/null' <bar> edit!
 
 " move lines up or down while adjusting indentation
 nnoremap <silent> ,<Up>   :<C-u>move-2<CR>==
