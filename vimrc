@@ -82,8 +82,8 @@ Plug 'wincent/ferret'
 
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " vim plugin to trace syntax highlight
 " activate with <leader>hlt or :HLT
