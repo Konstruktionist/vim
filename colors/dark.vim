@@ -31,7 +31,7 @@
 " But values that got 3 out of 4 (both AA normal/large & AAA large text) were accepted.
 "
 " Maintained by Peter van Peursem
-"	  Version 0.3 - 08-02-2018
+"	  Version 0.4 - 16-12-2018
 "
 " All color-values can be found with the python script from:
 " https://github.com/eikenb/terminal-colors
@@ -169,11 +169,11 @@ hi Typedef					ctermfg=81		ctermbg=NONE		cterm=NONE		guifg=#5fd7ff	guibg=NONE		g
 " --------------------------------
 " Diff
 " --------------------------------
-hi DiffAdd				ctermfg=82		ctermbg=NONE		cterm=NONE		guifg=#5fff00		guibg=NONE		gui=NONE
-hi DiffChange			ctermfg=5		ctermbg=NONE		cterm=NONE		guifg=#dda0dd		guibg=NONE		gui=NONE
-hi DiffDelete			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NONE		gui=NONE
-hi DiffText				ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf		guibg=NONE		gui=NONE
-hi DiffAdded			ctermfg=40		ctermbg=NONE		cterm=NONE		guifg=#00d700		guibg=NONE		gui=NONE
+hi DiffAdd				ctermfg=0		ctermbg=82			cterm=NONE		guifg=#000000		guibg=#5fff00	gui=NONE
+hi DiffChange			ctermfg=0		ctermbg=5			cterm=NONE		guifg=#000000		guibg=#dda0dd	gui=NONE
+hi DiffDelete			ctermfg=0		ctermbg=210			cterm=NONE		guifg=#ff8787		guibg=#ff8787	gui=NONE
+hi DiffText				ctermfg=0		ctermbg=229			cterm=NONE		guifg=#000000		guibg=#ffffaf	gui=NONE
+hi DiffAdded			ctermfg=0		ctermbg=40			cterm=NONE		guifg=#000000		guibg=#00d700	gui=NONE
 hi DiffFile				ctermfg=75		ctermbg=NONE		cterm=NONE		guifg=#5fafff		guibg=NONE		gui=NONE
 hi DiffNewFile			ctermfg=120		ctermbg=NONE		cterm=NONE		guifg=#87ff87		guibg=NONE		gui=NONE
 hi DiffLine				ctermfg=229		ctermbg=NONE		cterm=NONE		guifg=#ffffaf		guibg=NONE		gui=NONE
@@ -218,7 +218,7 @@ hi gitCommitSummary			ctermfg=6		ctermbg=NONE		cterm=NONE		guifg=#00e0e0	guibg=N
 " git gutter
 " --------------------------------
 hi GitGutterAdd				ctermfg=40		ctermbg=NONE		cterm=bold		guifg=#00d700	guibg=NONE		gui=bold
-hi GitGutterChange			ctermfg=5		ctermbg=NONE		cterm=bold		guifg=#dda0dd	guibg=NONE		gui=bold
+hi GitGutterChange			ctermfg=183		ctermbg=NONE		cterm=bold		guifg=#d7afff	guibg=NONE		gui=bold
 hi GitGutterDelete			ctermfg=210		ctermbg=NONE		cterm=bold		guifg=#ff8787	guibg=NONE		gui=bold
 hi GitGutterChangeDelete	ctermfg=229		ctermbg=NONE		cterm=bold		guifg=#ffffaf	guibg=NONE		gui=bold
 
