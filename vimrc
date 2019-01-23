@@ -60,13 +60,9 @@ Plug 'chrisbra/unicode.vim'
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
-" Control-P
-" Plug 'ctrlpvim/ctrlp.vim'
-
-" command-t
-" Plug 'wincent/command-t', {
-"       \ 'do': 'cd ruby/command-t && make clean && ruby extconf.rb && make'
-"       \ }
+" FZF
+Plug '/usr/local/opt/fzf'                        " use brew installed fzf
+Plug 'junegunn/fzf.vim'
 
 " terminus
 " vim terminal integration, change cursor shape, bracketed paste mode, etc
