@@ -57,6 +57,9 @@ Plug 'tpope/vim-surround'
 " Unicode Plugin
 Plug 'chrisbra/unicode.vim'
 
+" Auto-completion
+Plug 'lifepillar/vim-mucomplete'
+
 " Syntax checker for many languages
 " Plug 'scrooloose/syntastic'
 
@@ -133,6 +136,7 @@ set hidden                                       "hid:   allow switch to another
 set winwidth=84                                  "       The window width with multiple windows
 set mouse=a                                      "       Enable the use of a mouse
 set nowrap                                       "       don't wrap lines (mapped leader-w to toggle)
+set belloff=all                                  "bo:    stop anoying me
 set listchars=tab:▸\                             "       U+25B8, BLACK RIGHT-POINTING SMALL TRIANGLE & space
 set listchars+=eol:¬                             "       U+00AC, NOT SIGN
 set listchars+=extends:»                         "       U+00BB, RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
@@ -153,6 +157,9 @@ set nrformats-=octal                             "nf:    Don't assume numbers st
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 set clipboard=unnamed                            "       copy to the system clipboard
+set completeopt+=menuone                         "       Always show completion menu
+set completeopt+=noinsert                        "       Wait for confirmation to insert completion
+set shortmess+=c                                 "shm:   No completion messages
 colorscheme dark
 
 "- Folding
@@ -440,6 +447,24 @@ function! TrimWhitespace()
     call winrestview(l:save)
   endif
 endfunction
+" mucomplete
+let g:mucomplete#enable_auto_at_startup = 1
+
+" Customize fzf colors to match the color scheme
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Tag'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Search'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 command! TrimWhitespace call TrimWhitespace()
 
