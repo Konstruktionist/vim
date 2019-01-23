@@ -406,47 +406,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Gitv
 let g:Gitv_OpenHorizontal=1
 
-"- Functions & commands
-
-" Set tabstop, softtabstop and shiftwidth to the same value
-" =========================================================
-command! -nargs=* Stab call Stab()
-function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call SummarizeTabs()
-endfunction
-
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
-
-" Trim trailing whitespace
-" ========================
-function! TrimWhitespace()
-  " trailing whitespaces have meaning in markdown so don't try there
-  if &filetype!='markdown'
-    let l:save = winsaveview()
-    %s/\s\+$//e
-    call winrestview(l:save)
-  endif
-endfunction
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
 
@@ -481,14 +440,6 @@ augroup MyColors
   autocmd!
   autocmd Colorscheme * call MyColours()
 augroup END
-
-" Show the current highlighting settings
-" ======================================
-function! HighlightTest()
-  normal :source $VIMRUNTIME/syntax/hitest.vim
-endfunction
-
-command! HighlightTest call HighlightTest()
 
 " Reverse order of lines in file or visually selected range.
 " ==========================================================
