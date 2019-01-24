@@ -451,11 +451,6 @@ augroup MyColors
   autocmd Colorscheme * call MyColours()
 augroup END
 
-" Reverse order of lines in file or visually selected range.
-" ==========================================================
-"  from: https://vi.stackexchange.com/a/2107/11066
-command! -bar -range=% Reverse <line1>,<line2>global/^/m<line1>-1
-
 "- Key-mappings
 
 " Space is easier than backslash
