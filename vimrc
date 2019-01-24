@@ -21,7 +21,7 @@ endif
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -201,7 +201,7 @@ set lazyredraw                                   "lz:    will not redraw the scr
 set linebreak                                    "lbr    break lines at word end
 set cursorline                                   "cul:   highlight the screenline of the cursor
 
-"- Menu compilation
+"- Enhanced command-line completion
 set wildmenu                                     "wmnu:  enhanced ed command completion
 set wildmode=list:full                           "wim    list all matches and complete first match
 
@@ -315,7 +315,6 @@ function! BuffersModified()
   return l:cnt == 0 ? '' : ( &modified ? ' 𝛅 +'. (l:cnt>1?l:cnt:'  ') .'' : ' 𝛅 '.l:cnt.'')
 endfunction
 
-
 "-- Building the statusline
 
 set statusline=                                  " Empty statusline
@@ -392,13 +391,14 @@ augroup FileFormats
 
   " Objective-C
   "   map *.h & *.m files so syntax is recognized as objc
-  autocmd BufNewFile,BufRead *.m,*.h set filetype=objc
+  autocmd BufNewFile,BufRead *.m,*.h setlocal filetype=objc
 
   " Update GitStats
   autocmd User GitGutter call GitStats()
 
   " Auto-load changes to vimrc
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+
 augroup END
 
 "- Plugin settings
@@ -435,7 +435,7 @@ let g:fzf_colors =
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] }
 
-command! TrimWhitespace call TrimWhitespace()
+"- Functions & commands
 
 " Change colors to my preference
 " ==============================
@@ -456,8 +456,7 @@ augroup END
 " Space is easier than backslash
 let g:mapleader = "\<Space>"
 
-" Escape is hard to reach
-inoremap jj <esc>
+"   NORMAL MODE
 
 " Toggle set list
 nmap <leader>l :set list!<CR>
@@ -469,7 +468,7 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " make ga mapping use the UnicodeGA command
-nmap ga <Plug>(UnicodeGA)
+nnoremap ga <Plug>(UnicodeGA)
 
 " Toggle folds
 nnoremap <silent> <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -516,6 +515,11 @@ xnoremap <silent> ,<Down> :move'>+<CR>gv=gv
 " Delete in normal mode switches off highlighting till next search
 " Now handled by loupe plugin
 " nmap <silent> <BS> :nohlsearch<CR>
+
+"   INSERT MODE
+
+" Escape is hard to reach
+inoremap jj <esc>
 
 " Call the :Tabularize command each time you insert a | character
 "  Very usefull for Markdown tables
