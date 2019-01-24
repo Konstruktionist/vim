@@ -270,11 +270,11 @@ function! Fileprefix() abort
   let l:basename=expand('%:h')
   if &filetype == 'help'                         " Do not show in help files aka collapse
     return ''
-  elseif l:basename == '' || l:basename == '.'   " If empty or current working directory don't show path
+  elseif l:basename ==# '' || l:basename ==# '.'   " If empty or current working directory don't show path
     return ''
   else
     " Make sure we show $HOME as ~
-    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
+    return fnamemodify(l:basename, ':~:.') . '/'
   endif
 endfunction
 
@@ -355,11 +355,21 @@ set statusline+=\ %*                             " reset color to colorscheme St
 " Separator is U+2503 (BOX DRAWINGS HEAVY VERTICAL) followed by
 " Virtual column number, 𝗖 is U+1D5D6 (MATHEMATICAL SANS-SERIF BOLD CAPITAL C)
 " separator between columns & percentage is U+25C6 (BLACK DIAMOND)
-set statusline+=\ ┃\ 𝗖\ %3v\ ◆
+set statusline+=\ ┃\ 𝗖\ %-3v\ ◆
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
 " - highlight User1 = bold text
 highlight User1  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
+
+" Update the Statusline
+augroup Statusline
+  autocmd!
+  if exists('#TextChangedI')
+    autocmd VimEnter,BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter,FileChangedShellPost silent :redrawstatus!
+  else
+    autocmd VimEnter,BufWinEnter,BufWritePost,FileWritePost,WinEnter silent redrawstatus!
+  endif
+augroup END
 
 "- File formats autocommands
 augroup FileFormats
