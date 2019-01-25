@@ -81,7 +81,7 @@ hi VertSplit				ctermfg=254		ctermbg=NONE		cterm=NONE		guifg=#e4e4e4	guibg=#383f
 hi ColorColumn				ctermfg=NONE	ctermbg=8			cterm=NONE		guifg=NONE		guibg=#737373	gui=NONE
 hi TabLine					ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
 hi TabLineFill				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
-hi TabLineSel				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE		gui=NONE
+hi TabLineSel				ctermfg=232		ctermbg=255			cterm=bold		guifg=#080808	guibg=#eeeeee	gui=bold
 
 " -------------------------------
 " - File Navigation / Searching -
