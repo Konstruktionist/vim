@@ -1,3 +1,4 @@
+scriptencoding utf-8
 "
 " IMPORTANT REMINDER
 "
@@ -60,9 +61,6 @@ Plug 'chrisbra/unicode.vim'
 " Auto-completion
 Plug 'lifepillar/vim-mucomplete'
 
-" Syntax checker for many languages
-" Plug 'scrooloose/syntastic'
-
 " FZF
 Plug '/usr/local/opt/fzf'                        " use brew installed fzf
 Plug 'junegunn/fzf.vim'
@@ -115,6 +113,7 @@ Plug 'itspriddle/vim-marked', { 'for': 'markdown' }
 Plug 'keith/tmux.vim', { 'for': 'tmux' }
 
 " Colorschemes
+Plug 'lifepillar/vim-colortemplate'
 Plug 'fxn/vim-monochrome'
 Plug 'pbrisbin/vim-colors-off'
 
@@ -126,7 +125,6 @@ call plug#end()
 
 "- Options
 set encoding=utf-8
-scriptencoding=utf-8
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set updatetime=100                               "ut:    time in ms for updating swapfiles (I don't use those, but gitgutter uses it for updating signs)
@@ -145,6 +143,7 @@ set listchars+=trail:●                           "       U+25CF, BLACK CIRCLE
 set listchars+=nbsp:※                            "       U+203B, REFERENCE MARK
 set fillchars=vert:┃                             "       U+2503, BOX DRAWINGS HEAVY VERTICAL
 set fillchars+=fold:·                            "       U+00B7, MIDDLE DOT
+set showbreak=↪\                                 "       U+21AA, RIGHTWARDS ARROW WITH HOOK
 set backspace=indent,eol,start                   "       Behave like a normal text editor
 set noshowmode                                   "nosmd: Status-line shows the mode we're in
 set breakindent                                  "bri:   wrapped line will continue visually indented
@@ -152,7 +151,7 @@ set breakindentopt=shift:5                       "briopt: indent by 5 spaces
 set nobackup                                     "       Don't write backup files
 set nowritebackup
 set noswapfile
-" set cmdwinheight=20                              "       Height of command window
+set showcmd                                      "sc:    Display incomplete commands in the bottom line of the screen
 set nrformats-=octal                             "nf:    Don't assume numbers starting with zero are octal
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
@@ -451,6 +450,20 @@ augroup MyColors
   autocmd Colorscheme * call MyColours()
 augroup END
 
+" Toggling Quickfix window
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+
 "- Key-mappings
 
 " Space is easier than backslash
@@ -468,11 +481,15 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " make ga mapping use the UnicodeGA command
-nnoremap ga <Plug>(UnicodeGA)
+"   don't make it nnoremap, it won't work.
+nmap ga <Plug>(UnicodeGA)
 
 " Toggle folds
 nnoremap <silent> <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <leader><Space> zf
+
+" Toggle Quickfix window
+nnoremap <Leader>q :call QuickfixToggle()<CR>
 
 " Fold all except current line and keep current cursor position
 nnoremap <leader>zv :normal mazMzv`a<CR>
@@ -492,9 +509,6 @@ nnoremap g= mmgg=G`m
 
 " Underline current line
 nnoremap <leader>u YpVr
-
-" Search for help with command-t plugin
-" nmap <silent> <Leader>h <Plug>(CommandTHelp)
 
 " Toggle Undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
