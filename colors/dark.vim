@@ -31,7 +31,7 @@
 " But values that got 3 out of 4 (both AA normal/large & AAA large text) were accepted.
 "
 " Maintained by Peter van Peursem
-"	  Version 0.4 - 16-12-2018
+"	  Version 0.5 - 26-1-2019
 "
 " All color-values can be found with the python script from:
 " https://github.com/eikenb/terminal-colors
@@ -69,7 +69,7 @@ hi CursorLineNR				ctermfg=11		ctermbg=NONE		cterm=NONE		guifg=#fae3a0	guibg=NON
 " -----------------
 " - Number column -
 " -----------------
-hi CursorColumn				ctermfg=NONE	ctermbg=7			cterm=NONE		guifg=NONE		guibg=#909090	gui=NONE
+hi CursorColumn				ctermfg=NONE	ctermbg=237			cterm=NONE		guifg=NONE		guibg=#3a3a3a	gui=NONE
 hi FoldColumn				ctermfg=110		ctermbg=NONE		cterm=NONE		guifg=#87afd7	guibg=NONE		gui=NONE
 hi SignColumn				ctermfg=245		ctermbg=NONE		cterm=NONE		guifg=#8a8a8a	guibg=NONE		gui=NONE
 hi Folded					ctermfg=249		ctermbg=NONE		cterm=NONE		guifg=#b2b2b2	guibg=NONE		gui=NONE
@@ -95,13 +95,13 @@ hi IncSearch				ctermfg=232		ctermbg=226			cterm=NONE		guifg=#000000	guibg=#ffff
 " -----------------
 hi StatusLine				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626	guibg=#b2b2b2	gui=NONE
 hi StatusLineNC				ctermfg=254		ctermbg=238			cterm=italic	guifg=#e4e4e4	guibg=#444444	gui=italic
-hi WildMenu					ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700	guibg=NONE		gui=NONE
+hi WildMenu					ctermfg=249		ctermbg=235			cterm=NONE		guifg=#b2b2b2	guibg=#262626	gui=NONE
 hi Question					ctermfg=10		ctermbg=NONE		cterm=NONE		guifg=#b6c2aa	guibg=NONE		gui=NONE
 hi Title					ctermfg=3		ctermbg=NONE		cterm=bold		guifg=#fbc692	guibg=NONE		gui=NONE
 hi ModeMsg					ctermfg=136		ctermbg=NONE		cterm=NONE		guifg=#af8700	guibg=NONE		gui=NONE
 hi MoreMsg					ctermfg=2		ctermbg=NONE		cterm=NONE		guifg=#93a48e	guibg=NONE		gui=NONE
-hi StatusLineTerm			ctermfg=235		ctermbg=218			cterm=NONE		guifg=#262626	guibg=#ffafdf	gui=NONE
-hi StatusLineTermNC			ctermfg=218		ctermbg=235			cterm=NONE		guifg=#ffafdf	guibg=#262626	gui=NONE
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
 
 " --------------
 " - Visual aid -
@@ -127,8 +127,8 @@ hi String					ctermfg=148		ctermbg=NONE		cterm=NONE		guifg=#afd700	guibg=NONE		g
 hi StringDelimiter			ctermfg=248		ctermbg=NONE		cterm=NONE		guifg=#fff0f0	guibg=NONE		gui=NONE
 hi Character				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#87d700	guibg=NONE		gui=NONE
 hi Number					ctermfg=183		ctermbg=NONE		cterm=NONE		guifg=#d7afff	guibg=NONE		gui=NONE
-hi link Boolean Number
-hi link Float Number
+hi! link Boolean Number
+hi! link Float Number
 
 hi Identifier				ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787	guibg=NONE		gui=NONE
 hi Function					ctermfg=217		ctermbg=NONE		cterm=NONE		guifg=#ffaf87	guibg=NONE		gui=NONE
@@ -138,17 +138,17 @@ hi Function					ctermfg=217		ctermbg=NONE		cterm=NONE		guifg=#ffaf87	guibg=NONE	
 " --------------------------------
 hi Statement				ctermfg=110		ctermbg=NONE		cterm=NONE		guifg=#87afd7	guibg=NONE		gui=NONE
 hi Label					ctermfg=139		ctermbg=NONE		cterm=NONE		guifg=#af87af	guibg=NONE		gui=NONE
-hi link Operator Statement
-hi link Keyword Label
-hi link Conditional Label
-hi link Repeat Label
+hi! link Operator Statement
+hi! link Keyword Label
+hi! link Conditional Label
+hi! link Repeat Label
 hi Exception				ctermfg=75		ctermbg=NONE		cterm=NONE		guifg=#5fafff	guibg=NONE		gui=NONE
 hi Comment					ctermfg=249		ctermbg=NONE		cterm=italic	guifg=#b2b2b2	guibg=NONE		gui=italic
 
 hi Special					ctermfg=223		ctermbg=NONE		cterm=NONE		guifg=#ffd7af	guibg=NONE		gui=NONE
 hi SpecialChar				ctermfg=228		ctermbg=NONE		cterm=NONE		guifg=#ffff87	guibg=NONE		gui=NONE
 hi Tag						ctermfg=221		ctermbg=NONE		cterm=NONE		guifg=#ffdf5f	guibg=NONE		gui=NONE
-hi link Delimiter Special
+hi! link Delimiter Special
 hi SpecialComment			ctermfg=249		ctermbg=NONE		cterm=NONE		guifg=#b2b2b2	guibg=NONE		gui=NONE
 hi Debug					ctermfg=226		ctermbg=NONE		cterm=NONE		guifg=#ffff00	guibg=NONE		gui=NONE
 
@@ -156,7 +156,7 @@ hi Debug					ctermfg=226		ctermbg=NONE		cterm=NONE		guifg=#ffff00	guibg=NONE		gu
 " - C like -
 " ----------
 hi PreProc					ctermfg=216		ctermbg=NONE		cterm=NONE		guifg=#ffaf87	guibg=NONE		gui=NONE
-hi link Include PreProc
+hi! link Include PreProc
 hi Define					ctermfg=3		ctermbg=NONE		cterm=NONE		guifg=#fbc692	guibg=NONE		gui=NONE
 hi Macro					ctermfg=214		ctermbg=NONE		cterm=NONE		guifg=#ffaf00	guibg=NONE		gui=NONE
 hi PreCondit				ctermfg=215		ctermbg=NONE		cterm=NONE		guifg=#ffaf5f	guibg=NONE		gui=NONE
@@ -181,8 +181,8 @@ hi DiffRemoved			ctermfg=210		ctermbg=NONE		cterm=NONE		guifg=#ff8787		guibg=NON
 " --------------------------------
 " Completion menu
 " --------------------------------
-hi Pmenu				ctermfg=0		ctermbg=249			cterm=NONE		guifg=#202020		guibg=#b2b2b2	gui=NONE
-hi PmenuSel				ctermfg=112		ctermbg=NONE		cterm=NONE		guifg=#5f8700		guibg=NONE		gui=NONE
+hi Pmenu				ctermfg=235		ctermbg=249			cterm=NONE		guifg=#262626		guibg=#b2b2b2	gui=NONE
+hi PmenuSel				ctermfg=249		ctermbg=235			cterm=NONE		guifg=#b2b2b2		guibg=#262626	gui=NONE
 hi PmenuSbar			ctermfg=NONE	ctermbg=249			cterm=NONE		guifg=NONE			guibg=#b2b2b2	gui=NONE
 hi PmenuThumb			ctermfg=NONE	ctermbg=15			cterm=NONE		guifg=NONE			guibg=#e5e5e5	gui=NONE
 
@@ -199,15 +199,6 @@ hi SpellRare				ctermfg=149		ctermbg=NONE		cterm=underline		guisp=#afd75f	gui=un
 " Specific settings
 " --------------------------------------------------------------------
 
-" --------------------------------
-" Vim highlighting
-" --------------------------------
-"hi vimIsCommand			ctermfg=187		ctermbg=NONE		cterm=NONE		guifg=#d7d7af	guibg=NONE		gui=NONE
-"hi vimFunction				ctermfg=186		ctermbg=NONE		cterm=NONE		guifg=#d7d787	guibg=NONE		gui=NONE
-"hi vimCommentTitle			ctermfg=15		ctermbg=13			cterm=NONE		guifg=#fffffe	guibg=#aa88aa	gui=NONE
-"hi helpNote				ctermfg=15		ctermbg=12			cterm=NONE		guifg=#fffffe	guibg=#6194bc	gui=NONE
-"hi helpWarning				ctermfg=15		ctermbg=9			cterm=NONE		guifg=#fffffe	guibg=#f2797b	gui=NONE
-"
 " --------------------------------
 " Git highlighting
 " --------------------------------
