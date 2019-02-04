@@ -89,13 +89,6 @@ Plug 'gerw/vim-HiLinkTrace'
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
 
-" plugin that displays tags in a window, ordered by scope
-"Plug 'majutsushi/tagbar'
-
-" gitv is a repository viewer
-"  Dependancy: A working fugitive installation
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
-
 " Providing support for editing fish scripts.
 Plug 'Konstruktionist/vim-fish', { 'for': 'fish' }
 
@@ -410,9 +403,6 @@ let g:gitgutter_sign_modified_removed='±'
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
-
-" Gitv
-let g:Gitv_OpenHorizontal=1
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
