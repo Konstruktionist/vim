@@ -77,6 +77,10 @@ Plug 'wincent/loupe'
 " Enhanced multi-file search
 Plug 'wincent/ferret'
 
+" Scalpel
+" replacing all instances of the word currently under the cursor
+Plug 'wincent/scalpel'
+
 " Ultisnips aims to provide support for textual snippets, similar to TextMate
 " or other Vim plugins. Activate by typing some text and hitting <tab>.
 " Plug 'sirver/ultisnips'
