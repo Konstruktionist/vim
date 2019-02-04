@@ -114,8 +114,6 @@ Plug 'keith/tmux.vim', { 'for': 'tmux' }
 
 " Colorschemes
 Plug 'lifepillar/vim-colortemplate'
-Plug 'fxn/vim-monochrome'
-Plug 'pbrisbin/vim-colors-off'
 
 " matchit lets you jump between begin and end of function with %
 packadd! matchit                                 " add built-in matchit plugin
@@ -222,7 +220,7 @@ set wildignore+=*/tmp/*                          " Temporary directories content
 
 "- Gvim/MacVim
 if has ('gui_running')
-  set lines=80 columns=130                       " Default window size
+  set lines=80 columns=136                       " Default window size
   set guifont=Iosevka:h11
   set guioptions-=T                              " No toolbar
   set guioptions-=r                              " No scrollbar right
@@ -362,15 +360,6 @@ set statusline+=\ %3p%%\                         " Percentage through file in li
 " - highlight User1 = bold text
 highlight User1  ctermfg=254  ctermbg=235  cterm=bold    guifg=#e4e4e4     guibg=#262626   gui=bold
 
-" Update the Statusline
-augroup Statusline
-  autocmd!
-  if exists('#TextChangedI')
-    autocmd VimEnter,BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter,FileChangedShellPost silent :redrawstatus!
-  else
-    autocmd VimEnter,BufWinEnter,BufWritePost,FileWritePost,WinEnter silent redrawstatus!
-  endif
-augroup END
 
 "- File formats autocommands
 augroup FileFormats
@@ -482,7 +471,7 @@ endfunction
 " Space is easier than backslash
 let g:mapleader = "\<Space>"
 
-"   NORMAL MODE
+"   NORMAL/VISUAL MODE
 
 " Toggle set list
 nmap <leader>l :set list!<CR>
