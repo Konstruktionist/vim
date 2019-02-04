@@ -360,7 +360,7 @@ set statusline+=\ ┃\ 𝗖\ %-3v\ ◆
 set statusline+=\ %3p%%\                         " Percentage through file in lines as in |CTRL-G|
 
 " - highlight User1 = bold text
-highlight User1  ctermfg=235  ctermbg=249  cterm=bold    guifg=#262626     guibg=#b2b2b2   gui=bold
+highlight User1  ctermfg=254  ctermbg=235  cterm=bold    guifg=#e4e4e4     guibg=#262626   gui=bold
 
 " Update the Statusline
 augroup Statusline
