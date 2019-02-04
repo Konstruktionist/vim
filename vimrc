@@ -463,15 +463,15 @@ augroup END
 " Toggling Quickfix window
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
-    if g:quickfix_is_open
-        cclose
-        let g:quickfix_is_open = 0
-        execute g:quickfix_return_to_window . "wincmd w"
-    else
-        let g:quickfix_return_to_window = winnr()
-        copen
-        let g:quickfix_is_open = 1
-    endif
+  if g:quickfix_is_open
+    cclose
+    let g:quickfix_is_open = 0
+    execute g:quickfix_return_to_window . "wincmd w"
+  else
+    let g:quickfix_return_to_window = winnr()
+    copen
+    let g:quickfix_is_open = 1
+  endif
 endfunction
 
 "- Key-mappings
@@ -499,7 +499,7 @@ nnoremap <silent> <leader><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <leader><Space> zf
 
 " Toggle Quickfix window
-nnoremap <Leader>q :call QuickfixToggle()<CR>
+nnoremap <silent> <Leader>q :call QuickfixToggle()<CR>
 
 " Fold all except current line and keep current cursor position
 nnoremap <leader>zv :normal mazMzv`a<CR>
