@@ -159,6 +159,9 @@ set clipboard=unnamed                            "       copy to the system clip
 set completeopt-=preview                         "       Complete immediately
 set completeopt+=menu,menuone,noinsert           "       Wait for confirmation to insert completion
 set shortmess+=c                                 "shm:   No completion messages
+if $COLORTERM == 'truecolor'
+  set termguicolors
+endif
 colorscheme dark
 
 "- Folding
