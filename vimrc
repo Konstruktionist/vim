@@ -156,8 +156,8 @@ set nrformats-=octal                             "nf:    Don't assume numbers st
 set scrolloff=2                                  "so:    Min. # of lines visible at top or bottom
 set nojoinspaces                                 "nojs:  Don't autoinsert two spaces after '.', '?', '!' for join command
 set clipboard=unnamed                            "       copy to the system clipboard
-set completeopt+=menuone                         "       Always show completion menu
-set completeopt+=noinsert                        "       Wait for confirmation to insert completion
+set completeopt-=preview                         "       Complete immediately
+set completeopt+=menu,menuone,noinsert           "       Wait for confirmation to insert completion
 set shortmess+=c                                 "shm:   No completion messages
 colorscheme dark
 
@@ -398,6 +398,13 @@ augroup FileFormats
   " Auto-load changes to vimrc
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
+  " enable omni completion for all filetypes
+  if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+          \	if &omnifunc == "" |
+          \		setlocal omnifunc=syntaxcomplete#Complete |
+          \	endif
+  endif
 augroup END
 
 "- Plugin settings
@@ -417,6 +424,9 @@ let g:Gitv_OpenHorizontal=1
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay = 0
+let g:mucomplete#chains = {}
+let g:mucomplete#chains.default = ['path', 'omni', 'keyn', 'dict', 'spel']
 
 " Customize fzf colors to match the color scheme
 let g:fzf_colors =
