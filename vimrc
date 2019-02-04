@@ -503,6 +503,12 @@ nmap <leader>w :set invwrap<CR>:set wrap?<CR>
 " indent whole file and return to my current cursor location
 nnoremap g= mmgg=G`m
 
+" j & k don't skip over wrapped lines, unless a count is given.
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+vnoremap <expr> j v:count ? 'j' : 'gj'
+vnoremap <expr> k v:count ? 'k' : 'gk'
+
 " Always be 'very magic' (now handled by loupe plugin)
 "nnoremap / /\v
 "vnoremap / /\v
