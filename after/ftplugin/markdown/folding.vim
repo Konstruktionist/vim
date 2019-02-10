@@ -26,4 +26,3 @@ setlocal foldenable
 setlocal foldlevelstart=0                        "fdls:  Start with all folds closed
 setlocal foldmethod=expr
 setlocal foldexpr=MarkdownFolds()
-setlocal complete-=t

@@ -555,10 +555,6 @@ inoremap jj <esc>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Call the :Tabularize command each time you insert a | character
-"  Very usefull for Markdown tables
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
 "- Modeline settings
 "  To keep vim from applying the indent foldmethod for this file we use a
 "  modeline & we get the nicely formatted folds we set up in
