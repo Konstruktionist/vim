@@ -58,7 +58,7 @@ Plug 'tpope/vim-surround'
 Plug 'chrisbra/unicode.vim'
 
 " Auto-completion
-Plug 'lifepillar/vim-mucomplete'
+Plug 'maralla/completor.vim'
 
 " FZF
 Plug '/usr/local/opt/fzf'                        " use brew installed fzf
@@ -390,13 +390,6 @@ augroup FileFormats
   " Auto-load changes to vimrc
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
-  " enable omni completion for all filetypes
-  if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-          \	if &omnifunc == "" |
-          \		setlocal omnifunc=syntaxcomplete#Complete |
-          \	endif
-  endif
 augroup END
 
 "- Plugin settings
@@ -411,11 +404,6 @@ let g:gitgutter_sign_modified_removed='±'
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 
-" mucomplete
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay = 0
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default = ['path', 'omni', 'keyn', 'dict', 'spel']
 
 " Customize fzf colors to match the color scheme
 let g:fzf_colors =
@@ -460,6 +448,28 @@ function! QuickfixToggle()
     let g:quickfix_return_to_window = winnr()
     copen
     let g:quickfix_is_open = 1
+  endif
+endfunction
+
+" Auto Completion via Completor
+" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
+" dictionary, source files, and completor to find matching words to complete.
+
+" Note: usual completion is on <C-n> but more trouble to press all the time.
+" Never type the same word twice and maybe learn a new spellings!
+" Use the Linux dictionary when spelling is in doubt.
+function! Tab_Or_Complete() abort
+  " If completor is already open the `tab` cycles through suggested completions.
+  if pumvisible()
+    return "\<C-N>"
+  " If completor is not open and we are in the middle of typing a word then
+  " `tab` opens completor menu.
+  elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-R>=completor#do('complete')\<CR>"
+  else
+    " If we aren't typing a word and we press `tab` simply do the normal `tab`
+    " action.
+    return "\<Tab>"
   endif
 endfunction
 
@@ -539,6 +549,11 @@ xnoremap <silent> ,<Down> :move'>+<CR>gv=gv
 
 " Escape is hard to reach
 inoremap jj <esc>
+
+" Auto Completion via Completor
+" Use `tab` key to select completions.  Default is arrow keys.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Call the :Tabularize command each time you insert a | character
 "  Very usefull for Markdown tables
