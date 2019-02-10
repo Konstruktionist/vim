@@ -1,4 +1,3 @@
-scriptencoding utf-8
 "
 " IMPORTANT REMINDER
 "
@@ -120,6 +119,7 @@ call plug#end()
 
 "- Options
 set encoding=utf-8
+scriptencoding utf-8
 set timeoutlen=3000                              "tm:    time in ms waiting for a key mapping sequence to complete
 set ttimeoutlen=100                              "ttm:   time out on key codes after a tenth of a second
 set updatetime=100                               "ut:    time in ms for updating swapfiles (I don't use those, but gitgutter uses it for updating signs)
