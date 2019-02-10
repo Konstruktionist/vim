@@ -269,9 +269,12 @@ function! Fileprefix() abort
     return ''
   elseif l:basename ==# '' || l:basename ==# '.'   " If empty or current working directory don't show path
     return ''
+  elseif has('modify_fname')
+    " Make sure we show $HOME as ~.
+    return substitute(fnamemodify(l:basename, ':~:.'), '/$', '', '') . '/'
   else
-    " Make sure we show $HOME as ~
-    return fnamemodify(l:basename, ':~:.') . '/'
+    " Make sure we show $HOME as ~.
+    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
   endif
 endfunction
 
