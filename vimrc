@@ -89,6 +89,9 @@ Plug 'wincent/scalpel'
 " activate with <leader>hlt or :HLT
 Plug 'gerw/vim-HiLinkTrace'
 
+" vim-polyglot
+Plug 'sheerun/vim-polyglot'
+
 " Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
 
