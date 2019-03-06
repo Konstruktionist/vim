@@ -113,6 +113,7 @@ Plug 'keith/tmux.vim', { 'for': 'tmux' }
 
 " Colorschemes
 Plug 'lifepillar/vim-colortemplate'
+Plug 'trevordmiller/nova-vim'
 
 " matchit lets you jump between begin and end of function with %
 packadd! matchit                                 " add built-in matchit plugin
