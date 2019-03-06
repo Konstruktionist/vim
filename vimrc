@@ -466,8 +466,8 @@ function! Tab_Or_Complete() abort
   " If completor is already open the `tab` cycles through suggested completions.
   if pumvisible()
     return "\<C-N>"
-  " If completor is not open and we are in the middle of typing a word then
-  " `tab` opens completor menu.
+    " If completor is not open and we are in the middle of typing a word then
+    " `tab` opens completor menu.
   elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-R>=completor#do('complete')\<CR>"
   else
