@@ -586,6 +586,12 @@ inoremap jj <esc>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Autoclose tags
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+
 "- Modeline settings
 "  To keep vim from applying the indent foldmethod for this file we use a
 "  modeline & we get the nicely formatted folds we set up in
